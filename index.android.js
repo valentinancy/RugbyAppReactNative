@@ -16,11 +16,8 @@ export default class Last extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Yeay udah bisa connect geng!
-        </Text>
-        <Text style={styles.instructions}>
-          fix pake react native ya HEHE
+        <Text>
+			Halaman index, home
         </Text>
       </View>
     );
