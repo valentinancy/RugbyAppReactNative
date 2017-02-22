@@ -9,6 +9,8 @@
   "dependencies": {
     "react": "15.4.2",
     "react-native": "0.41.2",
+    "react-native-hyperlink": "0.0.8",
+    "react-native-router-flux": "^3.37.0",
     "react-native-side-menu": "^0.20.1",
     "react-router-native": "^2.0.0-beta.0"
   },

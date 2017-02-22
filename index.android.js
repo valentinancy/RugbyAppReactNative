@@ -1,49 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react'
+import { View, Text, AppRegistry, Navigator,TouchableHighlight } from 'react-native'
+import { Scene, Router } from 'react-native-router-flux'
+import Fixtures from './src/components/Fixtures'
+import Home from './src/components/Home'
+import News from './src/components/News'
+import ReadMoreNews from './src/components/ReadMoreNews'
+import Teammate from './src/components/Teammate'
+import RugbyClubs from './src/components/RugbyClubs'
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
-export default class Last extends Component {
+class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Yeay udah bisa connect geng!
-        </Text>
-        <Text style={styles.instructions}>
-          fix pake react native ya HEHE
-        </Text>
-      </View>
-    );
+    return(
+        <Router sceneStyle={{ paddingTop: 60 }}>
+            <Scene key="home" component={ Home } initial/>
+            <Scene key="fixtures" component={ Fixtures }/>
+            <Scene key="news" component={ News }/>
+            <Scene key="readMoreNews" component={ ReadMoreNews }/>
+            <Scene key="teammate" component={ Teammate }/>
+            <Scene key="rugbyClubs" component={ RugbyClubs }/>
+        </Router>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('Last', () => Last);
+ 
+AppRegistry.registerComponent('Last', () => App);
