@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {AppRegistry,Text} from 'react-native';
-import WebViewBridge from 'react-native-webview-bridge';
+//import WebViewBridge from 'react-native-webview-bridge';
 
 const injectScript = `
   (function () {
@@ -27,13 +27,16 @@ var readMore = React.createClass({
   },
  
   render() {
+    // return (
+    //   <WebViewBridge
+    //     ref="webviewbridge"
+    //     onBridgeMessage={this.onBridgeMessage.bind(this)}
+    //     injectedJavaScript={injectScript}
+    //     source={{uri: "http://google.com"}}/>
+    // );
     return (
-      <WebViewBridge
-        ref="webviewbridge"
-        onBridgeMessage={this.onBridgeMessage.bind(this)}
-        injectedJavaScript={injectScript}
-        source={{uri: "http://google.com"}}/>
-    );
+      <div></div>
+    )
   }
 });
 

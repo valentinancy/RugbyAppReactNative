@@ -15,7 +15,7 @@ var width = Dimensions.get('window').width;
 
 class News extends Component {
     
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       dataSource: new ListView.DataSource({
@@ -38,31 +38,28 @@ class News extends Component {
     .done(() => {});
   } 
 
-  render() {
-
+  test() {
     return (
+      <View style={styles.container}>
+        <Image source={{uri: rowData.img}} style={styles.newsImage} />
+        <Text style={styles.newsTitle}>{rowData.title}</Text>
+        <Text>
+          {rowData.summary}&nbsp;
+          <Text style={styles.newsURL} onPress={() => Linking.openURL(rowData.url)}>read more...</Text>
+        </Text>                                        
+      </View>
+    )
+  }
 
-      { /* <ScrollView showsVerticalScrollIndicator={false}>
+  render() {
+    /* <ScrollView showsVerticalScrollIndicator={false}>
 
         <Image source={require('./www/images/sub-header-news.png')} style={styles.headerImage} >
           <Text style={styles.headerTitle}>LATEST NEWS</Text>
-        </Image> */ } 
-
-        <ListView
-            dataSource = {this.state.dataSource}
-            renderRow={(rowData) =>
-                <View style={styles.container}>
-                  <Image source={{uri: rowData.img}} style={styles.newsImage} />
-                  <Text style={styles.newsTitle}>{rowData.title}</Text>
-                 <Text>
-                    {rowData.summary}&nbsp;
-                    <Text style={styles.newsURL} onPress={() => Linking.openURL(rowData.url)}>read more...</Text>
-                 </Text>                                        
-                </View>
-            } /> 
-
-      { /* </ScrollView> */ }
-
+        </Image>
+        </ScrollView> */
+    return (
+        <ListView dataSource = {this.state.dataSource} renderRow={(val) => this.test(val, rowData)} /> 
     );
   }
     
