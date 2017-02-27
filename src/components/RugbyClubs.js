@@ -18,7 +18,7 @@ class RugbyClubs extends Component {
     }
 
     render() {
-        const { titlePage, clubName, clubDesc, clubNameDiv, logo, clubDiv } = styles
+        const { titlePage, clubName, clubDesc, clubNameDiv, logo, clubDiv, headerImg } = styles
         
         if(!this.state.data) {
             return <Text>Loading</Text>
@@ -54,7 +54,7 @@ class RugbyClubs extends Component {
 
         return(
             <ScrollView>
-                <Image style={styles.headlineImage}
+                <Image style={ headerImg }
                     source={{uri: 'http://rugbyindonesia.or.id/wp-content/uploads/2014/09/Slider-2.jpg'}}>
                     <View>
                         <Text style={ titlePage }>RUGBY CLUBS</Text>
@@ -70,7 +70,12 @@ const styles = {
         titlePage: {
             fontSize: 25,
             textAlign: 'center',
-            marginTop: 20
+            marginTop: 50,
+            color: '#f0f8ff',
+            fontWeight: 'bold'
+        },
+        headerImg: {
+            height: 150
         },
         clubName: {
             fontSize: 18,
