@@ -11,13 +11,54 @@ import {
   Text,
   View,
   Image,
-  Button, Alert
+  Button,
+  Alert,
+  ScrollView,
+  ListView
 } from 'react-native';
 
-class Teammate extends Component {
+import PhotoGrid from 'react-native-photo-grid';
+import {TouchableOpacity,} from 'react-native';
+
+export default class IndoRugby extends Component {
+  constructor(){
+    super();
+    this.state = {data:null, items:[]};
+  }
+
+  componentDidMount() {
+    // Build an array of 60 photos
+    let items = Array.apply(null, Array(60)).map((v, i) => {
+      return { id: i, src: 'https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json' }
+    });
+    this.setState({ items });
+  }
+
+  componentWillMount() {
+        fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
+        .then((response) => response.json())
+        .then((response) => this.setState({ data: response }))
+        .catch((error) => console.warn("fetch error:", error))
+    }
+
   render() {
+    if(!this.state.data) {
+            return <Text>Loading</Text>
+        }
+
+      const photos= this.state.data.data.map((photo) => {
+        console.log("ini data", photo)
+      return(
+        <Image
+           style={styles.image}
+          key={photo}
+          source={{uri: photo}}>
+
+          </Image>
+      )
+      })
     return (
-      <View>
+      <ScrollView>
         <Image style={styles.headlineImage}
           source={{uri: 'http://rugbyindonesia.or.id/wp-content/uploads/2014/09/Slider-2.jpg'}}>
           <View style={styles.backdropView}>
@@ -42,8 +83,38 @@ class Teammate extends Component {
           />
         </View>
 
-      </View>
+<View>
+  {photos}
+</View>
+        {/* <PhotoGrid
+          data = { this.state.items }
+          itemsPerRow = { 2 }
+          itemMargin = { 1 }
+          // renderHeader = { this.renderHeader }
+          renderItem = { this.renderItem }
+        /> */}
+      </ScrollView>
     );
+  }
+
+  // renderHeader(){
+  //   return(<Text>I'm on top!</Text>);
+  // }
+
+  renderItem(item, itemSize){
+    return(
+      <TouchableOpacity
+        key = { item.id }
+        style = {{ width: itemSize, height:itemSize }}
+        onPress = { () => {
+          //do something
+        }}>
+      <Image
+        resizeMode = "cover"
+        style = {{ flex: 1}}
+        source = {{ uri: item.src }}/>
+      </TouchableOpacity>
+      )
   }
 }
 
@@ -90,6 +161,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'white'
+  },
+  image: {
+    width: 80,
+    height: 80
   }
 });
 
@@ -100,4 +175,6 @@ const loadLibraryPressed = () => {
   Alert.alert('Button has been pressed!');
 };
 
-export default Teammate
+
+AppRegistry.registerComponent('IndoRugby', () => IndoRugby);
+//export default IndoRugby;
