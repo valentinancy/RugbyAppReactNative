@@ -1,41 +1,55 @@
 import React,{Component} from 'react';
-import {AppRegistry,Image,View,StyleSheet,Dimensions} from 'react-native';
+import {AppRegistry,Image,ListView,ScrollView,View,StyleSheet,Dimensions,Text} from 'react-native';
 
 var screenWidth=Dimensions.get('window').width;
 
 class Fixtures extends Component{
-  render(){
-    let banner1={
-      uri:'http://rugbyindonesia.or.id/wp-content/uploads/2016/03/1-Jakarta-XV-Banner-1024x343.jpg'
+  constructor(props){
+    super(props);
+    this.state={
+      data:new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,                                       
+      }),
     }
-    let banner2={
-      uri:'http://rugbyindonesia.or.id/wp-content/uploads/2016/03/2-Jakarta-10s-Banner-1024x343.jpg'
-    }
-    let banner3={
-      uri:'http://rugbyindonesia.or.id/wp-content/uploads/2016/03/3-Nusnatara-7s-1024x343.jpg'
-    }    
+  }
+
+  componentDidMount(){
+    fetch('https://ri-admin.azurewebsites.net/indonesianrugby/fixtures/list.json')
+    .then((response) => response.json())
+    .then((response) => {
+      this.setState({ data: this.state.data.cloneWithRows(response) });
+    }).catch((error) => console.warn("error in fetching",error.message))
+  }
+
+  render(){  
+
     return(
-      <View style={styles.container} >
-        <Image source={banner1} style={styles.imgBanner}/>
-        <Image source={banner2} style={styles.imgBanner}/>
-        <Image source={banner3} style={styles.imgBanner}/>        
-      </View>
+      <ScrollView>
+        <Image source={require('../../assets/images/sub-header-fixture.png')} style={styles.pageBanner} />
+       <ListView
+          dataSource={this.state.data}
+          renderRow={(rowData) =>
+           <View style={styles.container}>
+              <Image source={{uri:rowData.img}} style={styles.imgBanner} />
+            </View>
+          }/>
+      </ScrollView>
     );
   }
 }
 
 const styles=StyleSheet.create({
   container:{
-    flex:1,
-    flexDirection:'column',
     margin:15,
   },
   imgBanner:{
-    flex:1,
-    width: screenWidth-30,
-    height: null,
+    width: this.screenWidth,
+    height:150,
     resizeMode:'contain',
-    marginVertical:30,
+  },
+  pageBanner:{
+    width: this.screenWidth,
+    resizeMode: 'contain',
   }
 });
 
