@@ -17,7 +17,7 @@ import {
   ListView
 } from 'react-native';
 
-import PhotoGrid from 'react-native-photo-grid';
+//import PhotoGrid from 'react-native-photo-grid';
 import {TouchableOpacity,} from 'react-native';
 
 export default class IndoRugby extends Component {

@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Bali Rugby Club",
+        "location_training": [
+            "BIS Sanur on Thursday 05.00 PM"
+        ],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "kurtlovell@yahoo.com.au"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Bali-Chillis.png"
+    },
+    {
+        "name": "Bandung Rams Rugby Club",
+        "location_training": [
+            "Lapangan Gasibu on Tuesday 06.00 - 07.00 PM",
+            "Lapangan Gasibu on Thursday 07.00 - 07.00 PM",
+            "Lapangan Polman\/Gasibu on Wednesday 06.00 - 08.00 PM",
+            "Lapangan KPAD\/Polman on Saturday 02.00 - 04.00 PM"
+        ],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "adamsulaimanyeah@gmail.com"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Bandung-Rams.png"
+    },
+    {
+        "name": "Bogor Rugby",
+        "location_training": [
+            "SMK 1 Bogor (Jl. Heulang no 6 Bogor) on Sunday 02.00 - 06.00 PM"
+        ],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "alfikar.kopayona@gmail.com"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Bogor-Rusa.png"
+    },
+    {
+        "name": "Jakarta Banteng Rugby",
+        "location_training": [
+            "Lapangan Hoki ABC Senayan on Monday 8.00 - 10.00 PM"
+        ],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "matt.davis@santos.com"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Jakarta-Banteng.png"
+    },
+    {
+        "name": "Jakarta Komodo Rugby",
+        "location_training": [
+            "Senayan Field D Gelora Bung Karno Complex on Tuesday 08.00-10.00 PM",
+            "Senayan Field D Gelora Bung Karno Complex on Thursday 08.00-10.00 PM"
+        ],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "komodochairman@gmail.com"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Jakarta-Komodo.png"
+    },
+    {
+        "name": "Jakarta Japanese Rugby Gila",
+        "location_training": [
+            "Senayan Softball Pitch on Thursday 07.00-09.00 PM",
+            "ISCI Rugby Pitch on Saturday, 03.00-06.00 PM"
+        ],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "jakartajapanrugby@gmail.com"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Jakarta-JJRG.png"
+    },
+    {
+        "name": "Jakarta UNJ Rugby",
+        "location_training": [
+            "Lapangan Softball Rawamangun on Tuesday 04.00 - 06.00 PM",
+            "Lapangan Softball Rawamangun on Thursday 04.00 - 06.00 PM",
+            "Stadion Atletik Rawamangun on Saturday 07.00 - 09.00 AM"
+        ],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "yudi_judo21@yahoo.co.id"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Jakarta-Universitas-Negri-Jakarta.png"
+    },
+    {
+        "name": "Papua Koteka Rugby",
+        "location_training": [],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "dedageorge@rocketmail.com"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Papua-Koteka1.png"
+    },
+    {
+        "name": "Papua Holandia Rugby Jaya Club",
+        "location_training": [],
+        "contacts": [
+            {
+                "name": "Contact",
+                "value": "islandmangi@yahoo.com"
+            }
+        ],
+        "img": "http:\/\/rugbyindonesia.or.id\/wp-content\/uploads\/2016\/03\/logo-Papua-Holandia.png"
+    }
+]
