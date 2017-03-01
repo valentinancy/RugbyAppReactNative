@@ -3,6 +3,7 @@ import { View,Image,Text } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 
 class Home extends Component {
+
     handleClick(e,page) {
         switch(page) {
             case 'news':
@@ -26,8 +27,10 @@ class Home extends Component {
     }
 
     render() {
+    const { nav } = styles
+
         return(
-            <View>
+            <View style={ styles.nav }>
                 <Text onPress={ (e) => this.handleClick(e,'news') }>News</Text>
                 <Text onPress={ (e) => this.handleClick(e,'fixtures') }>Fixtures and Result</Text>
                 <Text onPress={ (e) => this.handleClick(e,'teammate') }>Teammate Photos</Text>
@@ -35,6 +38,12 @@ class Home extends Component {
                 <Text onPress={ (e) => this.handleClick(e,'rugby101') }>Rugby 101</Text>
             </View>
         )
+    }
+}
+
+const styles = {
+    nav: {
+        marginTop: 55
     }
 }
 

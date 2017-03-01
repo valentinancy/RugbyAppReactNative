@@ -7,17 +7,19 @@ import News from './src/components/News'
 import ReadMoreNews from './src/components/ReadMoreNews'
 import Teammate from './src/components/Teammate'
 import RugbyClubs from './src/components/RugbyClubs'
+import Rugby101 from './src/components/Rugby101'
 
 class App extends React.Component {
   render() {
     return(
-        <Router sceneStyle={{ paddingTop: 60 }}>
+        <Router>
             <Scene key="home" component={ Home } initial/>
             <Scene key="fixtures" component={ Fixtures }/>
             <Scene key="news" component={ News }/>
             <Scene key="readMoreNews" component={ ReadMoreNews }/>
             <Scene key="teammate" component={ Teammate }/>
             <Scene key="rugbyClubs" component={ RugbyClubs }/>
+            <Scene key="rugby101" component={ Rugby101 }/>
         </Router>
     )
   }
