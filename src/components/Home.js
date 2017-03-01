@@ -8,9 +8,6 @@ class Home extends Component {
             case 'news':
                 Actions.news()
                 break
-            case 'readMoreNews':
-                Actions.readMoreNews()
-                break
             case 'fixtures':
                 Actions.fixtures()
                 break
@@ -29,7 +26,6 @@ class Home extends Component {
         return(
             <View>
                 <Text onPress={ (e) => this.handleClick(e,'news') }>News</Text>
-                <Text onPress={ (e) => this.handleClick(e,'readMoreNews') }>Read More News</Text>
                 <Text onPress={ (e) => this.handleClick(e,'fixtures') }>Fixtures and Result</Text>
                 <Text onPress={ (e) => this.handleClick(e,'teammate') }>Teammate Photos</Text>
                 <Text onPress={ (e) => this.handleClick(e,'rugbyClubs') }>Rugby Clubs</Text>
