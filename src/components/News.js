@@ -26,19 +26,13 @@ class News extends Component {
   }
 
   componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-
     fetch('https://ri-admin.azurewebsites.net/indonesianrugby/news/list.json') 
     .then((response) => response.json())
     .then((responseData) => {
             this.setState({dataSource: this.state.dataSource.cloneWithRows(responseData)});
         })
     .done(() => {});
-  } 
-
+  }
 
   handleClick(e,url) {
     Actions.readMoreNews({url: url})
@@ -48,11 +42,11 @@ class News extends Component {
   render() {
     
     return (
-       /* <ScrollView showsVerticalScrollIndicator={false}>
+       <ScrollView showsVerticalScrollIndicator={false}>
 
-        <Image source={require('./www/images/sub-header-news.png')} style={styles.headerImage} >
+        <Image source={require('./../../assets/images/sub-header-news.png')} style={styles.headerImage} >
           <Text style={styles.headerTitle}>LATEST NEWS</Text>
-        </Image> */
+        </Image>
         <ListView
             dataSource = {this.state.dataSource}
             renderRow={(rowData) =>
@@ -65,7 +59,7 @@ class News extends Component {
                  </Text>                                        
                 </View>
             } /> 
-        /* </ScrollView> */
+        </ScrollView>
     );
   }
     
