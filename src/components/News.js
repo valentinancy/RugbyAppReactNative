@@ -9,6 +9,7 @@ import {
   Image,
   Linking,
   Dimensions } from 'react-native'
+import { Actions } from 'react-native-router-flux'
 
 
 var width = Dimensions.get('window').width; 
@@ -39,6 +40,11 @@ class News extends Component {
   } 
 
 
+  handleClick(e,url) {
+    Actions.readMoreNews({url: url})
+  }
+
+
   render() {
     
     return (
@@ -55,7 +61,7 @@ class News extends Component {
                   <Text style={styles.newsTitle}>{rowData.title}</Text>
                  <Text>
                     {rowData.summary}&nbsp;
-                    <Text style={styles.newsURL} onPress={() => Linking.openURL(rowData.url)}>read more...</Text>
+                    <Text style={styles.newsURL} onPress={ (e) => this.handleClick(e,rowData.url) }>read more...</Text>
                  </Text>                                        
                 </View>
             } /> 

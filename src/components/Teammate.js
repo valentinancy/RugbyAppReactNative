@@ -19,6 +19,7 @@ import {
 
 //import PhotoGrid from 'react-native-photo-grid';
 import {TouchableOpacity,} from 'react-native';
+import { Column as Col, Row } from 'react-native-flexbox-grid'
 
 export default class IndoRugby extends Component {
   constructor(){
@@ -41,22 +42,45 @@ export default class IndoRugby extends Component {
         .catch((error) => console.warn("fetch error:", error))
     }
 
+  showPhotoGrid() {
+    for (let i = 0; i<4 ; i+=2) {
+      let y = i
+      console.log("y", y)
+        return (
+          <Row size={10} nowrap>
+              <Col sm={5} md={5} lg={5}>
+              <Image
+                  style={ styles.image }
+                  source={{uri: this.state.data.data[y]}}
+                  />
+              </Col>
+              <Col sm={5} md={5} lg={5}>
+              <Image
+                  style={ styles.image }
+                  source={{uri: this.state.data.data[y+1]}}
+                  />
+              </Col>
+          </Row>
+        )
+    }
+  }
+
   render() {
     if(!this.state.data) {
             return <Text>Loading</Text>
         }
 
-      const photos= this.state.data.data.map((photo) => {
-        console.log("ini data", photo)
-      return(
-        <Image
-           style={styles.image}
-          key={photo}
-          source={{uri: photo}}>
-
-          </Image>
-      )
-      })
+      // const photos= this.state.data.data.map((photo) => {
+      // return(
+      //   <Col sm={4} md={4} lg={4}>
+      //     <Image
+      //         style={styles.image}
+      //         key={photo}
+      //         source={{uri: photo}}
+      //     />
+      //   </Col>
+      // )
+      // })
     return (
       <ScrollView>
         <Image style={styles.headlineImage}
@@ -83,9 +107,9 @@ export default class IndoRugby extends Component {
           />
         </View>
 
-<View>
-  {photos}
-</View>
+        <View>
+          { this.showPhotoGrid() }
+        </View>
         {/* <PhotoGrid
           data = { this.state.items }
           itemsPerRow = { 2 }
@@ -163,8 +187,10 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   image: {
-    width: 80,
-    height: 80
+    width: 150,
+    height: 150,
+    marginLeft: 10,
+    marginBottom: 10
   }
 });
 

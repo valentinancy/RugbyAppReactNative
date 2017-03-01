@@ -31,7 +31,7 @@ class Home extends Component {
                 <Text onPress={ (e) => this.handleClick(e,'news') }>News</Text>
                 <Text onPress={ (e) => this.handleClick(e,'readMoreNews') }>Read More News</Text>
                 <Text onPress={ (e) => this.handleClick(e,'fixtures') }>Fixtures and Result</Text>
-                <Text onPress={ (e) => this.handleClick(e,'teammate') }>Teammate and Photos</Text>
+                <Text onPress={ (e) => this.handleClick(e,'teammate') }>Teammate Photos</Text>
                 <Text onPress={ (e) => this.handleClick(e,'rugbyClubs') }>Rugby Clubs</Text>
             </View>
         )

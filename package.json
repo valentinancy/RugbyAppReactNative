@@ -11,6 +11,7 @@
     "react-native": "0.41.2",
     "react-native-flexbox-grid": "^0.2.2",
     "react-native-hyperlink": "0.0.8",
+    "react-native-photo-grid": "0.0.2",
     "react-native-router-flux": "^3.37.0",
     "react-native-side-menu": "^0.20.1",
     "react-native-webview-bridge": "^0.33.0",
