@@ -17,6 +17,9 @@ class Home extends Component {
             case 'rugbyClubs':
                 Actions.rugbyClubs()
                 break
+            case 'rugby101':
+                Actions.rugby101()
+                break
             default:
                 Actions.home()
         }
@@ -29,6 +32,7 @@ class Home extends Component {
                 <Text onPress={ (e) => this.handleClick(e,'fixtures') }>Fixtures and Result</Text>
                 <Text onPress={ (e) => this.handleClick(e,'teammate') }>Teammate Photos</Text>
                 <Text onPress={ (e) => this.handleClick(e,'rugbyClubs') }>Rugby Clubs</Text>
+                <Text onPress={ (e) => this.handleClick(e,'rugby101') }>Rugby 101</Text>
             </View>
         )
     }
