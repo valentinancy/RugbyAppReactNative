@@ -70,17 +70,26 @@ export default class IndoRugby extends Component {
             return <Text>Loading</Text>
         }
 
-      // const photos= this.state.data.data.map((photo) => {
-      // return(
-      //   <Col sm={4} md={4} lg={4}>
-      //     <Image
-      //         style={styles.image}
-      //         key={photo}
-      //         source={{uri: photo}}
-      //     />
-      //   </Col>
-      // )
-      // })
+    const photos = this.state.data.data.map((photo,index) => {
+      if(index%2==0) {
+        return(
+          <Row key={index} size={10} nowrap>
+                <Col sm={5} md={5} lg={5}>
+                <Image
+                    style={ styles.image }
+                    source={{uri: this.state.data.data[index]}}
+                    />
+                </Col>
+                <Col sm={5} md={5} lg={5}>
+                <Image
+                    style={ styles.image }
+                    source={{uri: this.state.data.data[index+1]}}
+                    />
+                </Col>
+            </Row>
+        )
+      }
+    })
     return (
       <ScrollView>
         <Image style={styles.headlineImage}
@@ -108,7 +117,7 @@ export default class IndoRugby extends Component {
         </View>
 
         <View>
-          { this.showPhotoGrid() }
+          { photos }
         </View>
         {/* <PhotoGrid
           data = { this.state.items }
@@ -158,7 +167,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     width: 360,
     height: 120,
-    marginBottom: 20,
+    marginBottom: 20
   },
   bStyle:{
     //backgroundColor: '#FF0000',
@@ -178,18 +187,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headline: {
-    fontSize: 33,
-    fontFamily: 'Iowan Old Style',
+    fontSize: 30,
     textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: 'white'
+    marginTop: 5,
+    color: '#f0f8ff',
+    fontWeight: 'bold'
   },
   image: {
     width: 150,
     height: 150,
-    marginLeft: 10,
+    marginLeft: 17,
     marginBottom: 10
   }
 });
