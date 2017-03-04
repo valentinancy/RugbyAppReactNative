@@ -25,7 +25,9 @@ class Fixtures extends Component{
 
     return(
       <ScrollView>
-        <Image source={require('../../assets/images/sub-header-fixture.png')} style={styles.pageBanner} />
+        <Image source={require('../../assets/images/sub-header-fixture.png')} style={styles.pageBanner}>
+          <Text style={styles.pageTitle}>FIXTURES & RESULT</Text>
+        </Image>
        <ListView
           dataSource={this.state.data}
           renderRow={(rowData) =>
@@ -44,12 +46,19 @@ const styles=StyleSheet.create({
   },
   imgBanner:{
     width: this.screenWidth,
-    height:150,
+    height:175,
     resizeMode:'contain',
   },
   pageBanner:{
     width: this.screenWidth,
     resizeMode: 'contain',
+  },
+  pageTitle:{
+    color:'white',
+    fontWeight:'bold',
+    textAlign:'center',
+    marginVertical:75,
+    fontSize:25,
   }
 });
 
