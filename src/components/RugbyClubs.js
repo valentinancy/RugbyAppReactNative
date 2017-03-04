@@ -68,7 +68,7 @@ class RugbyClubs extends Component {
 
 const styles = {
         titlePage: {
-            fontSize: 25,
+            fontSize: 30,
             textAlign: 'center',
             marginTop: 50,
             color: '#f0f8ff',
