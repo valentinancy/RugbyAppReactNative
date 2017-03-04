@@ -76,8 +76,7 @@ const styles = {
         },
         headerImg: {
             height: 150,
-            width: 360,
-            marginTop: 55
+            width: 360
         },
         clubName: {
             fontSize: 18,

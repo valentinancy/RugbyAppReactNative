@@ -12,7 +12,7 @@ import Rugby101 from './src/components/Rugby101'
 class App extends React.Component {
   render() {
     return(
-        <Router>
+        <Router sceneStyle={{ paddingTop: 55 }}>
             <Scene key="home" component={ Home } initial/>
             <Scene key="fixtures" component={ Fixtures }/>
             <Scene key="news" component={ News }/>
