@@ -17,22 +17,15 @@ import {
   ListView
 } from 'react-native';
 
-//import PhotoGrid from 'react-native-photo-grid';
 import {TouchableOpacity,} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
 
 export default class IndoRugby extends Component {
   constructor(){
     super();
-    this.state = {data:null, items:[]};
-  }
-
-  componentDidMount() {
-    // Build an array of 60 photos
-    let items = Array.apply(null, Array(60)).map((v, i) => {
-      return { id: i, src: 'https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json' }
-    });
-    this.setState({ items });
+    this.state = {
+      data:null
+    }
   }
 
   componentWillMount() {
@@ -40,29 +33,6 @@ export default class IndoRugby extends Component {
         .then((response) => response.json())
         .then((response) => this.setState({ data: response }))
         .catch((error) => console.warn("fetch error:", error))
-    }
-
-  showPhotoGrid() {
-    for (let i = 0; i<4 ; i+=2) {
-      let y = i
-      console.log("y", y)
-        return (
-          <Row size={10} nowrap>
-              <Col sm={5} md={5} lg={5}>
-              <Image
-                  style={ styles.image }
-                  source={{uri: this.state.data.data[y]}}
-                  />
-              </Col>
-              <Col sm={5} md={5} lg={5}>
-              <Image
-                  style={ styles.image }
-                  source={{uri: this.state.data.data[y+1]}}
-                  />
-              </Col>
-          </Row>
-        )
-    }
   }
 
   render() {
@@ -119,20 +89,10 @@ export default class IndoRugby extends Component {
         <View>
           { photos }
         </View>
-        {/* <PhotoGrid
-          data = { this.state.items }
-          itemsPerRow = { 2 }
-          itemMargin = { 1 }
-          // renderHeader = { this.renderHeader }
-          renderItem = { this.renderItem }
-        /> */}
       </ScrollView>
     );
   }
 
-  // renderHeader(){
-  //   return(<Text>I'm on top!</Text>);
-  // }
 
   renderItem(item, itemSize){
     return(
