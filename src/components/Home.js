@@ -57,7 +57,9 @@ class Home extends Component {
           <SideMenu
             menu={menu}
             isOpen={this.state.isOpen}
-            onChange={(isOpen) => this.updateMenuState(isOpen)}>
+            onChange={(isOpen) => this.updateMenuState(isOpen)}
+            menuPosition='right'
+            >
             <View style={styles.container}>
               <News />
             </View>
@@ -75,6 +77,7 @@ const styles = {
     button: {
         position: 'absolute',
         top: 50,
+        right: 0,
         padding: 10,
       },
     container: {
