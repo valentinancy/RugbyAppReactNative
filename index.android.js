@@ -13,13 +13,15 @@ class App extends React.Component {
   render() {
     return(
         <Router sceneStyle={{ paddingTop: 55 }}>
-            <Scene key="home" component={ Home } initial/>
-            <Scene key="fixtures" component={ Fixtures }/>
-            <Scene key="news" component={ News }/>
-            <Scene key="readMoreNews" component={ ReadMoreNews }/>
-            <Scene key="teammate" component={ Teammate }/>
-            <Scene key="rugbyClubs" component={ RugbyClubs }/>
-            <Scene key="rugby101" component={ Rugby101 }/>
+            <Scene key="root" navigationBarBackgroundImage={require('./assets/images/header.png')}>
+                <Scene key="home" component={ Home } initial/>
+                <Scene key="fixtures" component={ Fixtures }/>
+                <Scene key="news" component={ News }/>
+                <Scene key="readMoreNews" component={ ReadMoreNews }/>
+                <Scene key="teammate" component={ Teammate }/>
+                <Scene key="rugbyClubs" component={ RugbyClubs }/>
+                <Scene key="rugby101" component={ Rugby101 }/>
+            </Scene>
         </Router>
     )
   }
