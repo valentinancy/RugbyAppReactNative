@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, AppRegistry, Navigator,TouchableHighlight } from 'react-native'
+import { View, Text, AppRegistry, Navigator,TouchableHighlight,Image } from 'react-native'
 import { Scene, Router } from 'react-native-router-flux'
 import Fixtures from './src/components/Fixtures'
 import Home from './src/components/Home'
@@ -13,7 +13,9 @@ class App extends React.Component {
   render() {
     return(
         <Router sceneStyle={{ paddingTop: 55 }}>
-            <Scene key="root" navigationBarBackgroundImage={require('./assets/images/header.png')}>
+            <Scene key="root"
+                navigationBarBackgroundImage={require('./assets/images/header.png')}
+                renderTitle={() => (<Image source={require('./assets/images/logo-header.png')}style={{width:null,height:30,resizeMode:'contain',marginVertical:13}} />)}>
                 <Scene key="home" component={ Home } initial/>
                 <Scene key="fixtures" component={ Fixtures }/>
                 <Scene key="news" component={ News }/>
