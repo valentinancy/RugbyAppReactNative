@@ -40,13 +40,13 @@ class News extends Component {
     return (
        <ScrollView showsVerticalScrollIndicator={false}>
 
-        <Image source={require('./../../assets/images/sub-header-news.png')} style={styles.headerImage} >
-          <Text style={styles.headerTitle}>LATEST NEWS</Text>
+        <Image source={require('./../../assets/images/sub-header-news.png')} style={styles.newsHeaderImage} >
+          <Text style={styles.newsHeaderTitle}>LATEST NEWS</Text>
         </Image>
         <ListView
             dataSource = {this.state.dataSource}
             renderRow={(rowData) =>
-                <View style={styles.container}>
+                <View style={styles.newsContainer}>
                   <Image source={{uri: rowData.img}} style={styles.newsImage} />
                   <Text style={styles.newsTitle}>{rowData.title}</Text>
                  <Text>
