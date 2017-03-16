@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text, AppRegistry, Navigator,TouchableHighlight } from 'react-native'
-import { Scene, Router } from 'react-native-router-flux'
+import { View, Text, AppRegistry, Navigator,TouchableHighlight,Image } from 'react-native'
+import { Scene, Router, Actions } from 'react-native-router-flux'
 import Fixtures from './src/components/Fixtures'
 import Home from './src/components/Home'
 import News from './src/components/News'
@@ -17,15 +17,22 @@ class App extends React.Component {
 
   render() {
     return(
-        <Router sceneStyle={{ paddingTop: 55 }}>
+        <Router sceneStyle={{ paddingTop: 55 }}
+            navigationBarBackgroundImage={require('./assets/images/header.png')}
+            renderTitle={() => (<Image source={require('./assets/images/logo-header.png')} style={{height:40,resizeMode:'contain',marginVertical:7}} />)}            
+            /*renderBackButton={() => (null)}*/
+            renderLeftButton={() => (<Image source={require('./assets/images/menu.png')} style={{height:20,resizeMode:'contain',marginVertical:7,marginLeft:-40}} />)}
+            onLeft={() => (Actions.news())}
+            renderRightButton={() => (<Image source={require('./assets/images/menu.png')} style={{height:20,resizeMode:'contain',marginVertical:7}} />)}
+            onRight={() => (Actions.fixtures())}>
             <Scene key="home" component={ Home } initial/>
             <Scene key="fixtures" component={ Fixtures }/>
             <Scene key="news" component={ News }/>
             <Scene key="readMoreNews" component={ ReadMoreNews }/>
             <Scene key="teammate" component={ Teammate }/>
             <Scene key="rugbyClubs" component={ RugbyClubs }/>
-            <Scene key="rugby101" component={ Rugby101 }/>
-        </Router>
+            <Scene key="rugby101" component={ Rugby101 }/>            
+    </Router>
     )
   }
 }

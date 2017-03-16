@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import { 
   AppRegistry,
-  StyleSheet,
   View, 
   ScrollView,
   ListView,
   Text,
   Image,
-  Linking,
-  Dimensions } from 'react-native'
+  Linking } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-
-
-var width = Dimensions.get('window').width; 
+import styles from './../../assets/styles/Style'
 
 class News extends Component {
     
@@ -44,13 +40,13 @@ class News extends Component {
     return (
        <ScrollView showsVerticalScrollIndicator={false}>
 
-        <Image source={require('./../../assets/images/sub-header-news.png')} style={styles.headerImage} >
-          <Text style={styles.headerTitle}>LATEST NEWS</Text>
+        <Image source={require('./../../assets/images/sub-header-news.png')} style={styles.newsHeaderImage} >
+          <Text style={styles.newsHeaderTitle}>LATEST NEWS</Text>
         </Image>
         <ListView
             dataSource = {this.state.dataSource}
             renderRow={(rowData) =>
-                <View style={styles.container}>
+                <View style={styles.newsContainer}>
                   <Image source={{uri: rowData.img}} style={styles.newsImage} />
                   <Text style={styles.newsTitle}>{rowData.title}</Text>
                  <Text>
@@ -64,36 +60,5 @@ class News extends Component {
   }
     
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 15,
-  },
-  headerTitle: {
-    textAlign: 'center',
-    color: 'white', 
-    fontWeight: 'bold',
-    fontSize: 25,
-    marginTop: 50,
-  },
-  headerImage: {
-    width: this.width,
-    height: 100,
-  },
-  newsTitle: {
-    fontWeight: 'bold',
-  },
-  newsImage: {
-    flex: 1,
-    width: this.width,
-    height: 200,
-  },
-  newsURL: {
-    color: 'blue',
-    fontStyle: 'italic',
-    textDecorationLine: 'underline',
-  }
-});
 
 export default News
