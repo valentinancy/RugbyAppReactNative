@@ -8,8 +8,13 @@ import ReadMoreNews from './src/components/ReadMoreNews'
 import Teammate from './src/components/Teammate'
 import RugbyClubs from './src/components/RugbyClubs'
 import Rugby101 from './src/components/Rugby101'
+import SplashScreen from 'rn-splash-screen'
 
 class App extends React.Component {
+  componentDidMount() {
+     SplashScreen.hide()
+  }
+
   render() {
     return(
         <Router sceneStyle={{ paddingTop: 55 }}>

@@ -96,6 +96,12 @@ const styles = {
         },
         clubDiv: {
             marginTop: 25
+        },
+        customnav: {
+            position: 'relative',
+            top: 0,
+            right: 0,
+            padding: 10
         }
     }
 
