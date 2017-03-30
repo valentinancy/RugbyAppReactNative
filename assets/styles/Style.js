@@ -5,6 +5,25 @@ var width = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
+  /* GENERAL */
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  header: {
+    width: this.width,
+    height: 100, 
+  },
+  headline: {
+    fontSize: 30,
+    marginTop: 50, 
+    color: '#f0f8ff', 
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+
   /* Menu */ 
   menu: {
       flex: 1,
@@ -27,30 +46,30 @@ const styles = StyleSheet.create({
      right: 0,
      padding: 10,
   },
-  container: {
-     flex: 1,
-     marginTop: 55,
-     //justifyContent: 'center',
-     alignItems: 'center',
-     backgroundColor: '#F5FCFF',
-  },
+  // container: {
+  //    flex: 1,
+  //    marginTop: 55,
+  //    //justifyContent: 'center',
+  //    alignItems: 'center',
+  //    backgroundColor: '#F5FCFF',
+  // },
 
-  /* News */
-  newsContainer: {
-    flex: 1,
-    margin: 15,
-  },
-  newsHeaderTitle: {
-    textAlign: 'center',
-    color: 'white', 
-    fontWeight: 'bold',
-    fontSize: 25,
-    marginTop: 50,
-  },
-  newsHeaderImage: {
-    width: this.width,
-    height: 100,
-  },
+  /* NEWS */
+  // newsContainer: {
+  //   flex: 1,
+  //   margin: 15,
+  // },
+  // newsHeaderTitle: {
+  //   textAlign: 'center',
+  //   color: 'white', 
+  //   fontWeight: 'bold',
+  //   fontSize: 25,
+  //   marginTop: 50,
+  // },
+  // newsHeaderImage: {
+  //   width: this.width,
+  //   height: 100,
+  // },
   newsTitle: {
     fontWeight: 'bold',
   },
@@ -66,13 +85,13 @@ const styles = StyleSheet.create({
   },
 
   /* Rugby Clubs */
-  titlePage: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginTop: 50,
-    color: '#f0f8ff',
-    fontWeight: 'bold'
-  },
+  // titlePage: {
+  //   fontSize: 30,
+  //   textAlign: 'center',
+  //   marginTop: 50,
+  //   color: '#f0f8ff',
+  //   fontWeight: 'bold'
+  // },
     headerImg: {
     height: 150,
     width: 360
@@ -103,10 +122,10 @@ const styles = StyleSheet.create({
     padding: 10
   },
 
-  /* Fixtures */ 
-  container:{
-    margin:15,
-  },
+  /* FIXTURES */ 
+  // container:{
+  //   margin:15,
+  // },
   imgBanner:{
     width: this.screenWidth,
     height:175,
@@ -125,12 +144,12 @@ const styles = StyleSheet.create({
   },
 
   /* Teammate */
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
+  // container: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   backgroundColor: '#F5FCFF',
+  // },
   list: {
     justifyContent: 'center',
     flexDirection: 'row',
@@ -159,13 +178,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  headline: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginTop: 5,
-    color: '#f0f8ff',
-    fontWeight: 'bold'
-  },
+  // headline: {
+  //   fontSize: 30,
+  //   textAlign: 'center',
+  //   marginTop: 5,
+  //   color: '#f0f8ff',
+  //   fontWeight: 'bold'
+  // },
   image: {
     width: 150,
     height: 150,
@@ -178,17 +197,17 @@ const styles = StyleSheet.create({
     height: 100,
     width: 360
   },
-  titlePage: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginTop: 50,
-    color: '#f0f8ff',
-    fontWeight: 'bold'
-  },
-  container: {
-    marginTop: 10,
-    marginLeft: 10
-  },
+  // titlePage: {
+  //   fontSize: 30,
+  //   textAlign: 'center',
+  //   marginTop: 50,
+  //   color: '#f0f8ff',
+  //   fontWeight: 'bold'
+  // },
+  // container: {
+  //   marginTop: 10,
+  //   marginLeft: 10
+  // },
 
   /* Header */
   viewStyle: {
@@ -206,12 +225,12 @@ const styles = StyleSheet.create({
   },
 
   /* Custom Navbar */
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
+  // container: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   backgroundColor: '#F5FCFF',
+  // },
   list: {
     justifyContent: 'center',
     flexDirection: 'row',
@@ -238,21 +257,29 @@ const styles = StyleSheet.create({
     width: 320,
     backgroundColor: 'rgba(0,0,0,0)',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center', 
   },
-  headline: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginTop: 5,
-    color: '#f0f8ff',
-    fontWeight: 'bold'
-  },
+  // headline: {
+  //   fontSize: 30,
+  //   textAlign: 'center',
+  //   marginTop: 5,
+  //   color: '#f0f8ff',
+  //   fontWeight: 'bold'
+  // },
   image: {
     width: 150,
     height: 150,
     marginLeft: 17,
     marginBottom: 10
-  }
+  }, 
+
+  /* CUSTOM NAVIGATION */ 
+  customnav: {
+    position: 'relative',
+    top: 0,
+    right: 0,
+    padding: 10
+  },
 
 });
 
