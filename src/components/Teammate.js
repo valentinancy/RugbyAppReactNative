@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -18,13 +18,27 @@ import {
 } from 'react-native';
 
 import {TouchableOpacity,} from 'react-native';
-import { Column as Col, Row } from 'react-native-flexbox-grid'
+import { Column as Col, Row } from 'react-native-flexbox-grid';
+//var Camera = require('react-native-camera-android');
+import ImagePicker from 'react-native-image-picker';
+
+const options = {
+  title: 'Select Avatar',
+  customButtons: [
+    {name: 'fb', title: 'Choose Photo from Facebook'},
+  ],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images'
+  }
+};
 
 export default class IndoRugby extends Component {
   constructor(){
     super();
     this.state = {
-      data:null
+      data:null,
+      avatarSource: null
     }
   }
 
@@ -75,6 +89,10 @@ export default class IndoRugby extends Component {
             onPress={takePhotoPressed}
             title="Take a Photo"
           />
+          {/* <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
+            Take a Photo
+          </Icon.Button> */}
+          <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
         </View>
         <View style={styles.bStyle}>
           <Button
@@ -84,6 +102,9 @@ export default class IndoRugby extends Component {
             onPress={loadLibraryPressed}
             title="Load from Library"
           />
+          {/* <Icon.Button name="photo-library" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
+            Load from Library
+          </Icon.Button> */}
         </View>
 
         <View>
@@ -109,6 +130,22 @@ export default class IndoRugby extends Component {
       </TouchableOpacity>
       )
   }
+
+  // takePicture() {
+  //   const options = {};
+  //   //options.location = ...
+  //   this.camera.capture({metadata: options})
+  //     .then((data) => console.log(data))
+  //     .catch(err => console.error(err));
+  // }
+
+  // takePicture() {
+  //   const options = {};
+  //   //options.location = ...
+  //   this.camera.capture({metadata: options})
+  //     .then((data) => console.log(data))
+  //     .catch(err => console.error(err));
+  // }
 }
 
 const styles = StyleSheet.create({
@@ -162,9 +199,89 @@ const styles = StyleSheet.create({
 });
 
 const takePhotoPressed = () => {
-  Alert.alert('Button has been pressed!');
+  ImagePicker.launchCamera(options, (response)  => {
+    console.log('Response = ', response);
+
+    if (response.didCancel) {
+      console.log('User cancelled image picker');
+    }
+    else if (response.error) {
+      console.log('ImagePicker Error: ', response.error);
+    }
+    else if (response.customButton) {
+      console.log('User tapped custom button: ', response.customButton);
+    }
+    else {
+      console.log("nancy cantik",response.uri)
+      let source = { uri: response.uri };
+
+      // You can also display the image using data:
+      // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+      this.setState({
+        avatarSource: source
+      });
+    }
+  });
 };
+
+  //<Image source={this.state.avatarSource} style={styles.uploadAvatar} />
+
+//   ImagePicker.launchCamera(options, (response)  => {
+//   // Same code as in above section!
+// });
+
+   //Alert.alert('Button has been pressed!');
+
+
 const loadLibraryPressed = () => {
+  // ImagePicker.launchImageLibrary(options, (response)  => {
+  //   console.log('Response = ', response);
+  //
+  // if (response.didCancel) {
+  //   console.log('User cancelled image picker');
+  // }
+  // else if (response.error) {
+  //   console.log('ImagePicker Error: ', response.error);
+  // }
+  // else if (response.customButton) {
+  //   console.log('User tapped custom button: ', response.customButton);
+  // }
+  // else {
+  //   let source = { uri: response.uri };
+  //
+  //   // You can also display the image using data:
+  //   // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+  //
+  //   this.setState({
+  //     avatarSource: source
+  //   });
+  // }
+  // });
+
+  // ImagePicker.showImagePicker(options, (response) => {
+  // console.log('Response = ', response);
+  //
+  // if (response.didCancel) {
+  //   console.log('User cancelled image picker');
+  // }
+  // else if (response.error) {
+  //   console.log('ImagePicker Error: ', response.error);
+  // }
+  // else if (response.customButton) {
+  //   console.log('User tapped custom button: ', response.customButton);
+  // }
+  // else {
+  //   let source = { uri: response.uri };
+
+    // You can also display the image using data:
+    // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+//     this.setState({
+//       avatarSource: source
+//     });
+//   }
+// });
   Alert.alert('Button has been pressed!');
 };
 

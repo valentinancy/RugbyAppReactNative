@@ -17,6 +17,8 @@ import java.util.List;
 /************TAMBAHAN DARI WEBVIEW************/
 import com.github.alinz.reactnativewebviewbridge.WebViewBridgePackage;
 
+import com.imagepicker.ImagePickerPackage;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -29,8 +31,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new SplashScreenPackage(),
-          new WebViewBridgePackage() /************TAMBAHAN DARI WEBVIEW************/
+          new SplashScreenPackage(),
+          new ImagePickerPackage(),
+          new WebViewBridgePackage()
       );
     }
   };
