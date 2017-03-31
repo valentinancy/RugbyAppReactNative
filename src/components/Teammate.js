@@ -19,6 +19,7 @@ import {
 
 import {TouchableOpacity,} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
+import styles from './../../assets/styles/Style'
 
 export default class IndoRugby extends Component {
   constructor(){
@@ -62,7 +63,7 @@ export default class IndoRugby extends Component {
     })
     return (
       <ScrollView>
-        <Image style={styles.headlineImage}
+        <Image style={styles.header}
           source={{uri: 'http://rugbyindonesia.or.id/wp-content/uploads/2014/09/Slider-2.jpg'}}>
           <View style={styles.backdropView}>
             <Text style={styles.headline}>TEAMMATE PHOTOS</Text>
@@ -109,57 +110,7 @@ export default class IndoRugby extends Component {
       </TouchableOpacity>
       )
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  list: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    },
-  headlineImage:{
-    paddingTop: 20,
-    width: 360,
-    height: 120,
-    marginBottom: 20
-  },
-  bStyle:{
-    //backgroundColor: '#FF0000',
-    //textAlign: 'center',
-    marginBottom: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  backdropView: {
-    height: 120,
-    width: 320,
-    backgroundColor: 'rgba(0,0,0,0)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headline: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginTop: 5,
-    color: '#f0f8ff',
-    fontWeight: 'bold'
-  },
-  image: {
-    width: 150,
-    height: 150,
-    marginLeft: 17,
-    marginBottom: 10
-  }
-});
+} 
 
 const takePhotoPressed = () => {
   Alert.alert('Button has been pressed!');

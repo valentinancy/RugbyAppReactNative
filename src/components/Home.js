@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux'
 import SideMenu from 'react-native-side-menu'
 import Menu from './Menu'
 import News from './News'
+import styles from './../../assets/styles/Style' 
 
 /* KELAS BUTTON NAVIGASI */
 class Button extends Component {
@@ -71,22 +72,6 @@ class Home extends Component {
           </SideMenu>
         );
     }
-}
-
-const styles = {
-    button: {
-        position: 'absolute',
-        top: 50,
-        right: 0,
-        padding: 10,
-      },
-    container: {
-      flex: 1,
-      marginTop: 55,
-      //justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
-    }
-}
+} 
 
 export default Home

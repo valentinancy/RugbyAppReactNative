@@ -24,52 +24,37 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
 
-  /* Menu */ 
+  /* MENU */ 
   menu: {
-      flex: 1,
-      width:window.width,
-      height: window.height,
-      backgroundColor: 'beige',
-      padding: 20,
-      marginTop: 40
-   },
-   item: {
-      fontSize: 14,
-      fontWeight: '300',
-      paddingTop: 20,
-   },
+    flex: 1,
+    width:window.width,
+    height: window.height,
+    backgroundColor: 'beige',
+    padding: 20,
+    marginTop: 40
+ },
+  item: {
+    fontSize: 14,
+    fontWeight: '300',
+    paddingTop: 20,
+ },
 
-  /* Home */
+  /* HOME */
   button: {
-     position: 'absolute',
-     top: 50,
-     right: 0,
-     padding: 10,
+    position: 'absolute',
+    top: 50,
+    right: 0,
+    padding: 10,
   },
   // container: {
-  //    flex: 1,
-  //    marginTop: 55,
-  //    //justifyContent: 'center',
-  //    alignItems: 'center',
-  //    backgroundColor: '#F5FCFF',
+  //   flex: 1,
+  //   marginTop: 55,
+  //   //justifyContent: 'center',
+  //   alignItems: 'center',
+  //   backgroundColor: '#F5FCFF',
   // },
 
   /* NEWS */
-  // newsContainer: {
-  //   flex: 1,
-  //   margin: 15,
-  // },
-  // newsHeaderTitle: {
-  //   textAlign: 'center',
-  //   color: 'white', 
-  //   fontWeight: 'bold',
-  //   fontSize: 25,
-  //   marginTop: 50,
-  // },
-  // newsHeaderImage: {
-  //   width: this.width,
-  //   height: 100,
-  // },
   newsTitle: {
     fontWeight: 'bold',
   },
@@ -84,7 +69,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
-  /* Rugby Clubs */
+  /* RUGBY CLUBS */
   // titlePage: {
   //   fontSize: 30,
   //   textAlign: 'center',
@@ -92,10 +77,10 @@ const styles = StyleSheet.create({
   //   color: '#f0f8ff',
   //   fontWeight: 'bold'
   // },
-    headerImg: {
-    height: 150,
-    width: 360
-  },
+  //   headerImg: {
+  //   height: 150,
+  //   width: 360
+  // }, 
   clubName: {
     fontSize: 18,
     fontWeight: 'bold'
@@ -115,17 +100,14 @@ const styles = StyleSheet.create({
   clubDiv: {
     marginTop: 25
   },
-  customnav: {
-    position: 'relative',
-    top: 0,
-    right: 0,
-    padding: 10
-  },
+  // customnav: {
+  //   position: 'relative',
+  //   top: 0,
+  //   right: 0,
+  //   padding: 10
+  // },
 
   /* FIXTURES */ 
-  // container:{
-  //   margin:15,
-  // },
   imgBanner:{
     width: this.screenWidth,
     height:175,
@@ -143,24 +125,31 @@ const styles = StyleSheet.create({
     fontSize:25,
   },
 
-  /* Teammate */
+  /* TEAMMATE */
   // container: {
   //   flex: 1,
   //   justifyContent: 'center',
   //   alignItems: 'center',
   //   backgroundColor: '#F5FCFF',
-  // },
+  // }, 
   list: {
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
     },
-  headlineImage:{
-    paddingTop: 20,
-    width: 360,
-    height: 120,
-    marginBottom: 20
-  },
+  // headline: {
+  //   fontSize: 30,
+  //   textAlign: 'center',
+  //   marginTop: 5,
+  //   color: '#f0f8ff',
+  //   fontWeight: 'bold'
+  // }, 
+  // headlineImage:{
+  //   paddingTop: 20,
+  //   width: 360,
+  //   height: 120,
+  //   marginBottom: 20
+  // },
   bStyle:{
     //backgroundColor: '#FF0000',
     //textAlign: 'center',
@@ -178,13 +167,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  // headline: {
-  //   fontSize: 30,
-  //   textAlign: 'center',
-  //   marginTop: 5,
-  //   color: '#f0f8ff',
-  //   fontWeight: 'bold'
-  // },
   image: {
     width: 150,
     height: 150,
@@ -192,11 +174,11 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
 
-  /* Rugby 101 */
-  headerImg: {
-    height: 100,
-    width: 360
-  },
+  /* RUGBY 101 */
+  // headerImg: {
+  //   height: 100,
+  //   width: 360
+  // },
   // titlePage: {
   //   fontSize: 30,
   //   textAlign: 'center',
@@ -209,77 +191,28 @@ const styles = StyleSheet.create({
   //   marginLeft: 10
   // },
 
-  /* Header */
+  /* HEADER */
   viewStyle: {
-     backgroundColor: '#F8F8F8',
-     justifyContent: 'center',
-     alignItems: 'center',
-     height: 60,
-     paddingTop: 15,
-     shadowColor: '#000',
-     shadowOffset: { width: 0, height: 2 },
-     shadowOpacity: 0.2
+    backgroundColor: '#F8F8F8',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 60,
+    paddingTop: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2
   },
   textStyle: {
-     fontSize: 20
+    fontSize: 20
   },
 
-  /* Custom Navbar */
-  // container: {
-  //   flex: 1,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   backgroundColor: '#F5FCFF',
-  // },
-  list: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    },
-  headlineImage:{
-    paddingTop: 20,
-    width: 360,
-    height: 120,
-    marginBottom: 20
-  },
-  bStyle:{
-    //backgroundColor: '#FF0000',
-    //textAlign: 'center',
-    marginBottom: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  backdropView: {
-    height: 120,
-    width: 320,
-    backgroundColor: 'rgba(0,0,0,0)',
-    alignItems: 'center',
-    justifyContent: 'center', 
-  },
-  // headline: {
-  //   fontSize: 30,
-  //   textAlign: 'center',
-  //   marginTop: 5,
-  //   color: '#f0f8ff',
-  //   fontWeight: 'bold'
-  // },
-  image: {
-    width: 150,
-    height: 150,
-    marginLeft: 17,
-    marginBottom: 10
-  }, 
-
-  /* CUSTOM NAVIGATION */ 
+  /* CUSTOM NAVBAR */
   customnav: {
     position: 'relative',
     top: 0,
     right: 0,
     padding: 10
-  },
+  }   
 
 });
 

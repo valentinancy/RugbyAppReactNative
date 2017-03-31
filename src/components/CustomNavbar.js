@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
+import { Image } from 'react-native' 
+import styles from './../../assets/styles/Style'
 
 class CustomNavbar extends Component {
     static renderNavigationBar(props) {
@@ -10,15 +11,6 @@ class CustomNavbar extends Component {
             >
             </Image>
         )
-    }
-}
-
-const styles = {
-    customnav: {
-        position: 'relative',
-        top: 0,
-        right: 0,
-        padding: 10
     }
 }
 

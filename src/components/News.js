@@ -9,6 +9,7 @@ import {
   Linking } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import styles from './../../assets/styles/Style'
+import jsonLink from './../data/JSONLinks'
 
 class News extends Component {
     
@@ -22,7 +23,7 @@ class News extends Component {
   }
 
   componentDidMount() {
-    fetch('https://ri-admin.azurewebsites.net/indonesianrugby/news/list.json') 
+    fetch(jsonLink.newsJSON) 
     .then((response) => response.json())
     .then((responseData) => {
             this.setState({dataSource: this.state.dataSource.cloneWithRows(responseData)});
@@ -37,6 +38,10 @@ class News extends Component {
 
   render() {
     
+    if(!this.state.data) {
+      return <View style={ styles.header }><Text>Loading</Text></View>
+    } 
+
     return (
        <ScrollView showsVerticalScrollIndicator={false}>
 
@@ -57,6 +62,7 @@ class News extends Component {
             } /> 
         </ScrollView>
     );
+
   }
     
 }

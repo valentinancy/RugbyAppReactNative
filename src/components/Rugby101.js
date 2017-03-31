@@ -1,41 +1,23 @@
 import React, { Component } from 'react'
-import { Text, ScrollView, Image, View } from 'react-native'
+import { Text, ScrollView, Image, View } from 'react-native' 
+import styles from './../../assets/styles/Style'
 
 class Rugby101 extends Component {
     render() {
-        const { titlePage, headerImg, container } = styles
 
         return(
             <ScrollView>
-                <Image style={ headerImg }
+                <Image style={ styles.header }
                     source={ require('../../assets/images/sub-header-101.png') }>
                     <View>
-                        <Text style={ titlePage }>RUGBY 101</Text>
+                        <Text style={ styles.headline }>RUGBY 101</Text>
                     </View>
                 </Image>
-                <View style={ container }>
+                <View style={ styles.container }>
                     <Text>Coming soon!</Text>
                 </View>
             </ScrollView>
         )
-    }
-}
-
-const styles = {
-    headerImg: {
-        height: 100,
-        width: 360
-    },
-    titlePage: {
-        fontSize: 30,
-        textAlign: 'center',
-        marginTop: 50,
-        color: '#f0f8ff',
-        fontWeight: 'bold'
-    },
-    container: {
-        marginTop: 10,
-        marginLeft: 10
     }
 }
 
