@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 
 import {TouchableOpacity,} from 'react-native';
+<<<<<<< HEAD
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 //var Camera = require('react-native-camera-android');
 import ImagePicker from 'react-native-image-picker';
@@ -32,6 +33,10 @@ const options = {
     path: 'images'
   }
 };
+=======
+import { Column as Col, Row } from 'react-native-flexbox-grid'
+import styles from './../../assets/styles/Style'
+>>>>>>> e31a323ba3341d3c904db347f38a8d34034ddcfe
 
 export default class IndoRugby extends Component {
   constructor(){
@@ -76,10 +81,9 @@ export default class IndoRugby extends Component {
     })
     return (
       <ScrollView>
-        <Image style={styles.headlineImage}
-          source={{uri: 'http://rugbyindonesia.or.id/wp-content/uploads/2014/09/Slider-2.jpg'}}>
+        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} > 
           <View style={styles.backdropView}>
-            <Text style={styles.headline}>TEAMMATE PHOTOS</Text>
+            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text> 
           </View>
         </Image>
         <View style={styles.bStyle}>
@@ -130,6 +134,7 @@ export default class IndoRugby extends Component {
       </TouchableOpacity>
       )
   }
+<<<<<<< HEAD
 
   // takePicture() {
   //   const options = {};
@@ -197,6 +202,9 @@ const styles = StyleSheet.create({
     marginBottom: 10
   }
 });
+=======
+} 
+>>>>>>> e31a323ba3341d3c904db347f38a8d34034ddcfe
 
 const takePhotoPressed = () => {
   ImagePicker.launchCamera(options, (response)  => {

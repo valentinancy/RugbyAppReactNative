@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {AppRegistry,Image,ListView,ScrollView,View,StyleSheet,Dimensions,Text} from 'react-native';
+import styles from './../../assets/styles/Style'
 
 var screenWidth=Dimensions.get('window').width;
 
@@ -25,8 +26,8 @@ class Fixtures extends Component{
 
     return(
       <ScrollView>
-        <Image source={require('../../assets/images/sub-header-fixture.png')} style={styles.pageBanner}>
-          <Text style={styles.pageTitle}>FIXTURES & RESULT</Text>
+        <Image source={require('../../assets/images/sub-header-fixture.png')} style={styles.header}>
+          <Text style={styles.headline}>FIXTURES & RESULT</Text>
         </Image>
        <ListView
           dataSource={this.state.data}
@@ -39,27 +40,5 @@ class Fixtures extends Component{
     );
   }
 }
-
-const styles=StyleSheet.create({
-  container:{
-    margin:15,
-  },
-  imgBanner:{
-    width: this.screenWidth,
-    height:175,
-    resizeMode:'contain',
-  },
-  pageBanner:{
-    width: this.screenWidth,
-    resizeMode: 'contain',
-  },
-  pageTitle:{
-    color:'white',
-    fontWeight:'bold',
-    textAlign:'center',
-    marginVertical:75,
-    fontSize:25,
-  }
-});
 
 export default Fixtures

@@ -9,6 +9,7 @@ import {
   Linking } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import styles from './../../assets/styles/Style'
+import jsonLink from './../data/JSONLinks'
 
 class News extends Component {
     
@@ -22,7 +23,7 @@ class News extends Component {
   }
 
   componentDidMount() {
-    fetch('https://ri-admin.azurewebsites.net/indonesianrugby/news/list.json') 
+    fetch(jsonLink.newsJSON) 
     .then((response) => response.json())
     .then((responseData) => {
             this.setState({dataSource: this.state.dataSource.cloneWithRows(responseData)});
@@ -35,18 +36,18 @@ class News extends Component {
   }
 
 
-  render() {
-    
+  render() { 
+
     return (
        <ScrollView showsVerticalScrollIndicator={false}>
 
-        <Image source={require('./../../assets/images/sub-header-news.png')} style={styles.newsHeaderImage} >
-          <Text style={styles.newsHeaderTitle}>LATEST NEWS</Text>
+        <Image source={require('./../../assets/images/sub-header-news.png')} style={styles.header} >
+          <Text style={styles.headline}>LATEST NEWS</Text>
         </Image>
         <ListView
             dataSource = {this.state.dataSource}
             renderRow={(rowData) =>
-                <View style={styles.newsContainer}>
+                <View style={styles.container}>
                   <Image source={{uri: rowData.img}} style={styles.newsImage} />
                   <Text style={styles.newsTitle}>{rowData.title}</Text>
                  <Text>
@@ -57,6 +58,7 @@ class News extends Component {
             } /> 
         </ScrollView>
     );
+
   }
     
 }

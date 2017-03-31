@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View,Image,Text,Dimensions,ScrollView } from 'react-native'
 import { Actions } from 'react-native-router-flux'
+import styles from './../../assets/styles/Style'
 
 const window = Dimensions.get('window')
 
@@ -44,22 +45,6 @@ class Menu extends Component{
 			</ScrollView>
 		)
 	}
-}
-
-const styles = {
-	menu: {
-	    flex: 1,
-	    width:window.width,
-	    height: window.height,
-	    backgroundColor: 'beige',
-	    padding: 20,
-	    marginTop: 40
-	 },
-	 item: {
-	    fontSize: 14,
-	    fontWeight: '300',
-	    paddingTop: 20,
-	 }
 }
 
 export default Menu
