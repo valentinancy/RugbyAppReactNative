@@ -61,7 +61,7 @@ class Home extends Component {
             onChange={(isOpen) => this.updateMenuState(isOpen)}
             menuPosition='right'
             >
-            <View style={styles.container}>
+            <View style={styles.homeContainer}>
               <News />
             </View>
 

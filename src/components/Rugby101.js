@@ -13,7 +13,7 @@ class Rugby101 extends Component {
                         <Text style={ styles.headline }>RUGBY 101</Text>
                     </View>
                 </Image>
-                <View style={ styles.container }>
+                <View style={ styles.rugby101Container }>
                     <Text>Coming soon!</Text>
                 </View>
             </ScrollView>

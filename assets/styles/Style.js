@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
     right: 0,
     padding: 10,
   },
-  // container: {
-  //   flex: 1,
-  //   marginTop: 55,
-  //   //justifyContent: 'center',
-  //   alignItems: 'center',
-  //   backgroundColor: '#F5FCFF',
-  // },
+  homeContainer: {
+    flex: 1,
+    marginTop: 55,
+    //justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
 
   /* NEWS */
   newsTitle: {
@@ -137,23 +137,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     },
-  // headline: {
-  //   fontSize: 30,
-  //   textAlign: 'center',
-  //   marginTop: 5,
-  //   color: '#f0f8ff',
-  //   fontWeight: 'bold'
-  // }, 
-  // headlineImage:{
-  //   paddingTop: 20,
-  //   width: 360,
-  //   height: 120,
-  //   marginBottom: 20
-  // },
+  teammateHeadline: {
+    fontSize: 30,
+    textAlign: 'center',
+    marginTop: 5,
+    color: '#f0f8ff',
+    fontWeight: 'bold'
+  }, 
+  headlineImage:{
+    paddingTop: 20,
+    width: 360,
+    height: 120,
+    marginBottom: 20
+  },
   bStyle:{
     //backgroundColor: '#FF0000',
     //textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 10 
   },
   instructions: {
     textAlign: 'center',
@@ -186,10 +186,10 @@ const styles = StyleSheet.create({
   //   color: '#f0f8ff',
   //   fontWeight: 'bold'
   // },
-  // container: {
-  //   marginTop: 10,
-  //   marginLeft: 10
-  // },
+  rugby101Container: {
+    marginTop: 10,
+    marginLeft: 10
+  },
 
   /* HEADER */
   viewStyle: {

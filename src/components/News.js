@@ -36,11 +36,7 @@ class News extends Component {
   }
 
 
-  render() {
-    
-    if(!this.state.data) {
-      return <View style={ styles.header }><Text>Loading</Text></View>
-    } 
+  render() { 
 
     return (
        <ScrollView showsVerticalScrollIndicator={false}>

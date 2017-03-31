@@ -63,10 +63,9 @@ export default class IndoRugby extends Component {
     })
     return (
       <ScrollView>
-        <Image style={styles.header}
-          source={{uri: 'http://rugbyindonesia.or.id/wp-content/uploads/2014/09/Slider-2.jpg'}}>
+        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} > 
           <View style={styles.backdropView}>
-            <Text style={styles.headline}>TEAMMATE PHOTOS</Text>
+            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text> 
           </View>
         </Image>
         <View style={styles.bStyle}>
