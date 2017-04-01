@@ -18,9 +18,7 @@ import {
 } from 'react-native';
 
 import {TouchableOpacity,} from 'react-native';
-<<<<<<< HEAD
 import { Column as Col, Row } from 'react-native-flexbox-grid';
-//var Camera = require('react-native-camera-android');
 import ImagePicker from 'react-native-image-picker';
 
 const options = {
@@ -33,10 +31,8 @@ const options = {
     path: 'images'
   }
 };
-=======
 import { Column as Col, Row } from 'react-native-flexbox-grid'
 import styles from './../../assets/styles/Style'
->>>>>>> e31a323ba3341d3c904db347f38a8d34034ddcfe
 
 export default class IndoRugby extends Component {
   constructor(){
@@ -81,9 +77,9 @@ export default class IndoRugby extends Component {
     })
     return (
       <ScrollView>
-        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} > 
+        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
           <View style={styles.backdropView}>
-            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text> 
+            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
           </View>
         </Image>
         <View style={styles.bStyle}>
@@ -106,6 +102,7 @@ export default class IndoRugby extends Component {
             onPress={loadLibraryPressed}
             title="Load from Library"
           />
+          <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
           {/* <Icon.Button name="photo-library" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
             Load from Library
           </Icon.Button> */}
@@ -134,23 +131,6 @@ export default class IndoRugby extends Component {
       </TouchableOpacity>
       )
   }
-<<<<<<< HEAD
-
-  // takePicture() {
-  //   const options = {};
-  //   //options.location = ...
-  //   this.camera.capture({metadata: options})
-  //     .then((data) => console.log(data))
-  //     .catch(err => console.error(err));
-  // }
-
-  // takePicture() {
-  //   const options = {};
-  //   //options.location = ...
-  //   this.camera.capture({metadata: options})
-  //     .then((data) => console.log(data))
-  //     .catch(err => console.error(err));
-  // }
 }
 
 const styles = StyleSheet.create({
@@ -202,9 +182,8 @@ const styles = StyleSheet.create({
     marginBottom: 10
   }
 });
-=======
-} 
->>>>>>> e31a323ba3341d3c904db347f38a8d34034ddcfe
+
+}
 
 const takePhotoPressed = () => {
   ImagePicker.launchCamera(options, (response)  => {
@@ -243,54 +222,31 @@ const takePhotoPressed = () => {
 
 
 const loadLibraryPressed = () => {
-  // ImagePicker.launchImageLibrary(options, (response)  => {
-  //   console.log('Response = ', response);
-  //
-  // if (response.didCancel) {
-  //   console.log('User cancelled image picker');
-  // }
-  // else if (response.error) {
-  //   console.log('ImagePicker Error: ', response.error);
-  // }
-  // else if (response.customButton) {
-  //   console.log('User tapped custom button: ', response.customButton);
-  // }
-  // else {
-  //   let source = { uri: response.uri };
-  //
-  //   // You can also display the image using data:
-  //   // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-  //
-  //   this.setState({
-  //     avatarSource: source
-  //   });
-  // }
-  // });
+  ImagePicker.launchImageLibrary(options, (response)  => {
+    console.log('Response = ', response);
 
-  // ImagePicker.showImagePicker(options, (response) => {
-  // console.log('Response = ', response);
-  //
-  // if (response.didCancel) {
-  //   console.log('User cancelled image picker');
-  // }
-  // else if (response.error) {
-  //   console.log('ImagePicker Error: ', response.error);
-  // }
-  // else if (response.customButton) {
-  //   console.log('User tapped custom button: ', response.customButton);
-  // }
-  // else {
-  //   let source = { uri: response.uri };
+    if (response.didCancel) {
+      console.log('User cancelled image picker');
+    }
+    else if (response.error) {
+      console.log('ImagePicker Error: ', response.error);
+    }
+    else if (response.customButton) {
+      console.log('User tapped custom button: ', response.customButton);
+    }
+    else {
+      console.log("nancy cantik",response.uri)
+      let source = { uri: response.uri };
 
-    // You can also display the image using data:
-    // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+      // You can also display the image using data:
+      // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-//     this.setState({
-//       avatarSource: source
-//     });
-//   }
-// });
-  Alert.alert('Button has been pressed!');
+      this.setState({
+        avatarSource: source
+      });
+    }
+  });
+  //Alert.alert('Button has been pressed!');
 };
 
 
