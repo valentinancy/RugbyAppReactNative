@@ -98,7 +98,6 @@ export default class IndoRugby extends Component {
           <Button
             // style={styles.bStyle}
             color= "red"
-            // marginBottom= "5"
             onPress={loadLibraryPressed}
             title="Load from Library"
           />
