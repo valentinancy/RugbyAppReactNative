@@ -31,8 +31,7 @@ class ReadMoreNews extends Component{
         ref="webviewbridge"
         onBridgeMessage={this.onBridgeMessage.bind(this)}
         injectedJavaScript={injectScript}
-        source={{uri: this.props.url}}
-      />
+        source={{uri: this.props.url}} />
     )
   }
 

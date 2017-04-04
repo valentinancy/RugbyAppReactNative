@@ -27,12 +27,11 @@ class Fixtures extends Component{
   render(){  
     if(!this.state.data){
       return( 
-        <View>
+        <View style={styles.loader}>
           <ActivityIndicator
             animating={this.state.animating}
-            size="large"
-            />
-          <Text style={styles.headline}>Loading</Text>
+            size="large" />
+          <Text style={styles.loaderText}>Loading</Text>
         </View>
       )
     }

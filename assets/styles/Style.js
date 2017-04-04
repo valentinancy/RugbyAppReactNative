@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Dimensions } from 'react-native'
 
-var width = Dimensions.get('window').width; 
+var width = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
@@ -22,6 +22,14 @@ const styles = StyleSheet.create({
     color: '#f0f8ff', 
     textAlign: 'center',
     fontWeight: 'bold'
+  },
+  loader: {
+    marginTop: 50, 
+    alignItems: 'center',
+  }, 
+  loaderText: {
+    fontSize: 20,
+    marginTop: 15,
   },
 
   /* MENU */ 

@@ -18,6 +18,7 @@ class News extends Component {
     super(props);
     this.state = {
       dataSource: null,
+      animating: true,
     };
   }
 
@@ -40,12 +41,11 @@ class News extends Component {
   render() { 
     if(!this.state.dataSource){
       return( 
-        <View>
+        <View style={styles.loader}>
           <ActivityIndicator
             animating={this.state.animating}
-            size="large"
-            />
-          <Text style={styles.headline}>Loading</Text>
+            size="large" />
+          <Text style={styles.loaderText}>Loading</Text>
         </View>
       )
     }
