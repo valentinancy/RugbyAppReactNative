@@ -16,9 +16,7 @@ class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,                                       
-      }),
+      dataSource: null,
     };
   }
 
@@ -26,7 +24,9 @@ class News extends Component {
     fetch(jsonLink.newsJSON) 
     .then((response) => response.json())
     .then((responseData) => {
-            this.setState({dataSource: this.state.dataSource.cloneWithRows(responseData)});
+            this.setState({dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,                                       
+      }).cloneWithRows(responseData)});
         })
     .done(() => {});
   }
@@ -37,7 +37,17 @@ class News extends Component {
 
 
   render() { 
-
+    if(!this.state.dataSource){
+      return( 
+        <View>
+          <ActivityIndicator
+            animating={this.state.animating}
+            size="large"
+            />
+          <Text style={styles.headline}>Loading</Text>
+        </View>
+      )
+    }
     return (
        <ScrollView showsVerticalScrollIndicator={false}>
 

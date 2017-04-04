@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, Text, ScrollView } from 'react-native'
+import { View, Image, Text, ScrollView, ActivityIndicator } from 'react-native'
 import { Column as Col, Row } from 'react-native-flexbox-grid'
 import styles from './../../assets/styles/Style'
 
@@ -21,7 +21,15 @@ class RugbyClubs extends Component {
     render() {
         
         if(!this.state.data) {
-            return <View style={ styles.header }><Text>Loading</Text></View>
+            return( 
+            <View>
+              <ActivityIndicator
+                animating={this.state.animating}
+                size="large"
+                />
+              <Text style={styles.headline}>Loading</Text>
+            </View>
+          )
         }
         
         const clubs = this.state.data.map((club) => {

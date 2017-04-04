@@ -14,8 +14,10 @@ import {
   Button,
   Alert,
   ScrollView,
-  ListView
+  ListView,
+  ActivityIndicator
 } from 'react-native';
+import jsonLink from './../data/JSONLinks'
 
 import {TouchableOpacity,} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
@@ -43,7 +45,7 @@ export default class IndoRugby extends Component {
   }
 
   componentWillMount() {
-        fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
+        fetch(jsonLink.teammateJSON)
         .then((response) => response.json())
         .then((response) => this.setState({ data: response }))
         .catch((error) => console.warn("fetch error:", error))
@@ -51,8 +53,16 @@ export default class IndoRugby extends Component {
 
   render() {
     if(!this.state.data) {
-            return <Text>Loading</Text>
-        }
+        return( 
+          <View>
+            <ActivityIndicator
+              animating={this.state.animating}
+              size="large"
+              />
+            <Text style={styles.headline}>Loading</Text>
+        </View>
+      )
+    }
 
     const photos = this.state.data.data.map((photo,index) => {
       if(index%2==0) {
