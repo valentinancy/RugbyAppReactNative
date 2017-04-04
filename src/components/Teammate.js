@@ -131,57 +131,55 @@ export default class IndoRugby extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  list: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    },
-  headlineImage:{
-    paddingTop: 20,
-    width: 360,
-    height: 120,
-    marginBottom: 20
-  },
-  bStyle:{
-    //backgroundColor: '#FF0000',
-    //textAlign: 'center',
-    marginBottom: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  backdropView: {
-    height: 120,
-    width: 320,
-    backgroundColor: 'rgba(0,0,0,0)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headline: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginTop: 5,
-    color: '#f0f8ff',
-    fontWeight: 'bold'
-  },
-  image: {
-    width: 150,
-    height: 150,
-    marginLeft: 17,
-    marginBottom: 10
-  }
-});
-
-}
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF',
+//   },
+//   list: {
+//     justifyContent: 'center',
+//     flexDirection: 'row',
+//     flexWrap: 'wrap',
+//     },
+//   headlineImage:{
+//     paddingTop: 20,
+//     width: 360,
+//     height: 120,
+//     marginBottom: 20
+//   },
+//   bStyle:{
+//     //backgroundColor: '#FF0000',
+//     //textAlign: 'center',
+//     marginBottom: 10,
+//   },
+//   instructions: {
+//     textAlign: 'center',
+//     color: '#333333',
+//     marginBottom: 5,
+//   },
+//   backdropView: {
+//     height: 120,
+//     width: 320,
+//     backgroundColor: 'rgba(0,0,0,0)',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   headline: {
+//     fontSize: 30,
+//     textAlign: 'center',
+//     marginTop: 5,
+//     color: '#f0f8ff',
+//     fontWeight: 'bold'
+//   },
+//   image: {
+//     width: 150,
+//     height: 150,
+//     marginLeft: 17,
+//     marginBottom: 10
+//   }
+// });
 
 const takePhotoPressed = () => {
   ImagePicker.launchCamera(options, (response)  => {
