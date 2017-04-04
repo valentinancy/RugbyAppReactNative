@@ -18,7 +18,9 @@ class Fixtures extends Component{
     fetch(jsonLink.fixturesJSON)
     .then((response) => response.json())
     .then((response) => {
-      this.setState({ data: this.state.data.cloneWithRows(response) });
+      this.setState({ data: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,                                       
+      }).cloneWithRows(response) });
     }).catch((error) => console.warn("error in fetching",error.message))
   }
 
