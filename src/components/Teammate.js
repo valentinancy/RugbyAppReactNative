@@ -31,7 +31,6 @@ const options = {
     path: 'images'
   }
 };
-import { Column as Col, Row } from 'react-native-flexbox-grid'
 import styles from './../../assets/styles/Style'
 
 export default class IndoRugby extends Component {
