@@ -6,7 +6,8 @@ import {
   ListView,
   Text,
   Image,
-  Linking } from 'react-native'
+  Linking,
+  ActivityIndicator } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import styles from './../../assets/styles/Style'
 import jsonLink from './../data/JSONLinks'
