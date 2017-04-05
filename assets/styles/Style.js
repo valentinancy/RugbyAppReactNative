@@ -13,13 +13,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   header: {
-<<<<<<< HEAD
     width: window.width,
-    height: 100, 
-=======
-    width: this.width,
     height: 100,
->>>>>>> c069bf1d63b02db6093527f00888d0519366f268
   },
   headline: {
     fontSize: 30,
@@ -29,11 +24,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   loader: {
-<<<<<<< HEAD
-    marginTop: (window.height/2)-80, 
-=======
-    marginTop: 50,
->>>>>>> c069bf1d63b02db6093527f00888d0519366f268
+    marginTop: (window.height/2)-80,
     alignItems: 'center',
   },
   loaderText: {
@@ -145,27 +136,6 @@ const styles = StyleSheet.create({
   //   padding: 10
   // },
 
-<<<<<<< HEAD
-=======
-  /* FIXTURES */
-  imgBanner:{
-    width: this.screenWidth,
-    height:175,
-    resizeMode:'contain',
-  },
-  pageBanner:{
-    width: this.screenWidth,
-    resizeMode: 'contain',
-  },
-  pageTitle:{
-    color:'white',
-    fontWeight:'bold',
-    textAlign:'center',
-    marginVertical:75,
-    fontSize:25,
-  },
-
->>>>>>> c069bf1d63b02db6093527f00888d0519366f268
   /* TEAMMATE */
   // container: {
   //   flex: 1,
