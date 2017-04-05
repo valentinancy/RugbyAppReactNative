@@ -23,6 +23,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold'
   },
+  loader: {
+    marginTop: 50,
+    alignItems: 'center',
+  },
+  loaderText: {
+    fontSize: 20,
+    marginTop: 15,
+  },
 
   /* MENU */
   menu: {
@@ -154,13 +162,6 @@ const styles = StyleSheet.create({
     //backgroundColor: '#FF0000',
     //textAlign: 'center',
     marginBottom: 10
-  },
-  bText:{
-    //backgroundColor: '#FF0000',
-    justifyContent: 'center',
-    alignItems: 'center',
-    //fontSize: 15,
-    //color : 'white'
   },
   instructions: {
     textAlign: 'center',

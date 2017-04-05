@@ -40,7 +40,8 @@ export default class IndoRugby extends Component {
     super();
     this.state = {
       data:null,
-      avatarSource: null
+      avatarSource: null,
+      animating: true,
     }
   }
 
@@ -53,6 +54,7 @@ export default class IndoRugby extends Component {
 
   render() {
     if(!this.state.data) {
+<<<<<<< HEAD
         return(
           <View>
             <ActivityIndicator
@@ -60,6 +62,14 @@ export default class IndoRugby extends Component {
               size="large"
               />
             <Text style={styles.headline}>Loading</Text>
+=======
+        return( 
+          <View style={styles.loader}>
+            <ActivityIndicator
+              animating={this.state.animating}
+              size="large" />
+            <Text style={styles.loaderText}>Loading</Text>
+>>>>>>> 2ae7a32dcaa6df33afce72bf8b43444cd341f239
         </View>
       )
     }
