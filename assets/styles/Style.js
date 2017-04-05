@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Dimensions } from 'react-native'
-
-var width = Dimensions.get('window').width;
+   
+const window = Dimensions.get('window');
 
 const styles = StyleSheet.create({
 
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   header: {
-    width: this.width,
+    width: window.width,
     height: 100, 
   },
   headline: {
@@ -24,12 +24,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   loader: {
-    marginTop: 50, 
+    marginTop: (window.height/2)-80, 
     alignItems: 'center',
   }, 
   loaderText: {
     fontSize: 20,
     marginTop: 15,
+  },
+  jsonLoaderContainer: {
+    flex: 1,
+    margin: 15,
   },
 
   /* MENU */ 
@@ -67,8 +71,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   newsImage: {
-    flex: 1,
-    width: this.width,
+    width: window.width * .92,
     height: 200,
   },
   newsURL: {
@@ -76,6 +79,24 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textDecorationLine: 'underline',
   },
+
+  /* FIXTURES */ 
+  imgBanner:{
+    width: window.width *.92,
+    height: 130,
+    resizeMode: 'stretch',
+  },  
+  // pageBanner:{
+  //   width: window.width,
+  //   resizeMode: 'contain',
+  // },
+  // pageTitle:{
+  //   color:'white',
+  //   fontWeight:'bold',
+  //   textAlign:'center',
+  //   marginVertical:75,
+  //   fontSize:25,
+  // },
 
   /* RUGBY CLUBS */
   // titlePage: {
@@ -114,24 +135,6 @@ const styles = StyleSheet.create({
   //   right: 0,
   //   padding: 10
   // },
-
-  /* FIXTURES */ 
-  imgBanner:{
-    width: this.screenWidth,
-    height:175,
-    resizeMode:'contain',
-  },
-  pageBanner:{
-    width: this.screenWidth,
-    resizeMode: 'contain',
-  },
-  pageTitle:{
-    color:'white',
-    fontWeight:'bold',
-    textAlign:'center',
-    marginVertical:75,
-    fontSize:25,
-  },
 
   /* TEAMMATE */
   // container: {

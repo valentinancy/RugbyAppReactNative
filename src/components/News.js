@@ -58,7 +58,7 @@ class News extends Component {
         <ListView
             dataSource = {this.state.dataSource}
             renderRow={(rowData) =>
-                <View style={styles.container}>
+                <View style={styles.jsonLoaderContainer}>
                   <Image source={{uri: rowData.img}} style={styles.newsImage} />
                   <Text style={styles.newsTitle}>{rowData.title}</Text>
                  <Text>
@@ -70,7 +70,7 @@ class News extends Component {
         </ScrollView>
     );
 
-  }
+  } 
     
 }
 

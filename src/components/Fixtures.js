@@ -43,7 +43,7 @@ class Fixtures extends Component{
        <ListView
           dataSource={this.state.data}
           renderRow={(rowData) =>
-           <View style={styles.container}>
+           <View style={styles.jsonLoaderContainer}>
               <Image source={{uri:rowData.img}} style={styles.imgBanner} />
             </View>
           }/>
