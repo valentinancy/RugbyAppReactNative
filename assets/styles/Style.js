@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Dimensions } from 'react-native'
 
-var width = Dimensions.get('window').width; 
+var width = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
@@ -14,17 +14,17 @@ const styles = StyleSheet.create({
   },
   header: {
     width: this.width,
-    height: 100, 
+    height: 100,
   },
   headline: {
     fontSize: 30,
-    marginTop: 40, 
-    color: '#f0f8ff', 
+    marginTop: 40,
+    color: '#f0f8ff',
     textAlign: 'center',
     fontWeight: 'bold'
   },
 
-  /* MENU */ 
+  /* MENU */
   menu: {
     flex: 1,
     width:window.width,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   //   headerImg: {
   //   height: 150,
   //   width: 360
-  // }, 
+  // },
   clubName: {
     fontSize: 18,
     fontWeight: 'bold'
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   //   padding: 10
   // },
 
-  /* FIXTURES */ 
+  /* FIXTURES */
   imgBanner:{
     width: this.screenWidth,
     height:175,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   //   justifyContent: 'center',
   //   alignItems: 'center',
   //   backgroundColor: '#F5FCFF',
-  // }, 
+  // },
   list: {
     justifyContent: 'center',
     flexDirection: 'row',
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: '#f0f8ff',
     fontWeight: 'bold'
-  }, 
+  },
   headlineImage:{
     paddingTop: 20,
     width: 360,
@@ -153,7 +153,14 @@ const styles = StyleSheet.create({
   bStyle:{
     //backgroundColor: '#FF0000',
     //textAlign: 'center',
-    marginBottom: 10 
+    marginBottom: 10
+  },
+  bText:{
+    //backgroundColor: '#FF0000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //fontSize: 15,
+    //color : 'white'
   },
   instructions: {
     textAlign: 'center',
@@ -212,7 +219,7 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     padding: 10
-  }   
+  }
 
 });
 
