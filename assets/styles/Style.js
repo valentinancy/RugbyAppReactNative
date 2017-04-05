@@ -163,6 +163,13 @@ const styles = StyleSheet.create({
     //textAlign: 'center',
     marginBottom: 10
   },
+  bText:{
+    //backgroundColor: '#FF0000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //fontSize: 15,
+    //color : 'white'
+  },
   instructions: {
     textAlign: 'center',
     color: '#333333',
