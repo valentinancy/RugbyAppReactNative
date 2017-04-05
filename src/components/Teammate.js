@@ -40,8 +40,7 @@ export default class IndoRugby extends Component {
     super();
     this.state = {
       data:null,
-      avatarSource: null,
-      animating: true,
+      avatarSource: null
     }
   }
 
@@ -61,12 +60,6 @@ export default class IndoRugby extends Component {
               size="large"
               />
             <Text style={styles.headline}>Loading</Text>
-        return(
-          <View style={styles.loader}>
-            <ActivityIndicator
-              animating={this.state.animating}
-              size="large" />
-            <Text style={styles.loaderText}>Loading</Text>
         </View>
       )
     }
@@ -105,11 +98,7 @@ export default class IndoRugby extends Component {
             onPress={takePhotoPressed}
             title="Take a Photo"
           /> */}
-          <Icon.Button
-              name="camera"
-              backgroundColor="#FF0000"
-              onPress={this.takePhotoPressed}>
-              {/* tambahin di style untuk icon button */}
+          <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
             <View style={styles.bText}><Text>Take a Photo</Text></View>
           </Icon.Button>
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
@@ -125,7 +114,9 @@ export default class IndoRugby extends Component {
             <View style={styles.bText}><Text>Load from Library</Text></View>
           </Icon.Button>
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
+
         </View>
+
         <View>
           { photos }
         </View>
@@ -151,6 +142,56 @@ export default class IndoRugby extends Component {
   }
 }
 
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF',
+//   },
+//   list: {
+//     justifyContent: 'center',
+//     flexDirection: 'row',
+//     flexWrap: 'wrap',
+//     },
+//   headlineImage:{
+//     paddingTop: 20,
+//     width: 360,
+//     height: 120,
+//     marginBottom: 20
+//   },
+//   bStyle:{
+//     //backgroundColor: '#FF0000',
+//     //textAlign: 'center',
+//     marginBottom: 10,
+//   },
+//   instructions: {
+//     textAlign: 'center',
+//     color: '#333333',
+//     marginBottom: 5,
+//   },
+//   backdropView: {
+//     height: 120,
+//     width: 320,
+//     backgroundColor: 'rgba(0,0,0,0)',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   headline: {
+//     fontSize: 30,
+//     textAlign: 'center',
+//     marginTop: 5,
+//     color: '#f0f8ff',
+//     fontWeight: 'bold'
+//   },
+//   image: {
+//     width: 150,
+//     height: 150,
+//     marginLeft: 17,
+//     marginBottom: 10
+//   }
+// });
+
 const takePhotoPressed = () => {
   ImagePicker.launchCamera(options, (response)  => {
     console.log('Response = ', response);
@@ -165,7 +206,7 @@ const takePhotoPressed = () => {
       console.log('User tapped custom button: ', response.customButton);
     }
     else {
-      // console.log("nancy cantik",response.uri)
+      console.log("nancy cantik",response.uri)
       let source = { uri: response.uri };
 
       // You can also display the image using data:
@@ -177,6 +218,15 @@ const takePhotoPressed = () => {
     }
   });
 };
+
+  //<Image source={this.state.avatarSource} style={styles.uploadAvatar} />
+
+//   ImagePicker.launchCamera(options, (response)  => {
+//   // Same code as in above section!
+// });
+
+   //Alert.alert('Button has been pressed!');
+
 
 const loadLibraryPressed = () => {
   ImagePicker.launchImageLibrary(options, (response)  => {
@@ -192,7 +242,7 @@ const loadLibraryPressed = () => {
       console.log('User tapped custom button: ', response.customButton);
     }
     else {
-      // console.log("nancy cantik",response.uri)
+      console.log("nancy cantik",response.uri)
       let source = { uri: response.uri };
 
       // You can also display the image using data:
@@ -203,6 +253,9 @@ const loadLibraryPressed = () => {
       });
     }
   });
+  //Alert.alert('Button has been pressed!');
 };
 
+
 AppRegistry.registerComponent('IndoRugby', () => IndoRugby);
+//export default IndoRugby;
