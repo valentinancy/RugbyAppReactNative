@@ -40,8 +40,7 @@ export default class IndoRugby extends Component {
     super();
     this.state = {
       data:null,
-      avatarSource: null,
-      animating: true,
+      avatarSource: null
     }
   }
 
@@ -54,12 +53,13 @@ export default class IndoRugby extends Component {
 
   render() {
     if(!this.state.data) {
-        return( 
-          <View style={styles.loader}>
+        return(
+          <View>
             <ActivityIndicator
               animating={this.state.animating}
-              size="large" />
-            <Text style={styles.loaderText}>Loading</Text>
+              size="large"
+              />
+            <Text style={styles.headline}>Loading</Text>
         </View>
       )
     }
@@ -92,28 +92,29 @@ export default class IndoRugby extends Component {
           </View>
         </Image>
         <View style={styles.bStyle}>
-          <Button
+          {/* <Button
             color= "red"
             //marginBottom= 50
             onPress={takePhotoPressed}
             title="Take a Photo"
-          />
-          {/* <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
-            Take a Photo
-          </Icon.Button> */}
+          /> */}
+          <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
+            <View style={styles.bText}><Text>Take a Photo</Text></View>
+          </Icon.Button>
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
         </View>
         <View style={styles.bStyle}>
-          <Button
+          {/* <Button
             // style={styles.bStyle}
             color= "red"
             onPress={loadLibraryPressed}
             title="Load from Library"
-          />
+          /> */}
+          <Icon.Button name="image" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
+            <View style={styles.bText}><Text>Load from Library</Text></View>
+          </Icon.Button>
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
-          {/* <Icon.Button name="photo-library" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
-            Load from Library
-          </Icon.Button> */}
+
         </View>
 
         <View>

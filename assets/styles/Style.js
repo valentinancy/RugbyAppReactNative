@@ -13,20 +13,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   header: {
+<<<<<<< HEAD
     width: window.width,
     height: 100, 
+=======
+    width: this.width,
+    height: 100,
+>>>>>>> c069bf1d63b02db6093527f00888d0519366f268
   },
   headline: {
     fontSize: 30,
-    marginTop: 40, 
-    color: '#f0f8ff', 
+    marginTop: 40,
+    color: '#f0f8ff',
     textAlign: 'center',
     fontWeight: 'bold'
   },
   loader: {
+<<<<<<< HEAD
     marginTop: (window.height/2)-80, 
+=======
+    marginTop: 50,
+>>>>>>> c069bf1d63b02db6093527f00888d0519366f268
     alignItems: 'center',
-  }, 
+  },
   loaderText: {
     fontSize: 20,
     marginTop: 15,
@@ -36,7 +45,7 @@ const styles = StyleSheet.create({
     margin: 15,
   },
 
-  /* MENU */ 
+  /* MENU */
   menu: {
     flex: 1,
     width:window.width,
@@ -109,7 +118,7 @@ const styles = StyleSheet.create({
   //   headerImg: {
   //   height: 150,
   //   width: 360
-  // }, 
+  // },
   clubName: {
     fontSize: 18,
     fontWeight: 'bold'
@@ -136,13 +145,34 @@ const styles = StyleSheet.create({
   //   padding: 10
   // },
 
+<<<<<<< HEAD
+=======
+  /* FIXTURES */
+  imgBanner:{
+    width: this.screenWidth,
+    height:175,
+    resizeMode:'contain',
+  },
+  pageBanner:{
+    width: this.screenWidth,
+    resizeMode: 'contain',
+  },
+  pageTitle:{
+    color:'white',
+    fontWeight:'bold',
+    textAlign:'center',
+    marginVertical:75,
+    fontSize:25,
+  },
+
+>>>>>>> c069bf1d63b02db6093527f00888d0519366f268
   /* TEAMMATE */
   // container: {
   //   flex: 1,
   //   justifyContent: 'center',
   //   alignItems: 'center',
   //   backgroundColor: '#F5FCFF',
-  // }, 
+  // },
   list: {
     justifyContent: 'center',
     flexDirection: 'row',
@@ -154,7 +184,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: '#f0f8ff',
     fontWeight: 'bold'
-  }, 
+  },
   headlineImage:{
     paddingTop: 20,
     width: 360,
@@ -164,7 +194,14 @@ const styles = StyleSheet.create({
   bStyle:{
     //backgroundColor: '#FF0000',
     //textAlign: 'center',
-    marginBottom: 10 
+    marginBottom: 10
+  },
+  bText:{
+    //backgroundColor: '#FF0000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //fontSize: 15,
+    //color : 'white'
   },
   instructions: {
     textAlign: 'center',
@@ -223,7 +260,7 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     padding: 10
-  }   
+  }
 
 });
 
