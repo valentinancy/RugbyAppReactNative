@@ -34,7 +34,6 @@ const options = {
     path: 'images'
   }
 };
-import styles from './../../assets/styles/Style'
 
 export default class IndoRugby extends Component {
   constructor(){
