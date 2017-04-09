@@ -41,7 +41,8 @@ export default class IndoRugby extends Component {
     this.state = {
       data:null,
       animating:true,
-      avatarSource: null
+      avatarSource: null,
+      canLoad:true,
     }
   }
 
@@ -49,11 +50,18 @@ export default class IndoRugby extends Component {
         fetch(jsonLink.teammateJSON)
         .then((response) => response.json())
         .then((response) => this.setState({ data: response }))
-        .catch((error) => console.warn("fetch error:", error))
+        .catch((error) => {this.state.canLoad=false;this.forceUpdate();})
   }
 
   render() {
-    if(!this.state.data) {
+    if(this.state.canLoad==false){
+      return(
+        <View style={styles.loader}>          
+          <Text style={styles.loaderText}>Cannot connect to server</Text>
+        </View>
+      )
+    }
+    else if(!this.state.data) {
         return(
           <View style = {styles.loader}>
             <ActivityIndicator
