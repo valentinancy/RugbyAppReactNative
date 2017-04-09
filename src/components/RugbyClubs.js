@@ -63,7 +63,7 @@ class RugbyClubs extends Component {
         return(
             <ScrollView>
                 <Image style={ styles.header }
-                    source={ require('../../assets/images/sub-header-clubs.png') }>
+                    source={ require('./../../assets/images/sub-header-clubs.png') }>
                     <View>
                         <Text style={ styles.headline }>RUGBY CLUBS</Text>
                     </View>

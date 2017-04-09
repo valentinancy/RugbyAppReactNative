@@ -17,7 +17,8 @@ import {
   ListView,
   ActivityIndicator
 } from 'react-native';
-import jsonLink from './../data/JSONLinks'
+import jsonLink from './../data/JSONLinks';
+import styles from './../../assets/styles/Style';
 
 import {TouchableOpacity,} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
@@ -40,6 +41,7 @@ export default class IndoRugby extends Component {
     super();
     this.state = {
       data:null,
+      animating:true,
       avatarSource: null
     }
   }
@@ -54,12 +56,12 @@ export default class IndoRugby extends Component {
   render() {
     if(!this.state.data) {
         return(
-          <View>
+          <View style = {styles.loader}>
             <ActivityIndicator
               animating={this.state.animating}
               size="large"
               />
-            <Text style={styles.headline}>Loading</Text>
+            <Text style={styles.loaderText}>Loading</Text>
         </View>
       )
     }

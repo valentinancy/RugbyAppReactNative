@@ -8,7 +8,7 @@ class Rugby101 extends Component {
         return(
             <ScrollView>
                 <Image style={ styles.header }
-                    source={ require('../../assets/images/sub-header-101.png') }>
+                    source={ require('./../../assets/images/sub-header-101.png') }>
                     <View>
                         <Text style={ styles.headline }>RUGBY 101</Text>
                     </View>
