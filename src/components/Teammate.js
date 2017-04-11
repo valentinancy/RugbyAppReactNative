@@ -125,6 +125,7 @@ export default class IndoRugby extends Component {
   }
 
 
+
   renderItem(item, itemSize){
     return(
       <TouchableOpacity
@@ -132,6 +133,7 @@ export default class IndoRugby extends Component {
         style = {{ width: itemSize, height:itemSize }}
         onPress = { () => {
           //do something
+          //asdasd
         }}>
       <Image
         resizeMode = "cover"

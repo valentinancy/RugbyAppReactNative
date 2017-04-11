@@ -3,6 +3,9 @@
  * https://github.com/facebook/react-native
  * @flow
  */
+
+ // https://github.com/Automattic/node-canvas -> canvas on react native
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { Component } from 'react';
 import {
