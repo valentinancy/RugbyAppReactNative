@@ -92,27 +92,27 @@ export default class IndoRugby extends Component {
           </View>
         </Image>
         <View style={styles.bStyle}>
-          {/* <Button
+          <Button
             color= "red"
             //marginBottom= 50
             onPress={takePhotoPressed}
             title="Take a Photo"
-          /> */}
-          <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
+          />
+          {/* <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
             <View style={styles.bText}><Text>Take a Photo</Text></View>
-          </Icon.Button>
+          </Icon.Button> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
         </View>
         <View style={styles.bStyle}>
-          {/* <Button
+          <Button
             // style={styles.bStyle}
             color= "red"
             onPress={loadLibraryPressed}
             title="Load from Library"
-          /> */}
-          <Icon.Button name="image" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
+          />
+          {/* <Icon.Button name="image" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
             <View style={styles.bText}><Text>Load from Library</Text></View>
-          </Icon.Button>
+          </Icon.Button> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
 
         </View>
