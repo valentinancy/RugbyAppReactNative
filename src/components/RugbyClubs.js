@@ -9,6 +9,7 @@ class RugbyClubs extends Component {
         this.state = {
             data: null,
             animating: true,
+            canLoad:true,
         }
     }
 
@@ -16,12 +17,18 @@ class RugbyClubs extends Component {
         fetch('https://ri-admin.azurewebsites.net/indonesianrugby/clubs/list.json')
         .then((response) => response.json())
         .then((response) => this.setState({ data: response }))
-        .catch((error) => console.warn("fetch error:", error))
+        .catch((error) => {this.state.canLoad=false;this.forceUpdate();})
     }
 
-    render() {
-        
-        if(!this.state.data) {
+    render() {        
+        if(this.state.canLoad==false){
+          return(
+            <View style={styles.loader}>          
+              <Text style={styles.loaderText}>Cannot connect to server</Text>
+            </View>
+          )
+        }
+        else if(!this.state.data) {
             return( 
             <View style={styles.loader}>
               <ActivityIndicator
@@ -63,7 +70,7 @@ class RugbyClubs extends Component {
         return(
             <ScrollView>
                 <Image style={ styles.header }
-                    source={ require('../../assets/images/sub-header-clubs.png') }>
+                    source={ require('./../../assets/images/sub-header-clubs.png') }>
                     <View>
                         <Text style={ styles.headline }>RUGBY CLUBS</Text>
                     </View>

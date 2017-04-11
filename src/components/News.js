@@ -19,6 +19,7 @@ class News extends Component {
     this.state = {
       dataSource: null,
       animating: true,
+      canLoad:true,
     };
   }
 
@@ -30,7 +31,7 @@ class News extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2,                                       
       }).cloneWithRows(responseData)});
         })
-    .done(() => {});
+    .catch((error) => {this.state.canLoad=false;this.forceUpdate();});
   }
 
   handleClick(e,url) {
@@ -39,7 +40,14 @@ class News extends Component {
 
 
   render() { 
-    if(!this.state.dataSource){
+    if(this.state.canLoad==false){
+      return(
+        <View style={styles.loader}>          
+          <Text style={styles.loaderText}>Cannot connect to server</Text>
+        </View>
+      )
+    }
+    else if(!this.state.dataSource){
       return( 
         <View style={styles.loader}>
           <ActivityIndicator
@@ -58,7 +66,7 @@ class News extends Component {
         <ListView
             dataSource = {this.state.dataSource}
             renderRow={(rowData) =>
-                <View style={styles.container}>
+                <View style={styles.jsonLoaderContainer}>
                   <Image source={{uri: rowData.img}} style={styles.newsImage} />
                   <Text style={styles.newsTitle}>{rowData.title}</Text>
                  <Text>
@@ -70,7 +78,7 @@ class News extends Component {
         </ScrollView>
     );
 
-  }
+  } 
     
 }
 

@@ -11,6 +11,7 @@ class Fixtures extends Component{
     this.state={
       data:null,
       animating:true,
+      canLoad:true,
     }
   }
 
@@ -21,11 +22,18 @@ class Fixtures extends Component{
       this.setState({ data: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,                                       
       }).cloneWithRows(response) });
-    }).catch((error) => console.warn("error in fetching",error.message))
+    }).catch((error) => {this.state.canLoad=false;this.forceUpdate();})
   }
 
   render(){  
-    if(!this.state.data){
+    if(this.state.canLoad==false){
+      return(
+        <View style={styles.loader}>          
+          <Text style={styles.loaderText}>Cannot connect to server</Text>
+        </View>
+      )
+    }
+    else if(!this.state.data){
       return( 
         <View style={styles.loader}>
           <ActivityIndicator
@@ -43,7 +51,7 @@ class Fixtures extends Component{
        <ListView
           dataSource={this.state.data}
           renderRow={(rowData) =>
-           <View style={styles.container}>
+           <View style={styles.jsonLoaderContainer}>
               <Image source={{uri:rowData.img}} style={styles.imgBanner} />
             </View>
           }/>
