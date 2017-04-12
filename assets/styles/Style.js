@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet, Dimensions,PixelRatio } from 'react-native'
    
 const window = Dimensions.get('window');
 
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     height: 100,
   },
   headline: {
-    fontSize: 30,
-    marginTop: 40,
+    fontSize: 7*PixelRatio.getFontScale(),
+    marginTop: 30,
     color: '#f0f8ff',
     textAlign: 'center',
     fontWeight: 'bold'
