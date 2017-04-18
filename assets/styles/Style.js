@@ -41,15 +41,23 @@ const styles = StyleSheet.create({
     flex: 1,
     width:window.width,
     height: window.height,
-    backgroundColor: 'beige',
+    backgroundColor: 'red',
     padding: 20,
     marginTop: 40
- },
+  },
   item: {
     fontSize: 14,
     fontWeight: '300',
     paddingTop: 20,
- },
+  },
+  menuIcon: {
+    width:50,
+    height:50,
+  },
+  itemContainer: {
+    flex:1,
+    flexDirection:'column'
+  },
 
   /* HOME */
   button: {
