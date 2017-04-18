@@ -15,7 +15,8 @@ import {
   Alert,
   ScrollView,
   ListView,
-  ActivityIndicator
+  ActivityIndicator,
+  CameraRoll
 } from 'react-native';
 import jsonLink from './../data/JSONLinks';
 import styles from './../../assets/styles/Style';
@@ -142,7 +143,6 @@ export default class IndoRugby extends Component {
         style = {{ width: itemSize, height:itemSize }}
         onPress = { () => {
           //do something
-          //asdasd
         }}>
       <Image
         resizeMode = "cover"
@@ -218,14 +218,15 @@ const takePhotoPressed = () => {
     }
     else {
       console.log("nancy cantik",response.uri)
-      let source = { uri: response.uri };
 
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-      this.setState({
-        avatarSource: source
-      });
+      CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result) {
+  console.log('save succeeded ' + result);
+}).catch(function(error) {
+  console.log('save failed ' + error);
+});
     }
   });
 };
