@@ -42,43 +42,77 @@ class Menu extends Component{
                     <Text style={styles.item} onPress={ (e) => this.handleClick(e,'rugbyClubs') }>Rugby Clubs</Text>
                     <Text style={styles.item} onPress={ (e) => this.handleClick(e,'rugby101') }>Rugby 101</Text>
 				</View>*/}
+<<<<<<< HEAD
                 <View>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
                             <Text style={styles.item}>
+=======
+                <View> 
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') }>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
+>>>>>>> 655cd52f5faf8d3c32648214dce42af24d80c1c5
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
+                            </View>                           
+                            <Text style={styles.item}>
                                 News
                             </Text>
                         </View>
                     </TouchableHighlight>
+<<<<<<< HEAD
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
+=======
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') }>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
+                                <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
+                            </View>                            
+>>>>>>> 655cd52f5faf8d3c32648214dce42af24d80c1c5
                             <Text style={styles.item}>
-                                <Image style={styles.menuIcon} source={require('./../../assets/images/fixture.png')}/>
                                 Fixtures & Result
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'teammate') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>
-                            <Text style={styles.item}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/photo.png')}/>
+                            </View>
+                            <Text style={styles.item}>
                                 Teammate Photos
                             </Text>
                         </View>
                     </TouchableHighlight>
+<<<<<<< HEAD
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
                             <Text style={styles.item}>
+=======
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') }>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
+>>>>>>> 655cd52f5faf8d3c32648214dce42af24d80c1c5
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/rugby101.png')}/>
+                            </View>                           
+                            <Text style={styles.item}>
                                 Rugby 101
                             </Text>
                         </View>
                     </TouchableHighlight>
+<<<<<<< HEAD
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
                             <Text style={styles.item}>
+=======
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') }>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
+>>>>>>> 655cd52f5faf8d3c32648214dce42af24d80c1c5
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/clubs.png')}/>
+                            </View>                            
+                            <Text style={styles.item}>
                                 Rugby Clubs
                             </Text>
                         </View>

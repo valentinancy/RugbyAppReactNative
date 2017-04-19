@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     color:'white',
   },
   menuIcon: {
+<<<<<<< HEAD
     width:75,
     height:75,
   },
@@ -69,8 +70,26 @@ const styles = StyleSheet.create({
   },
   sidebarLogo: {
     width:window.width/2
+=======
+    width:25,
+    height:25
   },
-
+  menuIconView: {
+     flexDirection: 'column',
+     paddingRight: 10,
+     justifyContent: 'space-around'
+  },
+  itemContainer: {
+    flex:1,
+    alignItems: 'flex-start',
+    flexDirection: 'row'
+  },
+  item: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    fontSize: 15
+>>>>>>> 655cd52f5faf8d3c32648214dce42af24d80c1c5
+  },
   /* HOME */
   button: {
     position: 'absolute',

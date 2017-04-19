@@ -20,9 +20,10 @@ import {
   ListView
 } from 'react-native';
 
-import {TouchableOpacity,} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
+// import Canvas from 'react-native-canvas';
 
 // const options = {
 //   title: 'Select Avatar',
@@ -36,76 +37,147 @@ import ImagePicker from 'react-native-image-picker';
 // };
 import styles from './../../assets/styles/Style'
 
-export default class EditPhoto extends Component {
-  constructor(){
-    super();
-    // this.state = {
-    //   data:null,
-    //   avatarSource: null
-    // }
-  }
+class EditPhoto extends Component {
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     data: null
+  //   }
 
   // componentWillMount() {
   //       fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
   //       .then((response) => response.json())
   //       .then((response) => this.setState({ data: response }))
-  //       .catch((error) => console.warn("fetch error:", error))
   // }
 
   render() {
-    if(!this.state.data) {
-            return <Text>Loading</Text>
-        }
+    // if(!this.state.data) {
+    //         return <Text>Loading</Text>
+    //     }
 
-    // const photos = this.state.data.data.map((photo,index) => {
-    //   if(index%2==0) {
-    //     return(
-    //       <Row key={index} size={10} nowrap>
-    //             <Col sm={5} md={5} lg={5}>
-    //             <Image
-    //                 style={ styles.image }
-    //                 source={{uri: this.state.data.data[index]}}
-    //                 />
-    //             </Col>
-    //             <Col sm={5} md={5} lg={5}>
-    //             <Image
-    //                 style={ styles.image }
-    //                 source={{uri: this.state.data.data[index+1]}}
-    //                 />
-    //             </Col>
-    //         </Row>
-    //     )
-    //   }
-    // })
+const photos = this.state.data.data.map((photo,index) => {
+      if(index%2==0) {
+        return(
+          <View>
+            <Row key={index} size={10} nowrap>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+1]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+2]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+3]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+4]}}
+                      />
+                  </Col>
+              </Row>
+              <Row key={index} size={10} nowrap>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+1]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+2]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+3]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+4]}}
+                      />
+                  </Col>
+              </Row>
+            </View>
+        )
+      }
+    })
+      
+
     return (
       <ScrollView>
+        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
+          <View style={styles.backdropView}>
+            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
+          </View>
+        </Image>
+
         <View>
-          <Canvas
+           <Image source={{uri: this.props.asd}} style={styles.headlineImage} />
+          {/* <Canvas
             context={{message: 'Hello!'}}
             render={renderCanvas}
-            style={{height: 200, width: 200}}/>
+            style={{height: 200, width: 200}}/> */}
+
+            {/*<Image source={require('')} style={styles.headlineImage} >
+              <View style={styles.backdropView}>
+                <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
+              </View>
+            </Image>*/}
+            {/* - tampilin hasil foto
+                - tampilin grid of frame
+
+              */}
         </View>
+          {/* grid frame :
+
+            */}
         <View style={styles.bStyle}>
-          {/* <Button
+          <Button
             color= "red"
             //marginBottom= 50
-            //onPress={takePhotoPressed}
+            onPress={uploadPhoto}
             title="Submit"
-          /> */}
-          <Icon.Button name="cloud-upload" backgroundColor="#FF0000" onPress={this.uploadPhoto}>
+          />
+          {/* <Icon.Button name="cloud-upload" backgroundColor="#FF0000" onPress={this.uploadPhoto}>
             Submit
-          </Icon.Button>
+          </Icon.Button> */}
         </View>
         <View style={styles.bStyle}>
-          {/* <Button
+          <Button
             // style={styles.bStyle}
             color= "red"
-            onPress={loadLibraryPressed}
-            title="Load from Library"
-          /> */}
-          <Icon.Button name="share" backgroundColor="#FF0000" onPress={this.sharePhoto}>
+            onPress={sharePhoto}
+            title="Share"
+          />
+          {/* <Icon.Button name="share" backgroundColor="#FF0000" onPress={this.sharePhoto}>
             Share
-          </Icon.Button>
+          </Icon.Button> */}
         </View>
       </ScrollView>
     );
@@ -120,4 +192,6 @@ const sharePhoto = () => {
   Alert.alert('Button has been pressed!');
 };
 
-AppRegistry.registerComponent('EditPhoto', () => EditPhoto);
+export default EditPhoto
+
+

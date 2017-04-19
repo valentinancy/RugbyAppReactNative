@@ -15,11 +15,12 @@ import {
   Alert,
   ScrollView,
   ListView,
-  ActivityIndicator
+  ActivityIndicator,
+  CameraRoll
 } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 import jsonLink from './../data/JSONLinks';
 import styles from './../../assets/styles/Style';
-
 import {TouchableOpacity,} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
@@ -35,7 +36,7 @@ const options = {
   }
 };
 
-export default class IndoRugby extends Component {
+class Teammate extends Component {
   constructor(){
     super();
     this.state = {
@@ -56,7 +57,7 @@ export default class IndoRugby extends Component {
   render() {
     if(this.state.canLoad==false){
       return(
-        <View style={styles.loader}>          
+        <View style={styles.loader}>
           <Text style={styles.loaderText}>Cannot connect to server</Text>
         </View>
       )
@@ -103,7 +104,6 @@ export default class IndoRugby extends Component {
         <View style={styles.bStyle}>
           <Button
             color= "red"
-            //marginBottom= 50
             onPress={takePhotoPressed}
             title="Take a Photo"
           />
@@ -119,9 +119,10 @@ export default class IndoRugby extends Component {
             onPress={loadLibraryPressed}
             title="Load from Library"
           />
-          {/* <Icon.Button name="image" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
+           {/*<div onClick={loadLibraryPressed}>
+             <Icon.Button name="image" backgroundColor="#FF0000"/>
             <View style={styles.bText}><Text>Load from Library</Text></View>
-          </Icon.Button> */}
+          </div> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
 
         </View>
@@ -133,8 +134,6 @@ export default class IndoRugby extends Component {
     );
   }
 
-
-
   renderItem(item, itemSize){
     return(
       <TouchableOpacity
@@ -142,7 +141,6 @@ export default class IndoRugby extends Component {
         style = {{ width: itemSize, height:itemSize }}
         onPress = { () => {
           //do something
-          //asdasd
         }}>
       <Image
         resizeMode = "cover"
@@ -153,57 +151,11 @@ export default class IndoRugby extends Component {
   }
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   list: {
-//     justifyContent: 'center',
-//     flexDirection: 'row',
-//     flexWrap: 'wrap',
-//     },
-//   headlineImage:{
-//     paddingTop: 20,
-//     width: 360,
-//     height: 120,
-//     marginBottom: 20
-//   },
-//   bStyle:{
-//     //backgroundColor: '#FF0000',
-//     //textAlign: 'center',
-//     marginBottom: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-//   backdropView: {
-//     height: 120,
-//     width: 320,
-//     backgroundColor: 'rgba(0,0,0,0)',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   headline: {
-//     fontSize: 30,
-//     textAlign: 'center',
-//     marginTop: 5,
-//     color: '#f0f8ff',
-//     fontWeight: 'bold'
-//   },
-//   image: {
-//     width: 150,
-//     height: 150,
-//     marginLeft: 17,
-//     marginBottom: 10
-//   }
-// });
-
 const takePhotoPressed = () => {
+  let baseImage = new Image();
+  let imageStr = "";
+  let dataURL = "";
+
   ImagePicker.launchCamera(options, (response)  => {
     console.log('Response = ', response);
 
@@ -218,26 +170,20 @@ const takePhotoPressed = () => {
     }
     else {
       console.log("nancy cantik",response.uri)
-      let source = { uri: response.uri };
 
+      //kirim stringnya ke editphoto
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+      Actions.editphoto({uri: response.uri})
 
-      this.setState({
-        avatarSource: source
-      });
+      CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result) {
+  console.log('save succeeded ' + result);
+}).catch(function(error) {
+  console.log('save failed ' + error);
+});
     }
   });
 };
-
-  //<Image source={this.state.avatarSource} style={styles.uploadAvatar} />
-
-//   ImagePicker.launchCamera(options, (response)  => {
-//   // Same code as in above section!
-// });
-
-   //Alert.alert('Button has been pressed!');
-
 
 const loadLibraryPressed = () => {
   ImagePicker.launchImageLibrary(options, (response)  => {
@@ -259,14 +205,9 @@ const loadLibraryPressed = () => {
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-      this.setState({
-        avatarSource: source
-      });
+      Actions.editPhoto({asd: response.uri})
     }
   });
-  //Alert.alert('Button has been pressed!');
 };
 
-
-AppRegistry.registerComponent('IndoRugby', () => IndoRugby);
-//export default IndoRugby;
+export default Teammate;
