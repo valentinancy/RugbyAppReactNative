@@ -42,43 +42,53 @@ class Menu extends Component{
                     <Text style={styles.item} onPress={ (e) => this.handleClick(e,'rugbyClubs') }>Rugby Clubs</Text>
                     <Text style={styles.item} onPress={ (e) => this.handleClick(e,'rugby101') }>Rugby 101</Text>
 				</View>*/}
-                <View>
+                <View> 
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') }>
-                        <View style={styles.itemContainer}>                            
-                            <Text style={styles.item}>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
+                            </View>                           
+                            <Text style={styles.item}>
                                 News
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') }>
-                        <View style={styles.itemContainer}>                            
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
+                                <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
+                            </View>                            
                             <Text style={styles.item}>
-                                <Image style={styles.menuIcon} source={require('./../../assets/images/fixture.png')}/>
                                 Fixtures & Result
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'teammate') }>
                         <View style={styles.itemContainer}>
-                            <Text style={styles.item}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/photo.png')}/>
+                            </View>
+                            <Text style={styles.item}>
                                 Teammate Photos
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') }>
-                        <View style={styles.itemContainer}>                            
-                            <Text style={styles.item}>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/rugby101.png')}/>
+                            </View>                           
+                            <Text style={styles.item}>
                                 Rugby 101
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') }>
-                        <View style={styles.itemContainer}>                            
-                            <Text style={styles.item}>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/clubs.png')}/>
+                            </View>                            
+                            <Text style={styles.item}>
                                 Rugby Clubs
                             </Text>
                         </View>

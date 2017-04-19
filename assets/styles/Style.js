@@ -51,14 +51,24 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   menuIcon: {
-    width:50,
-    height:50,
+    width:25,
+    height:25
+  },
+  menuIconView: {
+     flexDirection: 'column',
+     paddingRight: 10,
+     justifyContent: 'space-around'
   },
   itemContainer: {
     flex:1,
-    flexDirection:'column'
+    alignItems: 'flex-start',
+    flexDirection: 'row'
   },
-
+  item: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    fontSize: 15
+  },
   /* HOME */
   button: {
     position: 'absolute',
