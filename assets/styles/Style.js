@@ -235,21 +235,38 @@ const styles = StyleSheet.create({
   },
   choosenImage: {
     width: 400,
-    height: 400
+    height: 400,
+    flex: 1
+    // flexDirection: 'column'
   },
   choosenImageView: {
     marginTop: 5,
-    marginBottom: 20
+    marginBottom: 20,
+    position: 'absolute'
   },
   frameImageView: {
     marginLeft: 2,
-    marginRight: 2
+    marginRight: 2,
+    marginBottom: 6
   },
   frameGroup: {
+    marginTop: 20,
     marginBottom: 20
   },
-
-
+  choosenFrameView: {
+    opacity: 1,
+    marginTop: 5
+  },
+  empty: {
+    opacity: 0
+  },
+  emptyView: {
+    paddingTop: 200
+  },
+  choosenFrame: {
+    height: 400,
+    width: 400
+  },
   /* RUGBY 101 */
   // headerImg: {
   //   height: 100,
