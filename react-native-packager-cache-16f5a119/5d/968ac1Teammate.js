@@ -205,7 +205,7 @@ var source={uri:response.uri};
 
 
 
-_reactNativeRouterFlux.Actions.editPhoto({asd:response.uri});
+_reactNativeRouterFlux.Actions.editphoto({asd:response.uri});
 }
 });
 };exports.default=

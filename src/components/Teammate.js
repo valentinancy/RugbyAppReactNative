@@ -205,7 +205,7 @@ const loadLibraryPressed = () => {
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-      Actions.editPhoto({asd: response.uri})
+      Actions.editphoto({asd: response.uri})
     }
   });
 };
