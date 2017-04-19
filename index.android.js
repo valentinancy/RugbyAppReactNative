@@ -21,7 +21,7 @@ class App extends React.Component {
     return(
         <Router sceneStyle={{ paddingTop: 55 }}
             navigationBarBackgroundImage={require('./assets/images/header.png')}
-            renderTitle={() => (<Image source={require('./assets/images/logo-header.png')} style={{height:40,resizeMode:'contain',marginVertical:7}} />)}            
+            renderTitle={() => (<Image source={require('./assets/images/logo-header.png')} style={{height:40,resizeMode:'contain',marginVertical:7}} />)}
             /*renderBackButton={() => (null)}*/
             renderLeftButton={() => (<Image source={require('./assets/images/menu.png')} style={{height:20,resizeMode:'contain',marginVertical:7,marginLeft:-40}} />)}
             onLeft={() => (Actions.news())}
@@ -34,11 +34,11 @@ class App extends React.Component {
             <Scene key="readMoreNews" component={ ReadMoreNews }/>
             <Scene key="teammate" component={ Teammate }/>
             <Scene key="rugbyClubs" component={ RugbyClubs }/>
-            <Scene key="rugby101" component={ Rugby101 }/> 
-            <Scene key="editPhoto" component={ EditPhoto }/>            
+            <Scene key="rugby101" component={ Rugby101 }/>
+            <Scene key="editphoto" component={ EditPhoto }/>
     </Router>
     )
   }
 }
- 
+
 AppRegistry.registerComponent('Last', () => App);

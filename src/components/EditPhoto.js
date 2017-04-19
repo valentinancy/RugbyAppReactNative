@@ -20,9 +20,10 @@ import {
   ListView
 } from 'react-native';
 
-import {TouchableOpacity,} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
+// import Canvas from 'react-native-canvas';
 
 // const options = {
 //   title: 'Select Avatar',
@@ -42,6 +43,11 @@ class EditPhoto extends Component {
   //   this.state = {
   //     data: null
   //   }
+
+  // componentWillMount() {
+  //       fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
+  //       .then((response) => response.json())
+  //       .then((response) => this.setState({ data: response }))
   // }
 
   render() {
@@ -133,28 +139,45 @@ const photos = this.state.data.data.map((photo,index) => {
 
         <View>
            <Image source={{uri: this.props.asd}} style={styles.headlineImage} />
+          {/* <Canvas
+            context={{message: 'Hello!'}}
+            render={renderCanvas}
+            style={{height: 200, width: 200}}/> */}
+
+            {/*<Image source={require('')} style={styles.headlineImage} >
+              <View style={styles.backdropView}>
+                <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
+              </View>
+            </Image>*/}
+            {/* - tampilin hasil foto
+                - tampilin grid of frame
+
+              */}
         </View>
+          {/* grid frame :
+
+            */}
         <View style={styles.bStyle}>
-          {/* <Button
+          <Button
             color= "red"
             //marginBottom= 50
-            //onPress={takePhotoPressed}
+            onPress={uploadPhoto}
             title="Submit"
-          /> */}
-          <Icon.Button name="cloud-upload" backgroundColor="#FF0000" onPress={this.uploadPhoto}>
+          />
+          {/* <Icon.Button name="cloud-upload" backgroundColor="#FF0000" onPress={this.uploadPhoto}>
             Submit
-          </Icon.Button>
+          </Icon.Button> */}
         </View>
         <View style={styles.bStyle}>
-          {/* <Button
+          <Button
             // style={styles.bStyle}
             color= "red"
-            onPress={loadLibraryPressed}
-            title="Load from Library"
-          /> */}
-          <Icon.Button name="share" backgroundColor="#FF0000" onPress={this.sharePhoto}>
+            onPress={sharePhoto}
+            title="Share"
+          />
+          {/* <Icon.Button name="share" backgroundColor="#FF0000" onPress={this.sharePhoto}>
             Share
-          </Icon.Button>
+          </Icon.Button> */}
         </View>
       </ScrollView>
     );
@@ -170,3 +193,5 @@ const sharePhoto = () => {
 };
 
 export default EditPhoto
+
+

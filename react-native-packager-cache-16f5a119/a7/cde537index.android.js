@@ -35,7 +35,7 @@ _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'readMoreNews',c
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'teammate',component:_Teammate2.default}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'rugbyClubs',component:_RugbyClubs2.default}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'rugby101',component:_Rugby2.default}),
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'editPhoto',component:_EditPhoto2.default})));
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'editphoto',component:_EditPhoto2.default})));
 
 
 }}]);return App;}(_react2.default.Component);

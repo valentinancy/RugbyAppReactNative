@@ -35,12 +35,54 @@ _reactNativeRouterFlux.Actions.home();}
 {var _this2=this;
 return(
 _react2.default.createElement(_reactNative.ScrollView,{scrollsToTop:false,style:_Style2.default.menu},
+
+
+
+
+
+
+
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item,onPress:function onPress(e){return _this2.handleClick(e,'news');}},'News'),
-_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item,onPress:function onPress(e){return _this2.handleClick(e,'fixtures');}},'Fixtures and Result'),
-_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item,onPress:function onPress(e){return _this2.handleClick(e,'teammate');}},'Teammate Photos'),
-_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item,onPress:function onPress(e){return _this2.handleClick(e,'rugbyClubs');}},'Rugby Clubs'),
-_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item,onPress:function onPress(e){return _this2.handleClick(e,'rugby101');}},'Rugby 101'))));
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'news');}},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},
+_react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/timeline.png')}),'News'))),
+
+
+
+
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'fixtures');}},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},
+_react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/fixture.png')}),'Fixtures & Result'))),
+
+
+
+
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'teammate');}},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},
+_react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/photo.png')}),'Teammate Photos'))),
+
+
+
+
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'rugby101');}},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},
+_react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/rugby101.png')}),'Rugby 101'))),
+
+
+
+
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'rugbyClubs');}},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},
+_react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/clubs.png')}),'Rugby Clubs'))))));
+
+
+
+
 
 
 

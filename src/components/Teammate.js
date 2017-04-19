@@ -18,9 +18,9 @@ import {
   ActivityIndicator,
   CameraRoll
 } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 import jsonLink from './../data/JSONLinks';
 import styles from './../../assets/styles/Style';
-import { Actions } from 'react-native-router-flux'
 import {TouchableOpacity,} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
@@ -36,7 +36,7 @@ const options = {
   }
 };
 
-export default class IndoRugby extends Component {
+class Teammate extends Component {
   constructor(){
     super();
     this.state = {
@@ -57,7 +57,7 @@ export default class IndoRugby extends Component {
   render() {
     if(this.state.canLoad==false){
       return(
-        <View style={styles.loader}>          
+        <View style={styles.loader}>
           <Text style={styles.loaderText}>Cannot connect to server</Text>
         </View>
       )
@@ -152,6 +152,10 @@ export default class IndoRugby extends Component {
 }
 
 const takePhotoPressed = () => {
+  let baseImage = new Image();
+  let imageStr = "";
+  let dataURL = "";
+
   ImagePicker.launchCamera(options, (response)  => {
     console.log('Response = ', response);
 
@@ -167,8 +171,10 @@ const takePhotoPressed = () => {
     else {
       console.log("nancy cantik",response.uri)
 
+      //kirim stringnya ke editphoto
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+      Actions.editphoto({uri: response.uri})
 
       CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result) {
   console.log('save succeeded ' + result);
@@ -199,14 +205,9 @@ const loadLibraryPressed = () => {
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-      // this.setState({
-      //   avatarSource: source
-        
-      // });
       Actions.editPhoto({asd: response.uri})
     }
   });
 };
 
-AppRegistry.registerComponent('IndoRugby', () => IndoRugby);
-//export default IndoRugby;
+export default Teammate;

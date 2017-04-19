@@ -18,9 +18,9 @@ var _reactNative=require('react-native');
 
 
 
+var _reactNativeRouterFlux=require('react-native-router-flux');
 var _JSONLinks=require('./../data/JSONLinks');var _JSONLinks2=babelHelpers.interopRequireDefault(_JSONLinks);
 var _Style=require('./../../assets/styles/Style');var _Style2=babelHelpers.interopRequireDefault(_Style);
-var _reactNativeRouterFlux=require('react-native-router-flux');
 
 var _reactNativeFlexboxGrid=require('react-native-flexbox-grid');
 var _reactNativeImagePicker=require('react-native-image-picker');var _reactNativeImagePicker2=babelHelpers.interopRequireDefault(_reactNativeImagePicker);
@@ -36,8 +36,8 @@ path:'images'}};var
 
 
 
-IndoRugby=function(_Component){babelHelpers.inherits(IndoRugby,_Component);
-function IndoRugby(){babelHelpers.classCallCheck(this,IndoRugby);var _this=babelHelpers.possibleConstructorReturn(this,(IndoRugby.__proto__||Object.getPrototypeOf(IndoRugby)).call(this));
+Teammate=function(_Component){babelHelpers.inherits(Teammate,_Component);
+function Teammate(){babelHelpers.classCallCheck(this,Teammate);var _this=babelHelpers.possibleConstructorReturn(this,(Teammate.__proto__||Object.getPrototypeOf(Teammate)).call(this));
 
 _this.state={
 data:null,
@@ -45,7 +45,7 @@ animating:true,
 avatarSource:null,
 canLoad:true};return _this;
 
-}babelHelpers.createClass(IndoRugby,[{key:'componentWillMount',value:function componentWillMount()
+}babelHelpers.createClass(Teammate,[{key:'componentWillMount',value:function componentWillMount()
 
 {var _this2=this;
 fetch(_JSONLinks2.default.teammateJSON).
@@ -148,10 +148,14 @@ style:{flex:1},
 source:{uri:item.src}})));
 
 
-}}]);return IndoRugby;}(_react.Component);exports.default=IndoRugby;
+}}]);return Teammate;}(_react.Component);
 
 
 var takePhotoPressed=function takePhotoPressed(){
+var baseImage=new _reactNative.Image();
+var imageStr="";
+var dataURL="";
+
 _reactNativeImagePicker2.default.launchCamera(options,function(response){
 console.log('Response = ',response);
 
@@ -169,6 +173,8 @@ console.log("nancy cantik",response.uri);
 
 
 
+
+_reactNativeRouterFlux.Actions.editphoto({uri:response.uri});
 
 _reactNative.CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result){
 console.log('save succeeded '+result);
@@ -199,13 +205,9 @@ var source={uri:response.uri};
 
 
 
-
-
-
-
 _reactNativeRouterFlux.Actions.editPhoto({asd:response.uri});
 }
 });
-};
+};exports.default=
 
-_reactNative.AppRegistry.registerComponent('IndoRugby',function(){return IndoRugby;});
+Teammate;

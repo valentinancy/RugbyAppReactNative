@@ -17,8 +17,8 @@ width:window.width,
 height:100},
 
 headline:{
-fontSize:30,
-marginTop:40,
+fontSize:7*_reactNative.PixelRatio.getFontScale(),
+marginTop:30,
 color:'#f0f8ff',
 textAlign:'center',
 fontWeight:'bold'},
@@ -41,7 +41,7 @@ menu:{
 flex:1,
 width:window.width,
 height:window.height,
-backgroundColor:'beige',
+backgroundColor:'red',
 padding:20,
 marginTop:40},
 
@@ -49,6 +49,14 @@ item:{
 fontSize:14,
 fontWeight:'300',
 paddingTop:20},
+
+menuIcon:{
+width:50,
+height:50},
+
+itemContainer:{
+flex:1,
+flexDirection:'column'},
 
 
 
