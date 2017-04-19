@@ -4,8 +4,6 @@
  * @flow
  */
 
- // https://github.com/Automattic/node-canvas -> canvas on react native
-
 import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { Component } from 'react';
 import {
@@ -23,18 +21,6 @@ import {
 import {TouchableOpacity} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
-// import Canvas from 'react-native-canvas';
-
-// const options = {
-//   title: 'Select Avatar',
-//   customButtons: [
-//     {name: 'fb', title: 'Choose Photo from Facebook'},
-//   ],
-//   storageOptions: {
-//     skipBackup: true,
-//     path: 'images'
-//   }
-// };
 import styles from './../../assets/styles/Style'
 
 class EditPhoto extends Component {
@@ -46,9 +32,6 @@ class EditPhoto extends Component {
   }
 
   render() {
-    // if(!this.state.data) {
-    //         return <Text>Loading</Text>
-    //     }
     return (
       <ScrollView>
         <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
@@ -59,22 +42,7 @@ class EditPhoto extends Component {
 
         <View>
            <Image source={{uri: this.props.asd}} style={styles.headlineImage} />
-          {/* <Canvas
-            context={{message: 'Hello!'}}
-            render={renderCanvas}
-            style={{height: 200, width: 200}}/> */}
-
-            {/*<Image source={require('')} style={styles.headlineImage} >
-              <View style={styles.backdropView}>
-                <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
-              </View>
-            </Image>*/}
-            {/* - tampilin hasil foto
-                - tampilin grid of frame
-
-              */}
-
-        <View>
+           <View>
             <Row size={10} nowrap>
                   <Col sm={2} md={2} lg={2}>
                   <Image
@@ -141,9 +109,6 @@ class EditPhoto extends Component {
               </Row>
             </View>
         </View>
-          {/* grid frame :
-
-            */}
         <View style={styles.bStyle}>
           <Button
             color= "red"
