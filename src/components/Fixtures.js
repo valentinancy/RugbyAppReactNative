@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
-import {AppRegistry,Image,ListView,ScrollView,View,StyleSheet,Dimensions,Text,ActivityIndicator} from 'react-native';
+import {AppRegistry,Image,ListView,ScrollView,View,Text,Linking,TouchableNativeFeedback,ActivityIndicator} from 'react-native';
+import { Actions } from 'react-native-router-flux'
 import styles from './../../assets/styles/Style'
-import jsonLink from './../data/JSONLinks'
-
-var screenWidth=Dimensions.get('window').width;
+import jsonLink from './../data/JSONLinks' 
 
 class Fixtures extends Component{
   constructor(props){
@@ -23,6 +22,10 @@ class Fixtures extends Component{
         rowHasChanged: (row1, row2) => row1 !== row2,                                       
       }).cloneWithRows(response) });
     }).catch((error) => {this.state.canLoad=false;this.forceUpdate();})
+  }
+
+  handleClick(e,url) {
+    Actions.readMoreFixtures({url: url})
   }
 
   render(){  
@@ -51,8 +54,10 @@ class Fixtures extends Component{
        <ListView
           dataSource={this.state.data}
           renderRow={(rowData) =>
-           <View style={styles.jsonLoaderContainer}>
-              <Image source={{uri:rowData.img}} style={styles.imgBanner} />
+            <View style={styles.jsonLoaderContainer}>
+              <TouchableNativeFeedback onPress={ (e) => this.handleClick(e,rowData.url) } >
+                <Image source={{uri:rowData.img}} style={styles.imgBanner} />
+              </TouchableNativeFeedback>
             </View>
           }/>
       </ScrollView>

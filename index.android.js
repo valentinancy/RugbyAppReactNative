@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, AppRegistry, Navigator,TouchableHighlight,Image } from 'react-native'
 import { Scene, Router, Actions } from 'react-native-router-flux'
 import Fixtures from './src/components/Fixtures'
+import ReadMoreFixtures from './src/components/ReadMoreFixtures'
 import Home from './src/components/Home'
 import News from './src/components/News'
 import ReadMoreNews from './src/components/ReadMoreNews'
@@ -28,6 +29,7 @@ class App extends React.Component {
             onRight={() => (Actions.fixtures())}>
             <Scene key="home" component={ Home } initial/>
             <Scene key="fixtures" component={ Fixtures }/>
+            <Scene key="readMoreFixtures" component={ReadMoreFixtures} />
             <Scene key="news" component={ News }/>
             <Scene key="readMoreNews" component={ ReadMoreNews }/>
             <Scene key="teammate" component={ Teammate }/>

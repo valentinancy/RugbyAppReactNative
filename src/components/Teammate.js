@@ -15,7 +15,8 @@ import {
   Alert,
   ScrollView,
   ListView,
-  ActivityIndicator
+  ActivityIndicator,
+  CameraRoll
 } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import jsonLink from './../data/JSONLinks';
@@ -143,7 +144,6 @@ class Teammate extends Component {
         style = {{ width: itemSize, height:itemSize }}
         onPress = { () => {
           //do something
-          //asdasd
         }}>
       <Image
         resizeMode = "cover"
@@ -173,18 +173,23 @@ const takePhotoPressed = () => {
     }
     else {
       console.log("nancy cantik",response.uri)
+<<<<<<< HEAD
       let source = { uri: response.uri };
       imageStr = response.uri;
 
       //kirim stringnya ke editphoto
+=======
+>>>>>>> 86fcd2913cb282addbcedd698409db78f873f824
 
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
       Actions.editphoto({uri: response.uri})
 
-      this.setState({
-        avatarSource: source
-      });
+      CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result) {
+  console.log('save succeeded ' + result);
+}).catch(function(error) {
+  console.log('save failed ' + error);
+});
     }
   });
 };
