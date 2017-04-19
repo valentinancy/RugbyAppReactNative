@@ -49,8 +49,28 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '300',
     paddingTop: 20,
+    color:'white',
   },
   menuIcon: {
+<<<<<<< HEAD
+    width:75,
+    height:75,
+  },
+  itemContainer: {
+    flex:1,
+    flexDirection:'column',
+
+    justifyContent:'center',
+    borderBottomColor:'white',
+    borderBottomWidth:2,
+    width:window.width/2,
+  },
+  touchOverlay:{
+    width:window.width/2
+  },
+  sidebarLogo: {
+    width:window.width/2
+=======
     width:25,
     height:25
   },
@@ -68,6 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     fontSize: 15
+>>>>>>> 655cd52f5faf8d3c32648214dce42af24d80c1c5
   },
   /* HOME */
   button: {
