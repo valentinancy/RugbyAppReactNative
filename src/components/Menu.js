@@ -43,7 +43,7 @@ class Menu extends Component{
                     <Text style={styles.item} onPress={ (e) => this.handleClick(e,'rugby101') }>Rugby 101</Text>
 				</View>*/}
                 <View>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>
                             <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
@@ -53,10 +53,10 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>
                             <View style={styles.menuIconView}>
-                                <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
+                                <Image style={styles.menuIcon} source={require('./../../assets/images/fixture.png')}/>
                             </View>
                             <Text style={styles.item}>
                                 Fixtures & Result
@@ -73,7 +73,7 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>
                             <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/rugby101.png')}/>
@@ -83,7 +83,7 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>
                             <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/clubs.png')}/>
@@ -94,23 +94,30 @@ class Menu extends Component{
                         </View>
                     </TouchableHighlight>
                     <View>
-                        <Text>Contact:</Text>
-                        <Text> </Text>
-                        <Text>info@rugbyindonesia.or.id</Text>
-                        <Text>www.rugbyindonesia.or.id</Text>
+                        <Text style={styles.sidebarText}>Contact:</Text>
+                        <Text style={styles.sidebarText}> </Text>
+                        <Text style={styles.sidebarText}>info@rugbyindonesia.or.id</Text>
+                        <Text style={styles.sidebarText}>www.rugbyindonesia.or.id</Text>
                     </View>
                     <View>
-                        <Text>Connect with us:</Text>
+                        <Text style={styles.sidebarText}> </Text>
+                        <Text style={styles.sidebarText}>Connect with us:</Text>
                     </View>
                     <View>
-                        <Text>Affiliations</Text>
+                        <Text style={styles.sidebarText}>Affiliations</Text>
                     </View>
                     <View>
-                        <Text>&copy; 2016 Persatuan Rugby Union Indonesia</Text>
+                        <Text numberOfLines={2} style={{width:window.width/2+25, fontSize:11,color:'white'}}>&copy; 2016 Persatuan Rugby Union Indonesia</Text>
+                        <Text style={styles.sidebarText}> </Text>
                     </View>
                     <View>
-                        <Text>Powered by Lorem Ipsum</Text>
-                        <Image source={require('./../../assets/images/sponsor.png')} style={styles.sidebarLogo}/>
+                        <Text style={styles.sidebarText} numberOfLines={2}>
+                            Powered by Lorem Ipsum</Text>
+                        <Image source={require('./../../assets/images/sponsor.png')} style={styles.sidebarLogo} resizeMode='contain'/>
+                    </View>
+                    <View>
+                        <Text style={styles.sidebarText}>Developed By</Text>
+                        <Text style={styles.sidebarText}>DNArtworks.co.id</Text>
                     </View>
                 </View>
 			</ScrollView>
