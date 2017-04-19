@@ -38,11 +38,11 @@ import ImagePicker from 'react-native-image-picker';
 import styles from './../../assets/styles/Style'
 
 class EditPhoto extends Component {
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     data: null
-  //   }
+  constructor(){
+    super();
+    this.state = {
+      frame: null
+    }
 
   // componentWillMount() {
   //       fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
@@ -63,31 +63,31 @@ const photos = this.state.data.data.map((photo,index) => {
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index]}}
+                      source={require('./../../assets/images/frame01.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+1]}}
+                      source={require('./../../assets/images/frame02.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+2]}}
+                      source={require('./../../assets/images/frame03.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+3]}}
+                      source={require('./../../assets/images/frame04.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+4]}}
+                      source={require('./../../assets/images/frame05.png')}
                       />
                   </Col>
               </Row>
@@ -95,31 +95,31 @@ const photos = this.state.data.data.map((photo,index) => {
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index]}}
+                      source={require('./../../assets/images/frame06.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+1]}}
+                      source={require('./../../assets/images/frame07.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+2]}}
+                      source={require('./../../assets/images/frame08.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+3]}}
+                      source={require('./../../assets/images/frame09.png')}
                       />
                   </Col>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
-                      source={{uri: this.state.data.data[index+4]}}
+                      source={require('./../../assets/images/frame10.png')}
                       />
                   </Col>
               </Row>
@@ -127,7 +127,7 @@ const photos = this.state.data.data.map((photo,index) => {
         )
       }
     })
-      
+
 
     return (
       <ScrollView>
@@ -193,5 +193,3 @@ const sharePhoto = () => {
 };
 
 export default EditPhoto
-
-

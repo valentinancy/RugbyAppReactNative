@@ -174,7 +174,7 @@ const takePhotoPressed = () => {
       //kirim stringnya ke editphoto
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-      Actions.editphoto({uri: response.uri})
+      Actions.editphoto({asd: response.uri})
 
       CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result) {
   console.log('save succeeded ' + result);
@@ -205,7 +205,7 @@ const loadLibraryPressed = () => {
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-      Actions.editPhoto({asd: response.uri})
+      Actions.editphoto({asd: response.uri})
     }
   });
 };
