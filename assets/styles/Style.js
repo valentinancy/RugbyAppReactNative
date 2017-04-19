@@ -49,14 +49,26 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '300',
     paddingTop: 20,
+    color:'white',
   },
   menuIcon: {
-    width:50,
-    height:50,
+    width:75,
+    height:75,
   },
   itemContainer: {
     flex:1,
-    flexDirection:'column'
+    flexDirection:'column',
+
+    justifyContent:'center',
+    borderBottomColor:'white',
+    borderBottomWidth:2,
+    width:window.width/2,
+  },
+  touchOverlay:{
+    width:window.width/2
+  },
+  sidebarLogo: {
+    width:window.width/2
   },
 
   /* HOME */

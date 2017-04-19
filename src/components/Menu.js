@@ -43,7 +43,7 @@ class Menu extends Component{
                     <Text style={styles.item} onPress={ (e) => this.handleClick(e,'rugby101') }>Rugby 101</Text>
 				</View>*/}
                 <View>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
                             <Text style={styles.item}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
@@ -51,7 +51,7 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
                             <Text style={styles.item}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/fixture.png')}/>
@@ -59,7 +59,7 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'teammate') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'teammate') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>
                             <Text style={styles.item}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/photo.png')}/>
@@ -67,7 +67,7 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
                             <Text style={styles.item}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/rugby101.png')}/>
@@ -75,7 +75,7 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>                            
                             <Text style={styles.item}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/clubs.png')}/>
@@ -83,6 +83,25 @@ class Menu extends Component{
                             </Text>
                         </View>
                     </TouchableHighlight>
+                    <View>
+                        <Text>Contact:</Text>
+                        <Text> </Text>
+                        <Text>info@rugbyindonesia.or.id</Text>
+                        <Text>www.rugbyindonesia.or.id</Text>
+                    </View>
+                    <View>
+                        <Text>Connect with us:</Text>
+                    </View>
+                    <View>
+                        <Text>Affiliations</Text>
+                    </View>
+                    <View>
+                        <Text>&copy; 2016 Persatuan Rugby Union Indonesia</Text>
+                    </View>
+                    <View>
+                        <Text>Powered by Lorem Ipsum</Text>
+                        <Image source={require('./../../assets/images/sponsor.png')} style={styles.sidebarLogo}/>
+                    </View>
                 </View>
 			</ScrollView>
 		)
