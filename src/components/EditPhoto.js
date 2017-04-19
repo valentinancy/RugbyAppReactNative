@@ -18,11 +18,13 @@ import {
   Alert,
   ScrollView,
   ListView,
-  TouchableOpacity
+  TouchableOpacity,
+  CameraRoll
 } from 'react-native';
 
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
+import { takeSnapshot } from 'react-native-view-shot'
 // import Canvas from 'react-native-canvas';
 
 // const options = {
@@ -67,6 +69,48 @@ class EditPhoto extends Component {
     })
   }
 
+  //  snapshot = refname => () =>
+  //   takeSnapshot(this.refs[refname], this.state.value)
+  //   .then(res =>
+  //     this.state.value.result !== "file"
+  //     ? res
+  //     : new Promise((success, failure) =>
+  //     // just a test to ensure res can be used in Image.getSize
+  //     Image.getSize(
+  //       res,
+  //       (width, height) => (console.log(res,width,height), success(res)),
+  //       failure)))
+  //   .then(res => this.setState({
+  //     error: null,
+  //     res,
+  //     previewSource: { uri:
+  //       this.state.value.result === "base64"
+  //       ? "data:image/"+this.state.value.format+";base64,"+res
+  //       : res }
+  //   }))
+  //   .catch(error => (console.warn(error), this.setState({ error, res: null, previewSource: null })));
+
+    snapshot = refname => () => 
+      takeSnapshot(this.refs[refname], {
+        format: "png",
+        quality: 0.9,
+        result: "file",
+        snapshotContentContainer: false,
+        })
+      .then(
+        uri => {
+          console.log("Image saved to", uri)
+          let path = '/storage/emulated/0/Pictures/' + uri.split('/')[8]
+          console.log("pathnya kak",path)
+          CameraRoll.saveToCameraRoll(path,'photo').then(function(result) {
+            console.log('ke save ' + result);
+          }).catch(function(error) {
+            console.log('ga ke save ' + error);
+          });
+      },
+        error => console.error("Oops, snapshot failed", error)
+      );
+
   render() {
     // if(!this.state.data) {
     //         return <Text>Loading</Text>
@@ -80,7 +124,7 @@ class EditPhoto extends Component {
         </Image>
 
         <View>
-          <View style={styles.choosenImageView}>
+          <View style={styles.choosenImageView} collapsable={false} ref="header">
             <Image source={{uri: this.props.asd}} style={styles.choosenImage} resizeMode='cover'/>
           </View>
           { this.showFrame() }
@@ -214,7 +258,7 @@ class EditPhoto extends Component {
           <Button
             color= "red"
             //marginBottom= 50
-            onPress={uploadPhoto}
+            onPress={this.snapshot("header")}
             title="Submit"
           />
           {/* <Icon.Button name="cloud-upload" backgroundColor="#FF0000" onPress={this.uploadPhoto}>

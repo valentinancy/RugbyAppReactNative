@@ -15,6 +15,7 @@
     "react-native-camera-android": "^1.0.7",
     "react-native-drawer": "^2.3.0",
     "react-native-flexbox-grid": "^0.2.2",
+    "react-native-get-real-path": "git+https://github.com/Wraptime/react-native-get-real-path.git",
     "react-native-hyperlink": "0.0.8",
     "react-native-image-picker": "^0.26.2",
     "react-native-photo-grid": "0.0.2",
@@ -22,6 +23,7 @@
     "react-native-side-menu": "^0.20.1",
     "react-native-splash-screen": "^2.0.0",
     "react-native-vector-icons": "^4.0.0",
+    "react-native-view-shot": "^1.9.1",
     "react-native-webview-bridge": "^0.33.0",
     "react-router-native": "^2.0.0-beta.0",
     "rn-splash-screen": "^4.0.0"
