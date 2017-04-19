@@ -58,7 +58,10 @@ class EditPhoto extends Component {
         </Image>
 
         <View>
-           <Image source={{uri: this.props.asd}} style={styles.headlineImage} />
+          <View style={styles.choosenImageView}>
+            <Image source={{uri: this.props.asd}} style={styles.choosenImage} />
+          </View>
+           
           {/* <Canvas
             context={{message: 'Hello!'}}
             render={renderCanvas}
@@ -74,69 +77,89 @@ class EditPhoto extends Component {
 
               */}
 
-        <View>
+        <View style={styles.frameGroup}>
             <Row size={10} nowrap>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame01.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame01.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame02.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame02.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame03.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame03.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame04.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame04.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame05.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame05.png')}
                       />
+                    </View>
                   </Col>
               </Row>
               <Row size={10} nowrap>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame06.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame06.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame07.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame07.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame08.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame08.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame09.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame09.png')}
                       />
+                    </View>
                   </Col>
                   <Col sm={2} md={2} lg={2}>
-                  <Image
-                      style={ styles.image }
-                      source={require('./../../assets/images/frame10.png')}
+                    <View style={styles.frameImageView}>
+                      <Image
+                        style={ styles.frameImage }
+                        source={require('./../../assets/images/frame10.png')}
                       />
+                    </View>
                   </Col>
               </Row>
             </View>

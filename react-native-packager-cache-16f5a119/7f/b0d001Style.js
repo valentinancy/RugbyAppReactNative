@@ -229,6 +229,28 @@ marginBottom:10},
 
 
 
+frameImage:{
+width:75,
+height:75},
+
+choosenImage:{
+width:400,
+height:400},
+
+choosenImageView:{
+marginTop:5,
+marginBottom:20},
+
+frameImageView:{
+marginLeft:2,
+marginRight:2},
+
+frameGroup:{
+marginBottom:20},
+
+
+
+
 
 
 

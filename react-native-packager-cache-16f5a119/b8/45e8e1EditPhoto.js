@@ -58,7 +58,8 @@ _react2.default.createElement(_reactNative.Text,{style:_Style2.default.teammateH
 
 
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Image,{source:{uri:this.props.asd},style:_Style2.default.headlineImage}),
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.choosenImageView},
+_react2.default.createElement(_reactNative.Image,{source:{uri:this.props.asd},style:_Style2.default.choosenImage})),
 
 
 
@@ -74,68 +75,90 @@ _react2.default.createElement(_reactNative.Image,{source:{uri:this.props.asd},st
 
 
 
-_react2.default.createElement(_reactNative.View,null,
+
+
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameGroup},
 _react2.default.createElement(_reactNativeFlexboxGrid.Row,{size:10,nowrap:true},
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame01.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame01.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame02.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame02.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame03.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame03.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame04.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame04.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame05.png')}))),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame05.png')})))),
+
 
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Row,{size:10,nowrap:true},
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame06.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame06.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame07.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame07.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame08.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame08.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame09.png')})),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame09.png')}))),
+
 
 
 _react2.default.createElement(_reactNativeFlexboxGrid.Column,{sm:2,md:2,lg:2},
+_react2.default.createElement(_reactNative.View,{style:_Style2.default.frameImageView},
 _react2.default.createElement(_reactNative.Image,{
-style:_Style2.default.image,
-source:require('./../../assets/images/frame10.png')}))))),
+style:_Style2.default.frameImage,
+source:require('./../../assets/images/frame10.png')})))))),
+
 
 
 

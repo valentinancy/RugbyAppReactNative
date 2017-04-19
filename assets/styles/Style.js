@@ -228,6 +228,28 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
 
+  /* EDIT PHOTO */
+  frameImage: {
+    width: 75,
+    height: 75
+  },
+  choosenImage: {
+    width: 400,
+    height: 400
+  },
+  choosenImageView: {
+    marginTop: 5,
+    marginBottom: 20
+  },
+  frameImageView: {
+    marginLeft: 2,
+    marginRight: 2
+  },
+  frameGroup: {
+    marginBottom: 20
+  },
+
+
   /* RUGBY 101 */
   // headerImg: {
   //   height: 100,
