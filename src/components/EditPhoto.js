@@ -4,8 +4,6 @@
  * @flow
  */
 
- // https://github.com/Automattic/node-canvas -> canvas on react native
-
 import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { Component } from 'react';
 import {
@@ -112,9 +110,6 @@ class EditPhoto extends Component {
       );
 
   render() {
-    // if(!this.state.data) {
-    //         return <Text>Loading</Text>
-    //     }
     return (
       <ScrollView>
         <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
@@ -251,9 +246,6 @@ class EditPhoto extends Component {
               </Row>
             </View>
         </View>
-          {/* grid frame :
-
-            */}
         <View style={styles.bStyle}>
           <Button
             color= "red"
