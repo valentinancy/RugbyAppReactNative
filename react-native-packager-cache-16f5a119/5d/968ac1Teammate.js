@@ -174,7 +174,7 @@ console.log("nancy cantik",response.uri);
 
 
 
-_reactNativeRouterFlux.Actions.editphoto({uri:response.uri});
+_reactNativeRouterFlux.Actions.editphoto({asd:response.uri});
 
 _reactNative.CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result){
 console.log('save succeeded '+result);

@@ -151,11 +151,9 @@ const photos = this.state.data.data.map((photo,index) => {
             </Image>*/}
             {/* - tampilin hasil foto
                 - tampilin grid of frame
-
               */}
         </View>
           {/* grid frame :
-
             */}
         <View style={styles.bStyle}>
           <Button
