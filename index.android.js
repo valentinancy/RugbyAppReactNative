@@ -9,6 +9,7 @@ import Teammate from './src/components/Teammate'
 import RugbyClubs from './src/components/RugbyClubs'
 import Rugby101 from './src/components/Rugby101'
 import SplashScreen from 'rn-splash-screen'
+import EditPhoto from './src/components/EditPhoto';
 
 class App extends React.Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class App extends React.Component {
     return(
         <Router sceneStyle={{ paddingTop: 55 }}
             navigationBarBackgroundImage={require('./assets/images/header.png')}
-            renderTitle={() => (<Image source={require('./assets/images/logo-header.png')} style={{height:40,resizeMode:'contain',marginVertical:7}} />)}            
+            renderTitle={() => (<Image source={require('./assets/images/logo-header.png')} style={{height:40,resizeMode:'contain',marginVertical:7}} />)}
             /*renderBackButton={() => (null)}*/
             renderLeftButton={() => (<Image source={require('./assets/images/menu.png')} style={{height:20,resizeMode:'contain',marginVertical:7,marginLeft:-40}} />)}
             onLeft={() => (Actions.news())}
@@ -31,10 +32,11 @@ class App extends React.Component {
             <Scene key="readMoreNews" component={ ReadMoreNews }/>
             <Scene key="teammate" component={ Teammate }/>
             <Scene key="rugbyClubs" component={ RugbyClubs }/>
-            <Scene key="rugby101" component={ Rugby101 }/>            
+            <Scene key="rugby101" component={ Rugby101 }/>
+            <Scene key="editphoto" component={ EditPhoto }/>
     </Router>
     )
   }
 }
- 
+
 AppRegistry.registerComponent('Last', () => App);

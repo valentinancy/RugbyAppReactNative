@@ -17,6 +17,7 @@ import {
   ListView,
   ActivityIndicator
 } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 import jsonLink from './../data/JSONLinks';
 import styles from './../../assets/styles/Style';
 
@@ -35,7 +36,7 @@ const options = {
   }
 };
 
-export default class IndoRugby extends Component {
+class Teammate extends Component {
   constructor(){
     super();
     this.state = {
@@ -56,7 +57,7 @@ export default class IndoRugby extends Component {
   render() {
     if(this.state.canLoad==false){
       return(
-        <View style={styles.loader}>          
+        <View style={styles.loader}>
           <Text style={styles.loaderText}>Cannot connect to server</Text>
         </View>
       )
@@ -151,59 +152,13 @@ export default class IndoRugby extends Component {
       </TouchableOpacity>
       )
   }
+
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   list: {
-//     justifyContent: 'center',
-//     flexDirection: 'row',
-//     flexWrap: 'wrap',
-//     },
-//   headlineImage:{
-//     paddingTop: 20,
-//     width: 360,
-//     height: 120,
-//     marginBottom: 20
-//   },
-//   bStyle:{
-//     //backgroundColor: '#FF0000',
-//     //textAlign: 'center',
-//     marginBottom: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-//   backdropView: {
-//     height: 120,
-//     width: 320,
-//     backgroundColor: 'rgba(0,0,0,0)',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   headline: {
-//     fontSize: 30,
-//     textAlign: 'center',
-//     marginTop: 5,
-//     color: '#f0f8ff',
-//     fontWeight: 'bold'
-//   },
-//   image: {
-//     width: 150,
-//     height: 150,
-//     marginLeft: 17,
-//     marginBottom: 10
-//   }
-// });
-
 const takePhotoPressed = () => {
+  let baseImage = new Image();
+  let imageStr = "";
+  let dataURL = "";
+
   ImagePicker.launchCamera(options, (response)  => {
     console.log('Response = ', response);
 
@@ -219,9 +174,13 @@ const takePhotoPressed = () => {
     else {
       console.log("nancy cantik",response.uri)
       let source = { uri: response.uri };
+      imageStr = response.uri;
+
+      //kirim stringnya ke editphoto
 
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+      Actions.editphoto({uri: response.uri})
 
       this.setState({
         avatarSource: source
@@ -229,15 +188,6 @@ const takePhotoPressed = () => {
     }
   });
 };
-
-  //<Image source={this.state.avatarSource} style={styles.uploadAvatar} />
-
-//   ImagePicker.launchCamera(options, (response)  => {
-//   // Same code as in above section!
-// });
-
-   //Alert.alert('Button has been pressed!');
-
 
 const loadLibraryPressed = () => {
   ImagePicker.launchImageLibrary(options, (response)  => {
@@ -259,14 +209,15 @@ const loadLibraryPressed = () => {
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
+        Actions.editphoto({uri: response.uri})
+
       this.setState({
         avatarSource: source
       });
     }
   });
-  //Alert.alert('Button has been pressed!');
 };
 
 
-AppRegistry.registerComponent('IndoRugby', () => IndoRugby);
-//export default IndoRugby;
+//AppRegistry.registerComponent('IndoRugby', () => IndoRugby);
+export default Teammate;
