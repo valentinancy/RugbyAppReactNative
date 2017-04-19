@@ -44,45 +44,74 @@ class Menu extends Component{
 				</View>*/}
                 <View>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'news') }>
-                        <View style={styles.itemContainer}>                            
-                            <Text style={styles.item}>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
+                            </View>                           
+                            <Text style={styles.item}>
                                 News
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'fixtures') }>
-                        <View style={styles.itemContainer}>                            
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
+                                <Image style={styles.menuIcon} source={require('./../../assets/images/timeline.png')}/>
+                            </View>
                             <Text style={styles.item}>
-                                <Image style={styles.menuIcon} source={require('./../../assets/images/fixture.png')}/>
                                 Fixtures & Result
                             </Text>
                         </View>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'teammate') }>
+                    <TouchableHighlight onPress={ (e) => this.handleClick(e,'teammate') } style={styles.touchOverlay} underlayColor={'white'}>
                         <View style={styles.itemContainer}>
-                            <Text style={styles.item}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/photo.png')}/>
+                            </View>
+                            <Text style={styles.item}>
                                 Teammate Photos
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugby101') }>
-                        <View style={styles.itemContainer}>                            
-                            <Text style={styles.item}>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/rugby101.png')}/>
+                            </View>                           
+                            <Text style={styles.item}>
                                 Rugby 101
                             </Text>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight onPress={ (e) => this.handleClick(e,'rugbyClubs') }>
-                        <View style={styles.itemContainer}>                            
-                            <Text style={styles.item}>
+                        <View style={styles.itemContainer}>
+                            <View style={styles.menuIconView}>
                                 <Image style={styles.menuIcon} source={require('./../../assets/images/clubs.png')}/>
+                            </View>                            
+                            <Text style={styles.item}>
                                 Rugby Clubs
                             </Text>
                         </View>
                     </TouchableHighlight>
+                    <View>
+                        <Text>Contact:</Text>
+                        <Text> </Text>
+                        <Text>info@rugbyindonesia.or.id</Text>
+                        <Text>www.rugbyindonesia.or.id</Text>
+                    </View>
+                    <View>
+                        <Text>Connect with us:</Text>
+                    </View>
+                    <View>
+                        <Text>Affiliations</Text>
+                    </View>
+                    <View>
+                        <Text>&copy; 2016 Persatuan Rugby Union Indonesia</Text>
+                    </View>
+                    <View>
+                        <Text>Powered by Lorem Ipsum</Text>
+                        <Image source={require('./../../assets/images/sponsor.png')} style={styles.sidebarLogo}/>
+                    </View>
                 </View>
 			</ScrollView>
 		)
