@@ -63,7 +63,7 @@ _react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Fi
 
 
 
-_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'teammate');}},
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'teammate');},style:_Style2.default.touchOverlay,underlayColor:'white'},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.menuIconView},
 _react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/photo.png')})),
@@ -88,10 +88,29 @@ _react2.default.createElement(_reactNative.View,{style:_Style2.default.itemConta
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.menuIconView},
 _react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/clubs.png')})),
 
-_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Rugby Clubs'))))));
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Rugby Clubs'))),
 
 
 
+
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Text,null,'Contact:'),
+_react2.default.createElement(_reactNative.Text,null,' '),
+_react2.default.createElement(_reactNative.Text,null,'info@rugbyindonesia.or.id'),
+_react2.default.createElement(_reactNative.Text,null,'www.rugbyindonesia.or.id')),
+
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Text,null,'Connect with us:')),
+
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Text,null,'Affiliations')),
+
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Text,null,'\xA9 2016 Persatuan Rugby Union Indonesia')),
+
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Text,null,'Powered by Lorem Ipsum'),
+_react2.default.createElement(_reactNative.Image,{source:require('./../../assets/images/sponsor.png'),style:_Style2.default.sidebarLogo})))));
 
 
 

@@ -46,11 +46,31 @@ padding:20,
 marginTop:40},
 
 item:{
-fontSize:14,
+fontSize:15,
 fontWeight:'300',
-paddingTop:20},
+paddingTop:20,
+color:'white',
+flexDirection:'column',
+justifyContent:'space-around'},
 
 menuIcon:{
+width:40,
+height:40},
+
+
+
+
+
+
+
+
+
+
+touchOverlay:{
+width:window.width/2},
+
+sidebarLogo:{
+width:window.width/2,
 width:25,
 height:25},
 
@@ -62,12 +82,10 @@ justifyContent:'space-around'},
 itemContainer:{
 flex:1,
 alignItems:'flex-start',
-flexDirection:'row'},
-
-item:{
-flexDirection:'column',
-justifyContent:'space-around',
-fontSize:15},
+flexDirection:'row',
+borderBottomColor:'white',
+borderBottomWidth:2,
+width:window.width/2},
 
 
 button:{

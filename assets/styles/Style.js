@@ -46,31 +46,31 @@ const styles = StyleSheet.create({
     marginTop: 40
   },
   item: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '300',
     paddingTop: 20,
     color:'white',
+    flexDirection: 'column',
+    justifyContent: 'space-around'
   },
   menuIcon: {
-<<<<<<< HEAD
-    width:75,
-    height:75,
+    width:40,
+    height:40,
   },
-  itemContainer: {
-    flex:1,
-    flexDirection:'column',
+  // itemContainer: {
+  //   flex:1,
+  //   flexDirection:'column',
 
-    justifyContent:'center',
-    borderBottomColor:'white',
-    borderBottomWidth:2,
-    width:window.width/2,
-  },
+  //   justifyContent:'center',
+  //   borderBottomColor:'white',
+  //   borderBottomWidth:2,
+  //   width:window.width/2,
+  // },
   touchOverlay:{
     width:window.width/2
   },
   sidebarLogo: {
-    width:window.width/2
-=======
+    width:window.width/2,
     width:25,
     height:25
   },
@@ -82,13 +82,10 @@ const styles = StyleSheet.create({
   itemContainer: {
     flex:1,
     alignItems: 'flex-start',
-    flexDirection: 'row'
-  },
-  item: {
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    fontSize: 15
->>>>>>> 655cd52f5faf8d3c32648214dce42af24d80c1c5
+    flexDirection: 'row',
+    borderBottomColor:'white',
+    borderBottomWidth:2,
+    width:window.width/2
   },
   /* HOME */
   button: {
