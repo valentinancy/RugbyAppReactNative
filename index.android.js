@@ -7,6 +7,7 @@ import Home from './src/components/Home'
 import News from './src/components/News'
 import ReadMoreNews from './src/components/ReadMoreNews'
 import Teammate from './src/components/Teammate'
+import EditPhoto from './src/components/EditPhoto'
 import RugbyClubs from './src/components/RugbyClubs'
 import Rugby101 from './src/components/Rugby101'
 import SplashScreen from 'rn-splash-screen'
@@ -33,7 +34,8 @@ class App extends React.Component {
             <Scene key="readMoreNews" component={ ReadMoreNews }/>
             <Scene key="teammate" component={ Teammate }/>
             <Scene key="rugbyClubs" component={ RugbyClubs }/>
-            <Scene key="rugby101" component={ Rugby101 }/>            
+            <Scene key="rugby101" component={ Rugby101 }/> 
+            <Scene key="editPhoto" component={ EditPhoto }/>            
     </Router>
     )
   }

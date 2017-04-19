@@ -36,54 +36,103 @@ import ImagePicker from 'react-native-image-picker';
 // };
 import styles from './../../assets/styles/Style'
 
-export default class EditPhoto extends Component {
-  constructor(){
-    super();
-    // this.state = {
-    //   data:null,
-    //   avatarSource: null
-    // }
-  }
-
-  // componentWillMount() {
-  //       fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
-  //       .then((response) => response.json())
-  //       .then((response) => this.setState({ data: response }))
-  //       .catch((error) => console.warn("fetch error:", error))
+class EditPhoto extends Component {
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     data: null
+  //   }
   // }
 
   render() {
-    if(!this.state.data) {
-            return <Text>Loading</Text>
-        }
+    // if(!this.state.data) {
+    //         return <Text>Loading</Text>
+    //     }
 
-    // const photos = this.state.data.data.map((photo,index) => {
-    //   if(index%2==0) {
-    //     return(
-    //       <Row key={index} size={10} nowrap>
-    //             <Col sm={5} md={5} lg={5}>
-    //             <Image
-    //                 style={ styles.image }
-    //                 source={{uri: this.state.data.data[index]}}
-    //                 />
-    //             </Col>
-    //             <Col sm={5} md={5} lg={5}>
-    //             <Image
-    //                 style={ styles.image }
-    //                 source={{uri: this.state.data.data[index+1]}}
-    //                 />
-    //             </Col>
-    //         </Row>
-    //     )
-    //   }
-    // })
+const photos = this.state.data.data.map((photo,index) => {
+      if(index%2==0) {
+        return(
+          <View>
+            <Row key={index} size={10} nowrap>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+1]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+2]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+3]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+4]}}
+                      />
+                  </Col>
+              </Row>
+              <Row key={index} size={10} nowrap>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+1]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+2]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+3]}}
+                      />
+                  </Col>
+                  <Col sm={2} md={2} lg={2}>
+                  <Image
+                      style={ styles.image }
+                      source={{uri: this.state.data.data[index+4]}}
+                      />
+                  </Col>
+              </Row>
+            </View>
+        )
+      }
+    })
+      
+
     return (
       <ScrollView>
+        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
+          <View style={styles.backdropView}>
+            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
+          </View>
+        </Image>
+
         <View>
-          <Canvas
-            context={{message: 'Hello!'}}
-            render={renderCanvas}
-            style={{height: 200, width: 200}}/>
+           <Image source={{uri: this.props.asd}} style={styles.headlineImage} />
         </View>
         <View style={styles.bStyle}>
           {/* <Button
@@ -120,4 +169,4 @@ const sharePhoto = () => {
   Alert.alert('Button has been pressed!');
 };
 
-AppRegistry.registerComponent('EditPhoto', () => EditPhoto);
+export default EditPhoto

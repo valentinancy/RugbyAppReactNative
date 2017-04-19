@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});var _this4=this;
+Object.defineProperty(exports,"__esModule",{value:true});
 
 
 
@@ -20,7 +20,7 @@ var _reactNative=require('react-native');
 
 var _JSONLinks=require('./../data/JSONLinks');var _JSONLinks2=babelHelpers.interopRequireDefault(_JSONLinks);
 var _Style=require('./../../assets/styles/Style');var _Style2=babelHelpers.interopRequireDefault(_Style);
-
+var _reactNativeRouterFlux=require('react-native-router-flux');
 
 var _reactNativeFlexboxGrid=require('react-native-flexbox-grid');
 var _reactNativeImagePicker=require('react-native-image-picker');var _reactNativeImagePicker2=babelHelpers.interopRequireDefault(_reactNativeImagePicker);
@@ -104,7 +104,6 @@ _react2.default.createElement(_reactNative.Text,{style:_Style2.default.teammateH
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.bStyle},
 _react2.default.createElement(_reactNative.Button,{
 color:'red',
-
 onPress:takePhotoPressed,
 title:'Take a Photo'}),
 
@@ -123,6 +122,7 @@ title:'Load from Library'}),
 
 
 
+
 _react2.default.createElement(_reactNative.Image,{source:this.state.avatarSource,style:_Style2.default.uploadAvatar})),
 
 
@@ -133,8 +133,6 @@ photos)));
 
 
 }},{key:'renderItem',value:function renderItem(
-
-
 
 item,itemSize){
 return(
@@ -151,56 +149,6 @@ source:{uri:item.src}})));
 
 
 }}]);return IndoRugby;}(_react.Component);exports.default=IndoRugby;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 var takePhotoPressed=function takePhotoPressed(){
@@ -231,15 +179,6 @@ console.log('save failed '+error);
 });
 };
 
-
-
-
-
-
-
-
-
-
 var loadLibraryPressed=function loadLibraryPressed(){
 _reactNativeImagePicker2.default.launchImageLibrary(options,function(response){
 console.log('Response = ',response);
@@ -260,13 +199,13 @@ var source={uri:response.uri};
 
 
 
-_this4.setState({
-avatarSource:source});
 
+
+
+
+_reactNativeRouterFlux.Actions.editPhoto({asd:response.uri});
 }
 });
-
 };
-
 
 _reactNative.AppRegistry.registerComponent('IndoRugby',function(){return IndoRugby;});

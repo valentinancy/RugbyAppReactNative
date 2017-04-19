@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 import jsonLink from './../data/JSONLinks';
 import styles from './../../assets/styles/Style';
-
+import { Actions } from 'react-native-router-flux'
 import {TouchableOpacity,} from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
@@ -104,7 +104,6 @@ export default class IndoRugby extends Component {
         <View style={styles.bStyle}>
           <Button
             color= "red"
-            //marginBottom= 50
             onPress={takePhotoPressed}
             title="Take a Photo"
           />
@@ -120,9 +119,10 @@ export default class IndoRugby extends Component {
             onPress={loadLibraryPressed}
             title="Load from Library"
           />
-          {/* <Icon.Button name="image" backgroundColor="#FF0000" onPress={this.loadLibraryPressed}>
+           {/*<div onClick={loadLibraryPressed}>
+             <Icon.Button name="image" backgroundColor="#FF0000"/>
             <View style={styles.bText}><Text>Load from Library</Text></View>
-          </Icon.Button> */}
+          </div> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
 
         </View>
@@ -133,8 +133,6 @@ export default class IndoRugby extends Component {
       </ScrollView>
     );
   }
-
-
 
   renderItem(item, itemSize){
     return(
@@ -152,56 +150,6 @@ export default class IndoRugby extends Component {
       )
   }
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   list: {
-//     justifyContent: 'center',
-//     flexDirection: 'row',
-//     flexWrap: 'wrap',
-//     },
-//   headlineImage:{
-//     paddingTop: 20,
-//     width: 360,
-//     height: 120,
-//     marginBottom: 20
-//   },
-//   bStyle:{
-//     //backgroundColor: '#FF0000',
-//     //textAlign: 'center',
-//     marginBottom: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-//   backdropView: {
-//     height: 120,
-//     width: 320,
-//     backgroundColor: 'rgba(0,0,0,0)',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   headline: {
-//     fontSize: 30,
-//     textAlign: 'center',
-//     marginTop: 5,
-//     color: '#f0f8ff',
-//     fontWeight: 'bold'
-//   },
-//   image: {
-//     width: 150,
-//     height: 150,
-//     marginLeft: 17,
-//     marginBottom: 10
-//   }
-// });
 
 const takePhotoPressed = () => {
   ImagePicker.launchCamera(options, (response)  => {
@@ -231,15 +179,6 @@ const takePhotoPressed = () => {
   });
 };
 
-  //<Image source={this.state.avatarSource} style={styles.uploadAvatar} />
-
-//   ImagePicker.launchCamera(options, (response)  => {
-//   // Same code as in above section!
-// });
-
-   //Alert.alert('Button has been pressed!');
-
-
 const loadLibraryPressed = () => {
   ImagePicker.launchImageLibrary(options, (response)  => {
     console.log('Response = ', response);
@@ -260,14 +199,14 @@ const loadLibraryPressed = () => {
       // You can also display the image using data:
       // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-      this.setState({
-        avatarSource: source
-      });
+      // this.setState({
+      //   avatarSource: source
+        
+      // });
+      Actions.editPhoto({asd: response.uri})
     }
   });
-  //Alert.alert('Button has been pressed!');
 };
-
 
 AppRegistry.registerComponent('IndoRugby', () => IndoRugby);
 //export default IndoRugby;
