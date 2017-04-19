@@ -41,25 +41,41 @@ class EditPhoto extends Component {
   constructor(){
     super();
     this.state = {
-      frame: null
+      frame:null
     }
-
-  // componentWillMount() {
-  //       fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
-  //       .then((response) => response.json())
-  //       .then((response) => this.setState({ data: response }))
-  // }
+  }
 
   render() {
     // if(!this.state.data) {
     //         return <Text>Loading</Text>
     //     }
+    return (
+      <ScrollView>
+        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
+          <View style={styles.backdropView}>
+            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
+          </View>
+        </Image>
 
-const photos = this.state.data.data.map((photo,index) => {
-      if(index%2==0) {
-        return(
-          <View>
-            <Row key={index} size={10} nowrap>
+        <View>
+           <Image source={{uri: this.props.asd}} style={styles.headlineImage} />
+          {/* <Canvas
+            context={{message: 'Hello!'}}
+            render={renderCanvas}
+            style={{height: 200, width: 200}}/> */}
+
+            {/*<Image source={require('')} style={styles.headlineImage} >
+              <View style={styles.backdropView}>
+                <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
+              </View>
+            </Image>*/}
+            {/* - tampilin hasil foto
+                - tampilin grid of frame
+
+              */}
+
+        <View>
+            <Row size={10} nowrap>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
@@ -91,7 +107,7 @@ const photos = this.state.data.data.map((photo,index) => {
                       />
                   </Col>
               </Row>
-              <Row key={index} size={10} nowrap>
+              <Row size={10} nowrap>
                   <Col sm={2} md={2} lg={2}>
                   <Image
                       style={ styles.image }
@@ -124,35 +140,6 @@ const photos = this.state.data.data.map((photo,index) => {
                   </Col>
               </Row>
             </View>
-        )
-      }
-    })
-
-
-    return (
-      <ScrollView>
-        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
-          <View style={styles.backdropView}>
-            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
-          </View>
-        </Image>
-
-        <View>
-           <Image source={{uri: this.props.asd}} style={styles.headlineImage} />
-          {/* <Canvas
-            context={{message: 'Hello!'}}
-            render={renderCanvas}
-            style={{height: 200, width: 200}}/> */}
-
-            {/*<Image source={require('')} style={styles.headlineImage} >
-              <View style={styles.backdropView}>
-                <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
-              </View>
-            </Image>*/}
-            {/* - tampilin hasil foto
-                - tampilin grid of frame
-
-              */}
         </View>
           {/* grid frame :
 
