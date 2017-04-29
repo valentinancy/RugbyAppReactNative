@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
     margin: 15,
   },
 
+  /* INDEX */
+  sceneStyle: {
+    paddingTop: 54,
+  },
+
   /* MENU */
   menu: {
     flex: 1,
