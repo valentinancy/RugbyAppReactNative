@@ -43,7 +43,7 @@ _react2.default.createElement(_reactNative.ScrollView,{scrollsToTop:false,style:
 
 
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'news');}},
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'news');},style:_Style2.default.touchOverlay,underlayColor:'white'},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.menuIconView},
 _react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/timeline.png')})),
@@ -53,10 +53,10 @@ _react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Ne
 
 
 
-_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'fixtures');}},
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'fixtures');},style:_Style2.default.touchOverlay,underlayColor:'white'},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.menuIconView},
-_react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/timeline.png')})),
+_react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/fixture.png')})),
 
 _react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Fixtures & Result'))),
 
@@ -73,7 +73,7 @@ _react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Te
 
 
 
-_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'rugby101');}},
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'rugby101');},style:_Style2.default.touchOverlay,underlayColor:'white'},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.menuIconView},
 _react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/rugby101.png')})),
@@ -83,7 +83,7 @@ _react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Ru
 
 
 
-_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'rugbyClubs');}},
+_react2.default.createElement(_reactNative.TouchableHighlight,{onPress:function onPress(e){return _this2.handleClick(e,'rugbyClubs');},style:_Style2.default.touchOverlay,underlayColor:'white'},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.itemContainer},
 _react2.default.createElement(_reactNative.View,{style:_Style2.default.menuIconView},
 _react2.default.createElement(_reactNative.Image,{style:_Style2.default.menuIcon,source:require('./../../assets/images/clubs.png')})),
@@ -94,23 +94,30 @@ _react2.default.createElement(_reactNative.Text,{style:_Style2.default.item},'Ru
 
 
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,null,'Contact:'),
-_react2.default.createElement(_reactNative.Text,null,' '),
-_react2.default.createElement(_reactNative.Text,null,'info@rugbyindonesia.or.id'),
-_react2.default.createElement(_reactNative.Text,null,'www.rugbyindonesia.or.id')),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},'Contact:'),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},' '),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},'info@rugbyindonesia.or.id'),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},'www.rugbyindonesia.or.id')),
 
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,null,'Connect with us:')),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},' '),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},'Connect with us:')),
 
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,null,'Affiliations')),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},'Affiliations')),
 
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,null,'\xA9 2016 Persatuan Rugby Union Indonesia')),
+_react2.default.createElement(_reactNative.Text,{numberOfLines:2,style:{width:window.width/2+25,fontSize:11,color:'white'}},'\xA9 2016 Persatuan Rugby Union Indonesia'),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},' ')),
 
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,null,'Powered by Lorem Ipsum'),
-_react2.default.createElement(_reactNative.Image,{source:require('./../../assets/images/sponsor.png'),style:_Style2.default.sidebarLogo})))));
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText,numberOfLines:2},'Powered by Lorem Ipsum'),
+
+_react2.default.createElement(_reactNative.Image,{source:require('./../../assets/images/sponsor.png'),style:_Style2.default.sidebarLogo,resizeMode:'contain'})),
+
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},'Developed By'),
+_react2.default.createElement(_reactNative.Text,{style:_Style2.default.sidebarText},'DNArtworks.co.id')))));
 
 
 

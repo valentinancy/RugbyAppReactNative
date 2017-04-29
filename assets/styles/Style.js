@@ -231,6 +231,10 @@ const styles = StyleSheet.create({
   },
 
   /* EDIT PHOTO */
+  viewImageSave: {
+    width:400,
+    height:400
+  },
   frameImage: {
     width: 75,
     height: 75
@@ -242,7 +246,6 @@ const styles = StyleSheet.create({
     // flexDirection: 'column'
   },
   choosenImageView: {
-    marginTop: 5,
     marginBottom: 20,
     position: 'absolute'
   },
@@ -256,8 +259,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   choosenFrameView: {
-    opacity: 1,
-    marginTop: 5
+    opacity: 1
   },
   empty: {
     opacity: 0

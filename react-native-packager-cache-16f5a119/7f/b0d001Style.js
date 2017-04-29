@@ -54,8 +54,8 @@ flexDirection:'column',
 justifyContent:'space-around'},
 
 menuIcon:{
-width:40,
-height:40},
+width:30,
+height:30},
 
 
 
@@ -67,12 +67,10 @@ height:40},
 
 
 touchOverlay:{
-width:window.width/2},
+width:window.width/2+25},
 
 sidebarLogo:{
-width:window.width/2,
-width:25,
-height:25},
+width:window.width/2+25},
 
 menuIconView:{
 flexDirection:'column',
@@ -85,7 +83,11 @@ alignItems:'flex-start',
 flexDirection:'row',
 borderBottomColor:'white',
 borderBottomWidth:2,
-width:window.width/2},
+width:window.width/2+25},
+
+sidebarText:{
+color:'white',
+fontSize:11},
 
 
 button:{
@@ -229,6 +231,10 @@ marginBottom:10},
 
 
 
+viewImageSave:{
+width:400,
+height:400},
+
 frameImage:{
 width:75,
 height:75},
@@ -240,7 +246,6 @@ flex:1},
 
 
 choosenImageView:{
-marginTop:5,
 marginBottom:20,
 position:'absolute'},
 
@@ -254,8 +259,7 @@ marginTop:20,
 marginBottom:20},
 
 choosenFrameView:{
-opacity:1,
-marginTop:5},
+opacity:1},
 
 empty:{
 opacity:0},
