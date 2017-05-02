@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     height: window.height,
     backgroundColor: 'red',
     padding: 20,
-    marginTop: 40
   },
   item: {
     fontSize: 15,
@@ -61,6 +60,24 @@ const styles = StyleSheet.create({
   menuIcon: {
     width:30,
     height:30,
+  },
+  connectContainer: {
+    flex:1,
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    width:window.width/2+25
+  },
+  connectIcon: {
+    width:180,
+    height:180,
+    marginRight:20,
+    flexDirection: 'column',
+    paddingRight: 10,
+    justifyContent: 'space-around',
+  },
+  affiliationIcon: {
+    width:25,
+    height:25,
   },
   // itemContainer: {
   //   flex:1,
