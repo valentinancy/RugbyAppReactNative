@@ -104,6 +104,16 @@ class Menu extends Component{
                         <Text style={styles.sidebarText}>Connect with us:</Text>
                     </View>
                     <View>
+                        <Text numberOfLines={2} style={styles.connectContainer}>
+                            <Image style={styles.connectIcon} source={require('./../../assets/images/twitter.png')} />
+                            <Image style={styles.connectIcon} source={require('./../../assets/images/facebook.png')} />
+                            <Image style={styles.connectIcon} source={require('./../../assets/images/vine.png')} />
+                            <Image style={styles.connectIcon} source={require('./../../assets/images/gplus.png')} />
+                            <Image style={styles.connectIcon} source={require('./../../assets/images/youtube.png')} />
+                            <Image style={styles.connectIcon} source={require('./../../assets/images/instagram.png')} />
+                        </Text>
+                    </View>
+                    <View>
                         <Text style={styles.sidebarText}>Affiliations</Text>
                     </View>
                     <View>

@@ -18,6 +18,7 @@
     "react-native-get-real-path": "git+https://github.com/Wraptime/react-native-get-real-path.git",
     "react-native-hyperlink": "0.0.8",
     "react-native-image-picker": "^0.26.2",
+    "react-native-image-resizer": "^0.1.0",
     "react-native-photo-grid": "0.0.2",
     "react-native-router-flux": "^3.38.0",
     "react-native-side-menu": "^0.20.1",

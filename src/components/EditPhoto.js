@@ -22,7 +22,12 @@ import {
 
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
-import { takeSnapshot } from 'react-native-view-shot'
+import { takeSnapshot, dirs } from 'react-native-view-shot'
+import RNGRP from 'react-native-get-real-path'
+import ImageResizer from 'react-native-image-resizer';
+import { Actions } from 'react-native-router-flux'
+
+const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
 // import Canvas from 'react-native-canvas';
 
 // const options = {
@@ -38,25 +43,25 @@ import { takeSnapshot } from 'react-native-view-shot'
 import styles from './../../assets/styles/Style'
 
 class EditPhoto extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      frame:null,
+      frame: null,
       choosenFrame: null
     }
   }
 
   showFrame() {
-    if(!this.state.choosenFrame) {
-      return(
+    if (!this.state.choosenFrame) {
+      return (
         <View style={styles.emptyView}>
-          <Image style={styles.empty} source={require('./../../assets/images/sub-header-photo.png')}/>
+          <Image style={styles.empty} source={require('./../../assets/images/sub-header-photo.png')} />
         </View>
       )
     }
-    return(
+    return (
       <View style={styles.choosenFrameView}>
-        <Image style={styles.choosenFrame} source={this.state.choosenFrame}/>
+        <Image style={styles.choosenFrame} source={this.state.choosenFrame} />
       </View>
     )
   }
@@ -88,26 +93,49 @@ class EditPhoto extends Component {
   //   }))
   //   .catch(error => (console.warn(error), this.setState({ error, res: null, previewSource: null })));
 
-    snapshot = refname => () => 
-      takeSnapshot(this.refs[refname], {
-        format: "png",
-        quality: 0.9,
-        result: "file",
-        snapshotContentContainer: false,
-        })
+  snapshot = refname => () =>
+    takeSnapshot(this.refs[refname], {
+      format: "png",
+      result: "data-uri",
+      width: 152.5,
+      height: 152.5,
+      snapshotContentContainer: false,
+      path: PictureDir + "/foo.png"
+    })
       .then(
-        uri => {
-          console.log("Image saved to", uri)
-          let path = '/storage/emulated/0/Pictures/' + uri.split('/')[8]
-          console.log("pathnya kak",path)
-          CameraRoll.saveToCameraRoll(path,'photo').then(function(result) {
-            console.log('ke save ' + result);
-          }).catch(function(error) {
-            console.log('ga ke save ' + error);
-          });
+      uri => {
+        // console.log(" isi uri ", uri)
+        // CameraRoll.saveToCameraRoll(uri,'photo').then(function(result) {
+        //   console.log('ke save ' + result);
+        // }).catch(function(error) {
+        //   console.log('ga ke save ' + error);
+        // });
+        // ImageResizer.createResizedImage(uri, 400, 400, 'PNG', 10, 0, null).then((resizedImageUri) => {
+        //     console.log("udah nih",resizedImageUri)
+        // }).catch((err) => {
+        //     console.log("error cuy", err)
+        // });
+        this.uploadImage(uri)
       },
-        error => console.error("Oops, snapshot failed", error)
+      error => console.error("Oops, snapshot failed", error)
       );
+
+
+  uploadImage(image) {
+    const data = new FormData();
+    console.log("nih buat lu", image)
+    data.append('userId', 'nancy')
+    data.append('photo', image)
+    fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/upload.json', {
+      method: 'post',
+      body: data
+    }).then(res => {
+      console.log(res)
+      Actions.teammate()
+    }).catch(err => {
+      console.log(err)
+    })
+  }
 
   render() {
     return (
@@ -119,136 +147,138 @@ class EditPhoto extends Component {
         </Image>
 
         <View>
-          <View style={styles.choosenImageView} collapsable={false} ref="header">
-            <Image source={{uri: this.props.asd}} style={styles.choosenImage} resizeMode='cover'/>
+          <View style={{ width: 400, height: 400 }} ref="header" collapsable={false}>
+            <View style={styles.choosenImageView}>
+              <Image source={{ uri: this.props.asd }} style={styles.choosenImage} resizeMode='cover' />
+            </View>
+            {this.showFrame()}
           </View>
-          { this.showFrame() }
 
           {/* <Canvas
             context={{message: 'Hello!'}}
             render={renderCanvas}
             style={{height: 200, width: 200}}/> */}
 
-            {/*<Image source={require('')} style={styles.headlineImage} >
+          {/*<Image source={require('')} style={styles.headlineImage} >
               <View style={styles.backdropView}>
                 <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
               </View>
             </Image>*/}
-            {/* - tampilin hasil foto
+          {/* - tampilin hasil foto
                 - tampilin grid of frame
 
               */}
 
-        <View style={styles.frameGroup}>
+          <View style={styles.frameGroup}>
             <Row size={10} nowrap>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame01.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame01.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame02.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame02.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame03.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame03.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame04.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame04.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame05.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame05.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-              </Row>
-              <Row size={10} nowrap>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame06.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame06.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame07.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame07.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame08.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame08.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame09.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame09.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-                  <Col sm={2} md={2} lg={2}>
-                    <TouchableOpacity onPress={(e) => this.setChoosenFrame(e,require('./../../assets/images/frame10.png')) }>
-                      <View style={styles.frameImageView}>
-                        <Image
-                          style={ styles.frameImage }
-                          source={require('./../../assets/images/frame10.png')}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </Col>
-              </Row>
-            </View>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame01.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame01.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame02.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame02.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame03.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame03.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame04.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame04.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame05.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame05.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+            </Row>
+            <Row size={10} nowrap>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame06.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame06.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame07.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame07.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame08.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame08.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame09.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame09.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col sm={2} md={2} lg={2}>
+                <TouchableOpacity onPress={(e) => this.setChoosenFrame(e, require('./../../assets/images/frame10.png'))}>
+                  <View style={styles.frameImageView}>
+                    <Image
+                      style={styles.frameImage}
+                      source={require('./../../assets/images/frame10.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </Col>
+            </Row>
+          </View>
         </View>
         <View style={styles.bStyle}>
           <Button
-            color= "red"
+            color="red"
             //marginBottom= 50
             onPress={this.snapshot("header")}
             title="Submit"
@@ -260,7 +290,7 @@ class EditPhoto extends Component {
         <View style={styles.bStyle}>
           <Button
             // style={styles.bStyle}
-            color= "red"
+            color="red"
             onPress={sharePhoto}
             title="Share"
           />
