@@ -27,8 +27,8 @@ class App extends React.Component {
             renderTitle={() => (<Image source={require('./assets/images/logo-header.png')} 
                                 style={{height:40,resizeMode:'contain',marginVertical:7}} />)
                         }
-            onLeft={() => (Actions.news)}
-            renderLeftButton={() => (<Icon name="home" size={25} />)}
+            onLeft={() => (Actions.news())}
+			leftTitle={(<Icon name="home" size={25} />)}
         >
 
         <Scene key="drawer" component={NavigationDrawer} open={false} >
