@@ -27,13 +27,14 @@ class App extends React.Component {
             renderTitle={() => (<Image source={require('./assets/images/logo-header.png')} 
                                 style={{height:40,resizeMode:'contain',marginVertical:7}} />)
                         }
-            onLeft={() => (Actions.news)}
-            renderLeftButton={() => (<Icon name="home" size={25} />)}
+            onLeft={() => (Actions.news())}
+            leftTitle={(<Icon name="home" size={25} />)}
         >
 
         <Scene key="drawer" component={NavigationDrawer} open={false} >
             <Scene key="main" tabs={true}>
-                <Scene key="news" component={ News } initial sceneStyle={ styles.sceneStyle } />
+                <Scene key="home" component={ Home } initial/>
+                <Scene key="news" component={ News } sceneStyle={ styles.sceneStyle } />
                 <Scene key="fixtures" component={ Fixtures } sceneStyle={ styles.sceneStyle } />
                 <Scene key="readMoreFixtures" component={ReadMoreFixtures} sceneStyle={ styles.sceneStyle } />
                 <Scene key="teammate" component={ Teammate } sceneStyle={ styles.sceneStyle } />

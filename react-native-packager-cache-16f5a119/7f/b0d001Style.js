@@ -37,6 +37,11 @@ margin:15},
 
 
 
+sceneStyle:{
+paddingTop:54},
+
+
+
 menu:{
 flex:1,
 width:window.width,
