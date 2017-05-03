@@ -97,8 +97,8 @@ class EditPhoto extends Component {
     takeSnapshot(this.refs[refname], {
       format: "png",
       result: "data-uri",
-      width: 152.5,
-      height: 152.5,
+      width: 133.5,
+      height: 133.5,
       snapshotContentContainer: false,
       path: PictureDir + "/foo.png"
     })
@@ -147,7 +147,7 @@ class EditPhoto extends Component {
         </Image>
 
         <View>
-          <View style={{ width: 400, height: 400 }} ref="header" collapsable={false}>
+          <View style={{ width: 300, height: 300 }} ref="header" collapsable={false}>
             <View style={styles.choosenImageView}>
               <Image source={{ uri: this.props.asd }} style={styles.choosenImage} resizeMode='cover' />
             </View>

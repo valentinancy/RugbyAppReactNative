@@ -278,8 +278,8 @@ const styles = StyleSheet.create({
     height:400
   },
   frameImage: {
-    width: 75,
-    height: 75
+    width: 60,
+    height: 60
   },
   choosenImage: {
     width: 400,
@@ -301,7 +301,9 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   choosenFrameView: {
-    opacity: 1
+    opacity: 1,
+    width: 300,
+    height: 300,
   },
   empty: {
     opacity: 0
@@ -310,8 +312,8 @@ const styles = StyleSheet.create({
     paddingTop: 200
   },
   choosenFrame: {
-    height: 400,
-    width: 400
+    height: 300,
+    width: 300
   },
   /* RUGBY 101 */
   // headerImg: {
