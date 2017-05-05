@@ -7,7 +7,7 @@ const window = Dimensions.get('window')
 
 class Menu extends Component{
 	static propTypes = {
-	    onItemSelected: React.PropTypes.func.isRequired,
+	    //onItemSelected: React.PropTypes.func.isRequired,
 	};
 
 	handleClick(e,page) {
