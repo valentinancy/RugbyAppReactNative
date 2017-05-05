@@ -145,7 +145,7 @@ class EditPhoto extends Component {
         </Image>
 
         <View>
-          <View style={{ width: 300, height: 300 }} ref="header" collapsable={false}>
+          <View style={styles.chosenFramed} ref="header" collapsable={false}>
             <View style={styles.choosenImageView}>
               <Image source={{ uri: this.props.asd }} style={styles.choosenImage} resizeMode='cover' />
             </View>

@@ -282,14 +282,20 @@ const styles = StyleSheet.create({
     height: 60
   },
   choosenImage: {
-    width: 400,
-    height: 400,
+    width: 300,
+    height: 300,
     flex: 1
     // flexDirection: 'column'
   },
   choosenImageView: {
-    marginBottom: 20,
     position: 'absolute'
+  },
+  chosenFramed: {
+    width: 300,
+    height: 300,
+    marginBottom: 20,
+    marginTop: 20,
+    marginLeft: (window.width-300)/2,
   },
   frameImageView: {
     marginLeft: 2,
