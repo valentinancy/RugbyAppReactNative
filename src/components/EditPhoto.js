@@ -140,10 +140,8 @@ class EditPhoto extends Component {
   render() {
     return (
       <ScrollView>
-        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.headlineImage} >
-          <View style={styles.backdropView}>
-            <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
-          </View>
+        <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.header} >
+          <Text style={styles.headline}>TEAMMATE PHOTOS</Text>
         </Image>
 
         <View>

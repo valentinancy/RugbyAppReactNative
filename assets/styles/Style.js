@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     height: 100,
   },
   headline: {
-    fontSize: 7*PixelRatio.getFontScale(),
+    fontSize: 25,
     marginTop: 30,
     color: '#f0f8ff',
     textAlign: 'center',
