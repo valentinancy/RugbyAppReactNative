@@ -33,8 +33,7 @@ class App extends React.Component {
 
         <Scene key="drawer" component={NavigationDrawer} open={false} >
             <Scene key="main" tabs={true}>
-                <Scene key="home" component={ Home } initial/>
-                <Scene key="news" component={ News } sceneStyle={ styles.sceneStyle } />
+                <Scene key="news" component={ News } sceneStyle={ styles.sceneStyle } initial />
                 <Scene key="fixtures" component={ Fixtures } sceneStyle={ styles.sceneStyle } />
                 <Scene key="readMoreFixtures" component={ReadMoreFixtures} sceneStyle={ styles.sceneStyle } />
                 <Scene key="teammate" component={ Teammate } sceneStyle={ styles.sceneStyle } />
