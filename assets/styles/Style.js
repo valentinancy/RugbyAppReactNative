@@ -40,6 +40,12 @@ const styles = StyleSheet.create({
   sceneStyle: {
     paddingTop: 54,
   },
+  headerTitle: {
+    height:40,
+    resizeMode:'contain',
+    marginVertical:7,
+    marginLeft:14,
+  },
 
   /* MENU */
   menu: {
