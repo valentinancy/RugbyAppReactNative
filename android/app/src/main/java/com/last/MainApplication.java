@@ -11,7 +11,8 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.rngrp.RNGRPPackage; 
+import com.rngrp.RNGRPPackage;
+import cl.json.RNSharePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
 import com.github.alinz.reactnativewebviewbridge.WebViewBridgePackage;
 
 import com.imagepicker.ImagePickerPackage;
+// import com.blueprintalpha.rnandroidshare.RNAndroidSharePackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -37,7 +39,9 @@ public class MainApplication extends Application implements ReactApplication {
           new SplashScreenPackage(),
           new ImagePickerPackage(),
           new WebViewBridgePackage(),
-          new RNGRPPackage()
+          new RNGRPPackage(),
+          // new RNAndroidSharePackage(this)
+          new RNSharePackage()
       );
     }
   };

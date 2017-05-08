@@ -343,6 +343,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 10
   },
+  editInstruction: {
+    marginTop: 20,
+    marginBottom: 20,
+  },
 
   /* HEADER */
   viewStyle: {

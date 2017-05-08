@@ -26,21 +26,10 @@ import { takeSnapshot, dirs } from 'react-native-view-shot'
 import RNGRP from 'react-native-get-real-path'
 import ImageResizer from 'react-native-image-resizer';
 import { Actions } from 'react-native-router-flux'
-import Share, {ShareSheet, Button} from 'react-native-share';
+import Share, {ShareSheet} from 'react-native-share';
+// import AndroidShare from ('react-native-android-share');
 
 const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
-// import Canvas from 'react-native-canvas';
-
-// const options = {
-//   title: 'Select Avatar',
-//   customButtons: [
-//     {name: 'fb', title: 'Choose Photo from Facebook'},
-//   ],
-//   storageOptions: {
-//     skipBackup: true,
-//     path: 'images'
-//   }
-// };
 import styles from './../../assets/styles/Style'
 
 class EditPhoto extends Component {
@@ -48,8 +37,22 @@ class EditPhoto extends Component {
     super();
     this.state = {
       frame: null,
-      choosenFrame: null
+      choosenFrame: null,
+      visible: false
     }
+  }
+
+// shareSheetOpen(){
+//   Share.open(options).catch((err) => { err && console.log(err); })
+// }
+
+onCancel() {
+    console.log("CANCEL")
+    this.setState({visible:false});
+  }
+onOpen() {
+    console.log("OPEN")
+    this.setState({visible:true});
   }
 
   showFrame() {
@@ -303,8 +306,45 @@ class EditPhoto extends Component {
 }
 
 const sharePhoto = () => {
+  let shareOptions = {
+      title: "React Native",
+      message: "Hola mundo",
+      url: "http://facebook.github.io/react-native/",
+      subject: "Share Link" //  for email
+    };
+
+    let shareImageBase64 = {
+      title: "React Native",
+      message: "Hola mundo",
+      url: REACT_ICON,
+      subject: "Share Link" //  for email
+    };
+
   return(
-    <View>
+    <View style={styles.container} >
+      
+      <TouchableOpacity onPress={()=>{
+          Share.open(shareImageBase64);
+        }}>
+          <View style={styles.instructions}>
+            <Text>Simple Share Image Base 64</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={()=>{
+          Share.open(shareOptions);
+        }}>
+          <View style={styles.instructions}>
+            <Text>Simple Share</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.onOpen.bind(this)}>
+          <View style={styles.instructions}>
+            <Text>Share UI Component</Text>
+          </View>
+        </TouchableOpacity>
+
     <ShareSheet visible={this.state.visible} onCancel={this.onCancel.bind(this)}>
           <Button iconSrc={{ uri: TWITTER_ICON }}
                   onPress={()=>{
