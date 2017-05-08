@@ -49,7 +49,7 @@ class EditPhoto extends Component {
     this.state = {
       frame: null,
       choosenFrame: null,
-      visible: true
+      visible: false
     }
   }
 
@@ -72,6 +72,14 @@ class EditPhoto extends Component {
     this.setState({
       choosenFrame: frame
     })
+  }
+
+  onOpen(){
+    console.log("sharing2 yo...")
+  }
+
+  onCancel(){
+    console.log("ga jadi ah...")
   }
 
   //  snapshot = refname => () =>
