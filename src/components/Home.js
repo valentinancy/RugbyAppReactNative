@@ -51,7 +51,6 @@ class Home extends Component {
     /* END MENU */
 
     render() {
-        //const { nav } = styles
         const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
 
         return (

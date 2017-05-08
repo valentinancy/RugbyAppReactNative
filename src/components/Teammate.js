@@ -105,22 +105,14 @@ class Teammate extends Component {
             onPress={takePhotoPressed}
             title="Take a Photo"
           />
-          {/* <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
-            <View style={styles.bText}><Text>Take a Photo</Text></View>
-          </Icon.Button> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
         </View>
         <View style={styles.bStyle}>
           <Button
-            // style={styles.bStyle}
             color= "red"
             onPress={loadLibraryPressed}
             title="Load from Library"
           />
-           {/*<div onClick={loadLibraryPressed}>
-             <Icon.Button name="image" backgroundColor="#FF0000"/>
-            <View style={styles.bText}><Text>Load from Library</Text></View>
-          </div> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
 
         </View>
@@ -167,11 +159,7 @@ const takePhotoPressed = () => {
       console.log('User tapped custom button: ', response.customButton);
     }
     else {
-      console.log("nancy cantik",response.uri)
-
-      //kirim stringnya ke editphoto
-      // You can also display the image using data:
-      // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+      console.log("Camera launched",response.uri)
       Actions.editphoto({asd: response.uri})
 
       CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result) {
@@ -197,11 +185,8 @@ const loadLibraryPressed = () => {
       console.log('User tapped custom button: ', response.customButton);
     }
     else {
-      console.log("nancy cantik",response.uri)
+      console.log("Library opened",response.uri)
       let source = { uri: response.uri };
-
-      // You can also display the image using data:
-      // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
       Actions.editphoto({asd: response.uri})
     }

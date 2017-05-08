@@ -4,7 +4,6 @@ project(':react-native-view-shot').projectDir = new File(rootProject.projectDir,
 include ':rn-splash-screen'
 project(':rn-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/rn-splash-screen/android')
 
-//include ':app'
 
 /***********TAMBAHAN DARI WEBVIEW*************/
 include ':app', ':react-native-webview-bridge'

@@ -29,7 +29,7 @@ import { takeSnapshot, dirs } from 'react-native-view-shot'
 import RNGRP from 'react-native-get-real-path'
 import ImageResizer from 'react-native-image-resizer';
 import { Actions } from 'react-native-router-flux'
-import Share, {ShareSheet, Button as ButtonShare} from 'react-native-share';
+import Share, { ShareSheet, Button as ButtonShare } from 'react-native-share';
 
 const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
 import styles from './../../assets/styles/Style'
@@ -45,13 +45,13 @@ class EditPhoto extends Component {
   }
 
 
-onCancel() {
+  onCancel() {
     console.log("CANCEL")
-    this.setState({visible:false});
+    this.setState({ visible: false });
   }
-onOpen() {
+  onOpen() {
     console.log("OPEN")
-    this.setState({visible:true});
+    this.setState({ visible: true });
   }
 
   showFrame() {
@@ -75,34 +75,13 @@ onOpen() {
     })
   }
 
-  onOpen(){
-    this.setState({visible:true})
+  onOpen() {
+    this.setState({ visible: true })
   }
 
-  onCancel(){
-    this.setState({visible:false})
+  onCancel() {
+    this.setState({ visible: false })
   }
-
-  //  snapshot = refname => () =>
-  //   takeSnapshot(this.refs[refname], this.state.value)
-  //   .then(res =>
-  //     this.state.value.result !== "file"
-  //     ? res
-  //     : new Promise((success, failure) =>
-  //     // just a test to ensure res can be used in Image.getSize
-  //     Image.getSize(
-  //       res,
-  //       (width, height) => (console.log(res,width,height), success(res)),
-  //       failure)))
-  //   .then(res => this.setState({
-  //     error: null,
-  //     res,
-  //     previewSource: { uri:
-  //       this.state.value.result === "base64"
-  //       ? "data:image/"+this.state.value.format+";base64,"+res
-  //       : res }
-  //   }))
-  //   .catch(error => (console.warn(error), this.setState({ error, res: null, previewSource: null })));
 
   snapshot = refname => () =>
     takeSnapshot(this.refs[refname], {
@@ -115,17 +94,6 @@ onOpen() {
     })
       .then(
       uri => {
-        // console.log(" isi uri ", uri)
-        // CameraRoll.saveToCameraRoll(uri,'photo').then(function(result) {
-        //   console.log('ke save ' + result);
-        // }).catch(function(error) {
-        //   console.log('ga ke save ' + error);
-        // });
-        // ImageResizer.createResizedImage(uri, 400, 400, 'PNG', 10, 0, null).then((resizedImageUri) => {
-        //     console.log("udah nih",resizedImageUri)
-        // }).catch((err) => {
-        //     console.log("error cuy", err)
-        // });
         this.uploadImage(uri)
       },
       error => console.error("Oops, snapshot failed", error)
@@ -134,7 +102,6 @@ onOpen() {
 
   uploadImage(image) {
     const data = new FormData();
-    console.log("nih buat lu", image)
     data.append('userId', 'nancy')
     data.append('photo', image)
     fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/upload.json', {
@@ -151,7 +118,7 @@ onOpen() {
   render() {
     let shareOptions = {
       title: "React Native",
-      message: "Lorem Ipsum",
+      message: "Rugby Apps Indonesia",
       url: "http://rugbyindonesia.or.id",
       subject: "Share Link" //  for email
     };
@@ -169,7 +136,7 @@ onOpen() {
             {this.showFrame()}
           </View>
 
-          
+
 
           <View style={styles.frameGroup}>
             <Row size={10} nowrap>
@@ -281,72 +248,70 @@ onOpen() {
         <View style={styles.bStyle}>
           <Button
             color="red"
-            //marginBottom= 50
             onPress={this.snapshot("header")}
             title="Submit"
           />
-          
+
         </View>
         <View style={styles.bStyle}>
           <Button
-            
             color="red"
             onPress={this.onOpen.bind(this)}
             title="Share"
           />
-          
+
         </View>
         <ShareSheet visible={this.state.visible} onCancel={this.onCancel.bind(this)}>
           <ButtonShare iconSrc={{ uri: TWITTER_ICON }}
-                  onPress={()=>{
+            onPress={() => {
               this.onCancel();
               setTimeout(() => {
                 Share.shareSingle(Object.assign(shareOptions, {
                   "social": "twitter"
                 }));
-              },300);
+              }, 300);
             }}>Twitter</ButtonShare>
           <ButtonShare iconSrc={{ uri: FACEBOOK_ICON }}
-                  onPress={()=>{
+            onPress={() => {
               this.onCancel();
               setTimeout(() => {
                 Share.shareSingle(Object.assign(shareOptions, {
                   "social": "facebook"
                 }));
-              },300);
+              }, 300);
             }}>Facebook</ButtonShare>
           <ButtonShare iconSrc={{ uri: WHATSAPP_ICON }}
-                  onPress={()=>{
+            onPress={() => {
               this.onCancel();
               setTimeout(() => {
                 Share.shareSingle(Object.assign(shareOptions, {
                   "social": "whatsapp"
                 }));
-              },300);
+              }, 300);
             }}>Whatsapp</ButtonShare>
           <ButtonShare iconSrc={{ uri: GOOGLE_PLUS_ICON }}
-                  onPress={()=>{
+            onPress={() => {
               this.onCancel();
               setTimeout(() => {
                 Share.shareSingle(Object.assign(shareOptions, {
                   "social": "googleplus"
                 }));
-              },300);
+              }, 300);
             }}>Google +</ButtonShare>
           <ButtonShare iconSrc={{ uri: EMAIL_ICON }}
-                  onPress={()=>{
+            onPress={() => {
               this.onCancel();
               setTimeout(() => {
                 Share.shareSingle(Object.assign(shareOptions, {
                   "social": "email"
                 }));
-              },300);
+              }, 300);
             }}>Email</ButtonShare>
           <ButtonShare iconSrc={{ uri: CLIPBOARD_ICON }}
-            onPress={()=>{
+            onPress={() => {
               this.onCancel();
               setTimeout(() => {
-                if(typeof shareOptions["url"] !== undefined) {
+                if (typeof shareOptions["url"] !== undefined) {
                   Clipboard.setString(shareOptions["url"]);
                   if (Platform.OS === "android") {
                     ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
@@ -354,15 +319,17 @@ onOpen() {
                     AlertIOS.alert('Copied to clipboard');
                   }
                 }
-              },300);
+              }, 300);
             }}>Copy Link</ButtonShare>
           <ButtonShare iconSrc={{ uri: MORE_ICON }}
-            onPress={()=>{
+            onPress={() => {
               this.onCancel();
               setTimeout(() => {
                 Share.open(shareOptions)
-              },300);
+              }, 300);
             }}>More</ButtonShare>
+          <ButtonShare><Text></Text></ButtonShare>
+          <ButtonShare><Text></Text></ButtonShare>
         </ShareSheet>
       </ScrollView>
     );
