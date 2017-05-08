@@ -26,7 +26,7 @@ import { takeSnapshot, dirs } from 'react-native-view-shot'
 import RNGRP from 'react-native-get-real-path'
 import ImageResizer from 'react-native-image-resizer';
 import { Actions } from 'react-native-router-flux'
-import Share, {ShareSheet} from 'react-native-share';
+import Share, {ShareSheet, Button as ButtonShare} from 'react-native-share';
 
 const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
 // import Canvas from 'react-native-canvas';
@@ -48,7 +48,8 @@ class EditPhoto extends Component {
     super();
     this.state = {
       frame: null,
-      choosenFrame: null
+      choosenFrame: null,
+      visible: true
     }
   }
 
@@ -306,7 +307,7 @@ const sharePhoto = () => {
   return(
     <View>
     <ShareSheet visible={this.state.visible} onCancel={this.onCancel.bind(this)}>
-          <Button iconSrc={{ uri: TWITTER_ICON }}
+          <ButtonShare iconSrc={{ uri: TWITTER_ICON }}
                   onPress={()=>{
               this.onCancel();
               setTimeout(() => {
@@ -314,8 +315,8 @@ const sharePhoto = () => {
                   "social": "twitter"
                 }));
               },300);
-            }}>Twitter</Button>
-          <Button iconSrc={{ uri: FACEBOOK_ICON }}
+            }}>Twitter</ButtonShare>
+          <ButtonShare iconSrc={{ uri: FACEBOOK_ICON }}
                   onPress={()=>{
               this.onCancel();
               setTimeout(() => {
@@ -323,8 +324,8 @@ const sharePhoto = () => {
                   "social": "facebook"
                 }));
               },300);
-            }}>Facebook</Button>
-          <Button iconSrc={{ uri: WHATSAPP_ICON }}
+            }}>Facebook</ButtonShare>
+          <ButtonShare iconSrc={{ uri: WHATSAPP_ICON }}
                   onPress={()=>{
               this.onCancel();
               setTimeout(() => {
@@ -332,8 +333,8 @@ const sharePhoto = () => {
                   "social": "whatsapp"
                 }));
               },300);
-            }}>Whatsapp</Button>
-          <Button iconSrc={{ uri: GOOGLE_PLUS_ICON }}
+            }}>Whatsapp</ButtonShare>
+          <ButtonShare iconSrc={{ uri: GOOGLE_PLUS_ICON }}
                   onPress={()=>{
               this.onCancel();
               setTimeout(() => {
@@ -341,8 +342,8 @@ const sharePhoto = () => {
                   "social": "googleplus"
                 }));
               },300);
-            }}>Google +</Button>
-          <Button iconSrc={{ uri: EMAIL_ICON }}
+            }}>Google +</ButtonShare>
+          <ButtonShare iconSrc={{ uri: EMAIL_ICON }}
                   onPress={()=>{
               this.onCancel();
               setTimeout(() => {
@@ -350,8 +351,8 @@ const sharePhoto = () => {
                   "social": "email"
                 }));
               },300);
-            }}>Email</Button>
-          <Button
+            }}>Email</ButtonShare>
+          <ButtonShare
             iconSrc={{ uri: CLIPBOARD_ICON }}
             onPress={()=>{
               this.onCancel();
@@ -365,14 +366,14 @@ const sharePhoto = () => {
                   }
                 }
               },300);
-            }}>Copy Link</Button>
-          <Button iconSrc={{ uri: MORE_ICON }}
+            }}>Copy Link</ButtonShare>
+          <ButtonShare iconSrc={{ uri: MORE_ICON }}
             onPress={()=>{
               this.onCancel();
               setTimeout(() => {
                 Share.open(shareOptions)
               },300);
-            }}>More</Button>
+            }}>More</ButtonShare>
         </ShareSheet>
         </View>
   );
