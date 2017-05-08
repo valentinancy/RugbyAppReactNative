@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, AppRegistry, Navigator,TouchableHighlight,Image } from 'react-native'
+import { View, Text, AppRegistry, Navigator,TouchableHighlight,Image, BackAndroid } from 'react-native'
 import { Scene, Router, Actions } from 'react-native-router-flux'
 import Fixtures from './src/components/Fixtures'
 import ReadMoreFixtures from './src/components/ReadMoreFixtures'
@@ -17,7 +17,8 @@ import styles from './assets/styles/Style'
 
 class App extends React.Component {
   componentDidMount() {
-     SplashScreen.hide()
+     SplashScreen.hide();
+     BackAndroid.addEventListener('hardwareBackPress', ()=>{ (Actions.news()); return true; });
   }
 
   render() {
@@ -28,7 +29,7 @@ class App extends React.Component {
                                 style={ styles.headerTitle } />)
                         }
             onLeft={() => (Actions.news())}
-            leftTitle={(<Icon name="home" size={22} />)}
+            leftTitle={(<Icon name="home" size={23} />)}
         >
 
         <Scene key="drawer" component={NavigationDrawer} open={false} >
@@ -41,7 +42,7 @@ class App extends React.Component {
                 <Scene key="rugby101" component={ Rugby101 } sceneStyle={ styles.sceneStyle } />
                 <Scene key="editphoto" component={ EditPhoto } sceneStyle={ styles.sceneStyle } />
 
-                <Scene key="readMoreNews" component={ ReadMoreNews } hideNavBar={ true } onBack={()=>(< News />)} />
+                <Scene key="readMoreNews" component={ ReadMoreNews } hideNavBar={ true } onBack={()=>(Actions.news())} />
             </Scene>
         </Scene>
     </Router>
