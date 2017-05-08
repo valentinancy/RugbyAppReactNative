@@ -22,12 +22,12 @@ class NavigationDrawer extends React.Component {
         tapToClose={true}
         openDrawerOffset={0.325}
         panCloseMask={0.2}
-        closedDrawerOffset={-3}
+		closedDrawerOffset={-3}
         negotiatePan
         tweenHandler={(ratio) => ({
           main: { opacity: Math.max(0.54, 1 - ratio) },
         })}
-        side="right"
+		side="right"
       >
         <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />
       </Drawer>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { View, Image, Text, TouchableOpacity } from 'react-native'
+import { View,Image,Text,TouchableOpacity } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import SideMenu from 'react-native-side-menu'
 import Menu from './Menu'
 import News from './News'
-import styles from './../../assets/styles/Style'
+import styles from './../../assets/styles/Style' 
 
 /* KELAS BUTTON NAVIGASI */
 class Button extends Component {
@@ -26,51 +26,52 @@ class Button extends Component {
 }
 
 class Home extends Component {
-  /* START MENU */
-  state = {
-    isOpen: false,
-    selectedItem: '',
-  };
+    /* START MENU */
+    state = {
+        isOpen: false,
+        selectedItem: '',
+      };
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  }
+      toggle() {
+        this.setState({
+          isOpen: !this.state.isOpen,
+        });
+      }
 
-  updateMenuState(isOpen) {
-    this.setState({ isOpen, });
-  }
+      updateMenuState(isOpen) {
+        this.setState({ isOpen, });
+      }
 
-  onMenuItemSelected = (item) => {
-    this.setState({
-      isOpen: false,
-      selectedItem: item,
-    });
-  }
-  /* END MENU */
+      onMenuItemSelected = (item) => {
+        this.setState({
+          isOpen: false,
+          selectedItem: item,
+        });
+      }
+    /* END MENU */
 
-  render() {
-    const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
+    render() {
+        //const { nav } = styles
+        const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
 
-    return (
-      <SideMenu
-        menu={menu}
-        isOpen={this.state.isOpen}
-        onChange={(isOpen) => this.updateMenuState(isOpen)}
-        menuPosition='right'
-      >
-        <View style={styles.homeContainer}>
-          <News />
-        </View>
+        return (
+          <SideMenu
+            menu={menu}
+            isOpen={this.state.isOpen}
+            onChange={(isOpen) => this.updateMenuState(isOpen)}
+            menuPosition='right'
+            >
+            <View style={styles.homeContainer}>
+              <News />
+            </View>
 
-        <Button style={styles.button} onPress={() => this.toggle()}>
-          <Image
-            source={require('../../assets/images/menu.png')} style={{ width: 70, height: 70 }} />
-        </Button>
-      </SideMenu>
-    );
-  }
-}
+            <Button style={styles.button} onPress={() => this.toggle()}>
+              <Image
+                source={require('../../assets/images/menu.png')} style={{width: 70, height: 70}} />
+            </Button>
+          </SideMenu>
+        );
+    }
+} 
 
 export default Home
