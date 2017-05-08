@@ -27,20 +27,9 @@ import RNGRP from 'react-native-get-real-path'
 import ImageResizer from 'react-native-image-resizer';
 import { Actions } from 'react-native-router-flux'
 import Share, {ShareSheet, Button as ButtonShare} from 'react-native-share';
+// import AndroidShare from ('react-native-android-share');
 
 const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
-// import Canvas from 'react-native-canvas';
-
-// const options = {
-//   title: 'Select Avatar',
-//   customButtons: [
-//     {name: 'fb', title: 'Choose Photo from Facebook'},
-//   ],
-//   storageOptions: {
-//     skipBackup: true,
-//     path: 'images'
-//   }
-// };
 import styles from './../../assets/styles/Style'
 
 class EditPhoto extends Component {
@@ -51,6 +40,19 @@ class EditPhoto extends Component {
       choosenFrame: null,
       visible: false
     }
+  }
+
+// shareSheetOpen(){
+//   Share.open(options).catch((err) => { err && console.log(err); })
+// }
+
+onCancel() {
+    console.log("CANCEL")
+    this.setState({visible:false});
+  }
+onOpen() {
+    console.log("OPEN")
+    this.setState({visible:true});
   }
 
   showFrame() {
@@ -151,7 +153,7 @@ class EditPhoto extends Component {
     let shareOptions = {
       title: "React Native",
       message: "Lorem Ipsum",
-      url: this.state.choosenFrame,
+      url: "http://rugbyindonesia.or.id",
       subject: "Share Link" //  for email
     };
     return (
@@ -358,8 +360,7 @@ class EditPhoto extends Component {
                 }));
               },300);
             }}>Email</ButtonShare>
-          <ButtonShare
-            iconSrc={{ uri: CLIPBOARD_ICON }}
+          <ButtonShare iconSrc={{ uri: CLIPBOARD_ICON }}
             onPress={()=>{
               this.onCancel();
               setTimeout(() => {
