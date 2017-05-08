@@ -17,6 +17,9 @@ import {
   ScrollView,
   ListView,
   TouchableOpacity,
+  ToastAndroid,
+  Platform,
+  Clipboard,
   CameraRoll
 } from 'react-native';
 
@@ -27,7 +30,6 @@ import RNGRP from 'react-native-get-real-path'
 import ImageResizer from 'react-native-image-resizer';
 import { Actions } from 'react-native-router-flux'
 import Share, {ShareSheet, Button as ButtonShare} from 'react-native-share';
-// import AndroidShare from ('react-native-android-share');
 
 const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
 import styles from './../../assets/styles/Style'
@@ -42,9 +44,6 @@ class EditPhoto extends Component {
     }
   }
 
-// shareSheetOpen(){
-//   Share.open(options).catch((err) => { err && console.log(err); })
-// }
 
 onCancel() {
     console.log("CANCEL")
@@ -170,19 +169,7 @@ onOpen() {
             {this.showFrame()}
           </View>
 
-          {/* <Canvas
-            context={{message: 'Hello!'}}
-            render={renderCanvas}
-            style={{height: 200, width: 200}}/> */}
-
-          {/*<Image source={require('')} style={styles.headlineImage} >
-              <View style={styles.backdropView}>
-                <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
-              </View>
-            </Image>*/}
-          {/* - tampilin hasil foto
-                - tampilin grid of frame
-              */}
+          
 
           <View style={styles.frameGroup}>
             <Row size={10} nowrap>
@@ -298,20 +285,16 @@ onOpen() {
             onPress={this.snapshot("header")}
             title="Submit"
           />
-          {/* <Icon.Button name="cloud-upload" backgroundColor="#FF0000" onPress={this.uploadPhoto}>
-            Submit
-          </Icon.Button> */}
+          
         </View>
         <View style={styles.bStyle}>
           <Button
-            // style={styles.bStyle}
+            
             color="red"
             onPress={this.onOpen.bind(this)}
             title="Share"
           />
-          {/* <Icon.Button name="share" backgroundColor="#FF0000" onPress={this.sharePhoto}>
-            Share
-          </Icon.Button> */}
+          
         </View>
         <ShareSheet visible={this.state.visible} onCancel={this.onCancel.bind(this)}>
           <ButtonShare iconSrc={{ uri: TWITTER_ICON }}
@@ -366,9 +349,9 @@ onOpen() {
                 if(typeof shareOptions["url"] !== undefined) {
                   Clipboard.setString(shareOptions["url"]);
                   if (Platform.OS === "android") {
-                    ToastAndroid.show('Link copiado al portapapeles', ToastAndroid.SHORT);
+                    ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
                   } else if (Platform.OS === "ios") {
-                    AlertIOS.alert('Link copiado al portapapeles');
+                    AlertIOS.alert('Copied to clipboard');
                   }
                 }
               },300);
