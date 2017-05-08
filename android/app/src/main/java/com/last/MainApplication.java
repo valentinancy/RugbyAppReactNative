@@ -40,7 +40,6 @@ public class MainApplication extends Application implements ReactApplication {
           new ImagePickerPackage(),
           new WebViewBridgePackage(),
           new RNGRPPackage(),
-          // new RNAndroidSharePackage(this)
           new RNSharePackage()
       );
     }

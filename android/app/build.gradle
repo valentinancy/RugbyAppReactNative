@@ -147,7 +147,6 @@ dependencies {
 
     compile project(':react-native-share')
 
-    // compile project(':RNAndroidShare')
 }
 
 // Run this once to be able to run the application with BUCK

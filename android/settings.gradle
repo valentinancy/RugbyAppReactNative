@@ -28,6 +28,3 @@ project(':react-native-get-real-path').projectDir = new File(settingsDir, '../no
 
 include ':react-native-share'
 project(':react-native-share').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-share/android')
-
-// include ':RNAndroidShare'
-// project(':RNAndroidShare').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-android-share')

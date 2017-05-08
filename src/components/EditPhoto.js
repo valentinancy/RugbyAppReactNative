@@ -76,6 +76,14 @@ onOpen() {
     })
   }
 
+  onOpen(){
+    console.log("sharing2 yo...")
+  }
+
+  onCancel(){
+    console.log("ga jadi ah...")
+  }
+
   //  snapshot = refname => () =>
   //   takeSnapshot(this.refs[refname], this.state.value)
   //   .then(res =>
