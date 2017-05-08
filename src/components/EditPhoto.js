@@ -26,7 +26,7 @@ import { takeSnapshot, dirs } from 'react-native-view-shot'
 import RNGRP from 'react-native-get-real-path'
 import ImageResizer from 'react-native-image-resizer';
 import { Actions } from 'react-native-router-flux'
-import Share, {ShareSheet, Button} from 'react-native-share';
+import Share, {ShareSheet} from 'react-native-share';
 
 const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
 // import Canvas from 'react-native-canvas';

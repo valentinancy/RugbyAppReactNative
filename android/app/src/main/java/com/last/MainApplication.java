@@ -12,6 +12,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.rngrp.RNGRPPackage; 
+import cl.json.RNSharePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +38,8 @@ public class MainApplication extends Application implements ReactApplication {
           new SplashScreenPackage(),
           new ImagePickerPackage(),
           new WebViewBridgePackage(),
-          new RNGRPPackage()
+          new RNGRPPackage(),
+          new RNSharePackage()
       );
     }
   };
