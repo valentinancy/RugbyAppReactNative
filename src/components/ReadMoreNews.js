@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-import {AppRegistry, Text} from 'react-native';
+import React, { Component } from 'react';
+import { AppRegistry, Text } from 'react-native';
 import WebViewBridge from 'react-native-webview-bridge';
 
 const injectScript = `
@@ -16,22 +16,22 @@ const injectScript = `
   }());
 `;
 
-class ReadMoreNews extends Component{
-  onBridgeMessage(message){
+class ReadMoreNews extends Component {
+  onBridgeMessage(message) {
     let jsonData = JSON.parse(webViewData);
 
-    if(jsonData.success){
+    if (jsonData.success) {
       Alert.alert(jsonData.message);
     }
   }
 
   render() {
-    return(
+    return (
       <WebViewBridge
         ref="webviewbridge"
         onBridgeMessage={this.onBridgeMessage.bind(this)}
         injectedJavaScript={injectScript}
-        source={{uri: this.props.url}} />
+        source={{ uri: this.props.url }} />
     )
   }
 

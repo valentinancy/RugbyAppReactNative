@@ -17,6 +17,9 @@ import {
   ScrollView,
   ListView,
   TouchableOpacity,
+  ToastAndroid,
+  Platform,
+  Clipboard,
   CameraRoll
 } from 'react-native';
 
@@ -27,7 +30,6 @@ import RNGRP from 'react-native-get-real-path'
 import ImageResizer from 'react-native-image-resizer';
 import { Actions } from 'react-native-router-flux'
 import Share, {ShareSheet, Button as ButtonShare} from 'react-native-share';
-// import AndroidShare from ('react-native-android-share');
 
 const { CacheDir, DocumentDir, MainBundleDir, MovieDir, MusicDir, PictureDir } = dirs;
 import styles from './../../assets/styles/Style'
@@ -41,10 +43,6 @@ class EditPhoto extends Component {
       visible: false
     }
   }
-
-// shareSheetOpen(){
-//   Share.open(options).catch((err) => { err && console.log(err); })
-// }
 
 onCancel() {
     console.log("CANCEL")
@@ -84,27 +82,6 @@ onOpen() {
     this.setState({visible:false})
   }
 
-  //  snapshot = refname => () =>
-  //   takeSnapshot(this.refs[refname], this.state.value)
-  //   .then(res =>
-  //     this.state.value.result !== "file"
-  //     ? res
-  //     : new Promise((success, failure) =>
-  //     // just a test to ensure res can be used in Image.getSize
-  //     Image.getSize(
-  //       res,
-  //       (width, height) => (console.log(res,width,height), success(res)),
-  //       failure)))
-  //   .then(res => this.setState({
-  //     error: null,
-  //     res,
-  //     previewSource: { uri:
-  //       this.state.value.result === "base64"
-  //       ? "data:image/"+this.state.value.format+";base64,"+res
-  //       : res }
-  //   }))
-  //   .catch(error => (console.warn(error), this.setState({ error, res: null, previewSource: null })));
-
   snapshot = refname => () =>
     takeSnapshot(this.refs[refname], {
       format: "png",
@@ -116,17 +93,6 @@ onOpen() {
     })
       .then(
       uri => {
-        // console.log(" isi uri ", uri)
-        // CameraRoll.saveToCameraRoll(uri,'photo').then(function(result) {
-        //   console.log('ke save ' + result);
-        // }).catch(function(error) {
-        //   console.log('ga ke save ' + error);
-        // });
-        // ImageResizer.createResizedImage(uri, 400, 400, 'PNG', 10, 0, null).then((resizedImageUri) => {
-        //     console.log("udah nih",resizedImageUri)
-        // }).catch((err) => {
-        //     console.log("error cuy", err)
-        // });
         this.uploadImage(uri)
       },
       error => console.error("Oops, snapshot failed", error)
@@ -135,7 +101,6 @@ onOpen() {
 
   uploadImage(image) {
     const data = new FormData();
-    console.log("nih buat lu", image)
     data.append('userId', 'nancy')
     data.append('photo', image)
     fetch('https://ri-admin.azurewebsites.net/indonesianrugby/photos/upload.json', {
@@ -152,7 +117,7 @@ onOpen() {
   render() {
     let shareOptions = {
       title: "React Native",
-      message: "Lorem Ipsum",
+      message: "Rugby Apps Indonesia",
       url: "http://rugbyindonesia.or.id",
       subject: "Share Link" //  for email
     };
@@ -169,20 +134,6 @@ onOpen() {
             </View>
             {this.showFrame()}
           </View>
-
-          {/* <Canvas
-            context={{message: 'Hello!'}}
-            render={renderCanvas}
-            style={{height: 200, width: 200}}/> */}
-
-          {/*<Image source={require('')} style={styles.headlineImage} >
-              <View style={styles.backdropView}>
-                <Text style={styles.teammateHeadline}>TEAMMATE PHOTOS</Text>
-              </View>
-            </Image>*/}
-          {/* - tampilin hasil foto
-                - tampilin grid of frame
-              */}
 
           <View style={styles.frameGroup}>
             <Row size={10} nowrap>
@@ -294,26 +245,19 @@ onOpen() {
         <View style={styles.bStyle}>
           <Button
             color="red"
-            //marginBottom= 50
             onPress={this.snapshot("header")}
             title="Submit"
           />
-          {/* <Icon.Button name="cloud-upload" backgroundColor="#FF0000" onPress={this.uploadPhoto}>
-            Submit
-          </Icon.Button> */}
         </View>
         <View style={styles.bStyle}>
           <Button
-            // style={styles.bStyle}
             color="red"
             onPress={this.onOpen.bind(this)}
             title="Share"
           />
-          {/* <Icon.Button name="share" backgroundColor="#FF0000" onPress={this.sharePhoto}>
-            Share
-          </Icon.Button> */}
         </View>
         <ShareSheet visible={this.state.visible} onCancel={this.onCancel.bind(this)}>
+          <ScrollView>
           <ButtonShare iconSrc={{ uri: TWITTER_ICON }}
                   onPress={()=>{
               this.onCancel();
@@ -366,9 +310,7 @@ onOpen() {
                 if(typeof shareOptions["url"] !== undefined) {
                   Clipboard.setString(shareOptions["url"]);
                   if (Platform.OS === "android") {
-                    ToastAndroid.show('Link copiado al portapapeles', ToastAndroid.SHORT);
-                  } else if (Platform.OS === "ios") {
-                    AlertIOS.alert('Link copiado al portapapeles');
+                    ToastAndroid.show('Copied to Clipboard', ToastAndroid.SHORT);
                   }
                 }
               },300);
@@ -380,6 +322,10 @@ onOpen() {
                 Share.open(shareOptions)
               },300);
             }}>More</ButtonShare>
+
+            <ButtonShare></ButtonShare> {/*dummy button*/}
+            <ButtonShare></ButtonShare> {/*dummy button*/}
+            </ScrollView>
         </ShareSheet>
       </ScrollView>
     );

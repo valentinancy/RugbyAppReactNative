@@ -105,15 +105,6 @@ const styles = StyleSheet.create({
     marginTop:-35,
     marginBottom: -15
   },
-  // itemContainer: {
-  //   flex:1,
-  //   flexDirection:'column',
-
-  //   justifyContent:'center',
-  //   borderBottomColor:'white',
-  //   borderBottomWidth:2,
-  //   width:window.width/2,
-  // },
   touchOverlay:{
     width:window.width/2+25
   },
@@ -137,6 +128,7 @@ const styles = StyleSheet.create({
     color:'white',
     fontSize:11
   },
+
   /* HOME */
   button: {
     position: 'absolute',
@@ -147,7 +139,6 @@ const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
     marginTop: 55,
-    //justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
@@ -172,30 +163,8 @@ const styles = StyleSheet.create({
     height: 130,
     resizeMode: 'stretch',
   },  
-  // pageBanner:{
-  //   width: window.width,
-  //   resizeMode: 'contain',
-  // },
-  // pageTitle:{
-  //   color:'white',
-  //   fontWeight:'bold',
-  //   textAlign:'center',
-  //   marginVertical:75,
-  //   fontSize:25,
-  // },
 
   /* RUGBY CLUBS */
-  // titlePage: {
-  //   fontSize: 30,
-  //   textAlign: 'center',
-  //   marginTop: 50,
-  //   color: '#f0f8ff',
-  //   fontWeight: 'bold'
-  // },
-  //   headerImg: {
-  //   height: 150,
-  //   width: 360
-  // },
   clubName: {
     fontSize: 18,
     fontWeight: 'bold'
@@ -215,20 +184,8 @@ const styles = StyleSheet.create({
   clubDiv: {
     marginTop: 25
   },
-  // customnav: {
-  //   position: 'relative',
-  //   top: 0,
-  //   right: 0,
-  //   padding: 10
-  // },
 
   /* TEAMMATE */
-  // container: {
-  //   flex: 1,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   backgroundColor: '#F5FCFF',
-  // },
   list: {
     justifyContent: 'center',
     flexDirection: 'row',
@@ -248,16 +205,11 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   bStyle:{
-    //backgroundColor: '#FF0000',
-    //textAlign: 'center',
     marginBottom: 10
   },
   bText:{
-    //backgroundColor: '#FF0000',
     justifyContent: 'center',
     alignItems: 'center',
-    //fontSize: 15,
-    //color : 'white'
   },
   instructions: {
     textAlign: 'center',
@@ -291,7 +243,6 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     flex: 1
-    // flexDirection: 'column'
   },
   choosenImageView: {
     position: 'absolute'
@@ -327,18 +278,8 @@ const styles = StyleSheet.create({
     height: 300,
     width: 300
   },
+  
   /* RUGBY 101 */
-  // headerImg: {
-  //   height: 100,
-  //   width: 360
-  // },
-  // titlePage: {
-  //   fontSize: 30,
-  //   textAlign: 'center',
-  //   marginTop: 50,
-  //   color: '#f0f8ff',
-  //   fontWeight: 'bold'
-  // },
   rugby101Container: {
     marginTop: 10,
     marginLeft: 10

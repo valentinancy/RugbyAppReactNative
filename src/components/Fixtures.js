@@ -1,43 +1,45 @@
-import React,{Component} from 'react';
-import {AppRegistry,Image,ListView,ScrollView,View,Text,Linking,TouchableNativeFeedback,ActivityIndicator} from 'react-native';
+import React, { Component } from 'react';
+import { AppRegistry, Image, ListView, ScrollView, View, Text, Linking, TouchableNativeFeedback, ActivityIndicator } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import styles from './../../assets/styles/Style'
-import jsonLink from './../data/JSONLinks' 
+import jsonLink from './../data/JSONLinks'
 
-class Fixtures extends Component{
-  constructor(props){
+class Fixtures extends Component {
+  constructor(props) {
     super(props);
-    this.state={
-      data:null,
-      animating:true,
-      canLoad:true,
+    this.state = {
+      data: null,
+      animating: true,
+      canLoad: true,
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch(jsonLink.fixturesJSON)
-    .then((response) => response.json())
-    .then((response) => {
-      this.setState({ data: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,                                       
-      }).cloneWithRows(response) });
-    }).catch((error) => {this.state.canLoad=false;this.forceUpdate();})
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({
+          data: new ListView.DataSource({
+            rowHasChanged: (row1, row2) => row1 !== row2,
+          }).cloneWithRows(response)
+        });
+      }).catch((error) => { this.state.canLoad = false; this.forceUpdate(); })
   }
 
-  handleClick(e,url) {
-    Actions.readMoreFixtures({url: url})
+  handleClick(e, url) {
+    Actions.readMoreFixtures({ url: url })
   }
 
-  render(){  
-    if(this.state.canLoad==false){
-      return(
-        <View style={styles.loader}>          
+  render() {
+    if (this.state.canLoad == false) {
+      return (
+        <View style={styles.loader}>
           <Text style={styles.loaderText}>Cannot connect to server</Text>
         </View>
       )
     }
-    else if(!this.state.data){
-      return( 
+    else if (!this.state.data) {
+      return (
         <View style={styles.loader}>
           <ActivityIndicator
             animating={this.state.animating}
@@ -46,20 +48,20 @@ class Fixtures extends Component{
         </View>
       )
     }
-    return(
+    return (
       <ScrollView>
         <Image source={require('./../../assets/images/sub-header-fixture.png')} style={styles.header}>
           <Text style={styles.headline}>FIXTURES & RESULT</Text>
         </Image>
-       <ListView
+        <ListView
           dataSource={this.state.data}
           renderRow={(rowData) =>
             <View style={styles.jsonLoaderContainer}>
-              <TouchableNativeFeedback onPress={ (e) => this.handleClick(e,rowData.url) } >
-                <Image source={{uri:rowData.img}} style={styles.imgBanner} />
+              <TouchableNativeFeedback onPress={(e) => this.handleClick(e, rowData.url)} >
+                <Image source={{ uri: rowData.img }} style={styles.imgBanner} />
               </TouchableNativeFeedback>
             </View>
-          }/>
+          } />
       </ScrollView>
     );
   }

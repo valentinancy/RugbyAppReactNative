@@ -4,8 +4,6 @@ project(':react-native-view-shot').projectDir = new File(rootProject.projectDir,
 include ':rn-splash-screen'
 project(':rn-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/rn-splash-screen/android')
 
-//include ':app'
-
 /***********TAMBAHAN DARI WEBVIEW*************/
 include ':app', ':react-native-webview-bridge'
 project(':react-native-webview-bridge').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview-bridge/android')
@@ -13,15 +11,6 @@ project(':react-native-webview-bridge').projectDir = new File(rootProject.projec
 /***********TAMBAHAN DARI KAMERA*************/
 include ':react-native-image-picker'
 project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
-
-/***********TAMBAHAN DARI IMAGE PICKER*************/
-/*include ':react-native-image-picker'
-project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
-
-include ':react-native-vector-icons'
-project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
-*/
-
 
 include ':react-native-get-real-path'
 project(':react-native-get-real-path').projectDir = new File(settingsDir, '../node_modules/react-native-get-real-path/android')

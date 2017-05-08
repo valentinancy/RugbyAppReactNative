@@ -139,10 +139,6 @@ dependencies {
     /************TAMBAHAN DARI KAMERA***************/
     compile project(':react-native-image-picker')
 
-    /************TAMBAHAN DARI IMAGE PICKER***************/
-    /*compile project(':react-native-image-picker')
-
-    compile project(':react-native-vector-icons')*/
     compile project(':react-native-get-real-path')
 
     compile project(':react-native-share')

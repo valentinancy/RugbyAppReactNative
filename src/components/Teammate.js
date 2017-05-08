@@ -21,14 +21,14 @@ import {
 import { Actions } from 'react-native-router-flux'
 import jsonLink from './../data/JSONLinks';
 import styles from './../../assets/styles/Style';
-import {TouchableOpacity,} from 'react-native';
+import { TouchableOpacity, } from 'react-native';
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import ImagePicker from 'react-native-image-picker';
 
 const options = {
   title: 'Select Avatar',
   customButtons: [
-    {name: 'fb', title: 'Choose Photo from Facebook'},
+    { name: 'fb', title: 'Choose Photo from Facebook' },
   ],
   storageOptions: {
     skipBackup: true,
@@ -37,60 +37,60 @@ const options = {
 };
 
 class Teammate extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      data:null,
-      animating:true,
+      data: null,
+      animating: true,
       avatarSource: null,
-      canLoad:true,
+      canLoad: true,
     }
   }
 
   componentWillMount() {
-        fetch(jsonLink.teammateJSON)
-        .then((response) => response.json())
-        .then((response) => this.setState({ data: response }))
-        .catch((error) => {this.state.canLoad=false;this.forceUpdate();})
+    fetch(jsonLink.teammateJSON)
+      .then((response) => response.json())
+      .then((response) => this.setState({ data: response }))
+      .catch((error) => { this.state.canLoad = false; this.forceUpdate(); })
   }
 
   render() {
-    if(this.state.canLoad==false){
-      return(
+    if (this.state.canLoad == false) {
+      return (
         <View style={styles.loader}>
           <Text style={styles.loaderText}>Cannot connect to server</Text>
         </View>
       )
     }
-    else if(!this.state.data) {
-        return(
-          <View style = {styles.loader}>
-            <ActivityIndicator
-              animating={this.state.animating}
-              size="large"
-              />
-            <Text style={styles.loaderText}>Loading</Text>
+    else if (!this.state.data) {
+      return (
+        <View style={styles.loader}>
+          <ActivityIndicator
+            animating={this.state.animating}
+            size="large"
+          />
+          <Text style={styles.loaderText}>Loading</Text>
         </View>
       )
     }
 
-    const photos = this.state.data.data.map((photo,index) => {
-      if(index%2==0) {
-        return(
+    const photos = this.state.data.data.map((photo, index) => {
+      if (index % 2 == 0) {
+        return (
           <Row key={index} size={10} nowrap>
-                <Col sm={5} md={5} lg={5}>
-                <Image
-                    style={ styles.image }
-                    source={{uri: this.state.data.data[index]}}
-                    />
-                </Col>
-                <Col sm={5} md={5} lg={5}>
-                <Image
-                    style={ styles.image }
-                    source={{uri: this.state.data.data[index+1]}}
-                    />
-                </Col>
-            </Row>
+            <Col sm={5} md={5} lg={5}>
+              <Image
+                style={styles.image}
+                source={{ uri: this.state.data.data[index] }}
+              />
+            </Col>
+            <Col sm={5} md={5} lg={5}>
+              <Image
+                style={styles.image}
+                source={{ uri: this.state.data.data[index + 1] }}
+              />
+            </Col>
+          </Row>
         )
       }
     })
@@ -101,51 +101,42 @@ class Teammate extends Component {
         </Image>
         <View style={styles.bStyle}>
           <Button
-            color= "red"
+            color="red"
             onPress={takePhotoPressed}
             title="Take a Photo"
           />
-          {/* <Icon.Button name="camera" backgroundColor="#FF0000" onPress={this.takePhotoPressed}>
-            <View style={styles.bText}><Text>Take a Photo</Text></View>
-          </Icon.Button> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
         </View>
         <View style={styles.bStyle}>
           <Button
-            // style={styles.bStyle}
-            color= "red"
+            color="red"
             onPress={loadLibraryPressed}
             title="Load from Library"
           />
-           {/*<div onClick={loadLibraryPressed}>
-             <Icon.Button name="image" backgroundColor="#FF0000"/>
-            <View style={styles.bText}><Text>Load from Library</Text></View>
-          </div> */}
           <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
-
         </View>
 
         <View>
-          { photos }
+          {photos}
         </View>
       </ScrollView>
     );
   }
 
-  renderItem(item, itemSize){
-    return(
+  renderItem(item, itemSize) {
+    return (
       <TouchableOpacity
-        key = { item.id }
-        style = {{ width: itemSize, height:itemSize }}
-        onPress = { () => {
+        key={item.id}
+        style={{ width: itemSize, height: itemSize }}
+        onPress={() => {
           //do something
         }}>
-      <Image
-        resizeMode = "cover"
-        style = {{ flex: 1}}
-        source = {{ uri: item.src }}/>
+        <Image
+          resizeMode="cover"
+          style={{ flex: 1 }}
+          source={{ uri: item.src }} />
       </TouchableOpacity>
-      )
+    )
   }
 }
 
@@ -154,7 +145,7 @@ const takePhotoPressed = () => {
   let imageStr = "";
   let dataURL = "";
 
-  ImagePicker.launchCamera(options, (response)  => {
+  ImagePicker.launchCamera(options, (response) => {
     console.log('Response = ', response);
 
     if (response.didCancel) {
@@ -167,24 +158,20 @@ const takePhotoPressed = () => {
       console.log('User tapped custom button: ', response.customButton);
     }
     else {
-      console.log("nancy cantik",response.uri)
+      console.log("Camera launched", response.uri)
+      Actions.editphoto({ asd: response.uri })
 
-      //kirim stringnya ke editphoto
-      // You can also display the image using data:
-      // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-      Actions.editphoto({asd: response.uri})
-
-      CameraRoll.saveToCameraRoll(response.path,'photo').then(function(result) {
-  console.log('save succeeded ' + result);
-}).catch(function(error) {
-  console.log('save failed ' + error);
-});
+      CameraRoll.saveToCameraRoll(response.path, 'photo').then(function (result) {
+        console.log('save succeeded ' + result);
+      }).catch(function (error) {
+        console.log('save failed ' + error);
+      });
     }
   });
 };
 
 const loadLibraryPressed = () => {
-  ImagePicker.launchImageLibrary(options, (response)  => {
+  ImagePicker.launchImageLibrary(options, (response) => {
     console.log('Response = ', response);
 
     if (response.didCancel) {
@@ -197,13 +184,9 @@ const loadLibraryPressed = () => {
       console.log('User tapped custom button: ', response.customButton);
     }
     else {
-      console.log("nancy cantik",response.uri)
+      console.log("Library opened", response.uri)
       let source = { uri: response.uri };
-
-      // You can also display the image using data:
-      // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-      Actions.editphoto({asd: response.uri})
+      Actions.editphoto({ asd: response.uri })
     }
   });
 };
