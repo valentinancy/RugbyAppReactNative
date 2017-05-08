@@ -75,11 +75,11 @@ class EditPhoto extends Component {
   }
 
   onOpen(){
-    console.log("sharing2 yo...")
+    this.setState({visible:true})
   }
 
   onCancel(){
-    console.log("ga jadi ah...")
+    this.setState({visible:false})
   }
 
   //  snapshot = refname => () =>
@@ -148,6 +148,12 @@ class EditPhoto extends Component {
   }
 
   render() {
+    let shareOptions = {
+      title: "React Native",
+      message: "Lorem Ipsum",
+      url: this.state.choosenFrame,
+      subject: "Share Link" //  for email
+    };
     return (
       <ScrollView>
         <Image source={require('./../../assets/images/sub-header-photo.png')} style={styles.header} >
@@ -299,22 +305,14 @@ class EditPhoto extends Component {
           <Button
             // style={styles.bStyle}
             color="red"
-            onPress={sharePhoto}
+            onPress={this.onOpen.bind(this)}
             title="Share"
           />
           {/* <Icon.Button name="share" backgroundColor="#FF0000" onPress={this.sharePhoto}>
             Share
           </Icon.Button> */}
         </View>
-      </ScrollView>
-    );
-  }
-}
-
-const sharePhoto = () => {
-  return(
-    <View>
-    <ShareSheet visible={this.state.visible} onCancel={this.onCancel.bind(this)}>
+        <ShareSheet visible={this.state.visible} onCancel={this.onCancel.bind(this)}>
           <ButtonShare iconSrc={{ uri: TWITTER_ICON }}
                   onPress={()=>{
               this.onCancel();
@@ -383,9 +381,10 @@ const sharePhoto = () => {
               },300);
             }}>More</ButtonShare>
         </ShareSheet>
-        </View>
-  );
-};
+      </ScrollView>
+    );
+  }
+}
 
 const TWITTER_ICON = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAABvFBMVEUAAAAA//8AnuwAnOsAneoAm+oAm+oAm+oAm+oAm+kAnuwAmf8An+0AqtUAku0AnesAm+oAm+oAnesAqv8An+oAnuoAneoAnOkAmOoAm+oAm+oAn98AnOoAm+oAm+oAmuoAm+oAmekAnOsAm+sAmeYAnusAm+oAnOoAme0AnOoAnesAp+0Av/8Am+oAm+sAmuoAn+oAm+oAnOoAgP8Am+sAm+oAmuoAm+oAmusAmucAnOwAm+oAmusAm+oAm+oAm+kAmusAougAnOsAmukAn+wAm+sAnesAmeoAnekAmewAm+oAnOkAl+cAm+oAm+oAmukAn+sAmukAn+0Am+oAmOoAmesAm+oAm+oAm+kAme4AmesAm+oAjuMAmusAmuwAm+kAm+oAmuoAsesAm+0Am+oAneoAm+wAmusAm+oAm+oAm+gAnewAm+oAle0Am+oAm+oAmeYAmeoAmukAoOcAmuoAm+oAm+wAmuoAneoAnOkAgP8Am+oAm+oAn+8An+wAmusAnuwAs+YAmegAm+oAm+oAm+oAmuwAm+oAm+kAnesAmuoAmukAm+sAnukAnusAm+oAmuoAnOsAmukAqv9m+G5fAAAAlHRSTlMAAUSj3/v625IuNwVVBg6Z//J1Axhft5ol9ZEIrP7P8eIjZJcKdOU+RoO0HQTjtblK3VUCM/dg/a8rXesm9vSkTAtnaJ/gom5GKGNdINz4U1hRRdc+gPDm+R5L0wnQnUXzVg04uoVSW6HuIZGFHd7WFDxHK7P8eIbFsQRhrhBQtJAKN0prnKLvjBowjn8igenQfkQGdD8A7wAAAXRJREFUSMdjYBgFo2AUDCXAyMTMwsrGzsEJ5nBx41HKw4smwMfPKgAGgkLCIqJi4nj0SkhKoRotLSMAA7Jy8gIKing0KwkIKKsgC6gKIAM1dREN3Jo1gSq0tBF8HV1kvax6+moG+DULGBoZw/gmAqjA1Ay/s4HA3MISyrdC1WtthC9ebGwhquzsHRxBfCdUzc74Y9UFrtDVzd3D0wtVszd+zT6+KKr9UDX749UbEBgULIAbhODVHCoQFo5bb0QkXs1RAvhAtDFezTGx+DTHEchD8Ql4NCcSyoGJYTj1siQRzL/JKeY4NKcSzvxp6RmSWPVmZhHWnI3L1TlEFDu5edj15hcQU2gVqmHTa1pEXJFXXFKKqbmM2ALTuLC8Ak1vZRXRxa1xtS6q3ppaYrXG1NWjai1taCRCG6dJU3NLqy+ak10DGImx07LNFCOk2js6iXVyVzcLai7s6SWlbnIs6rOIbi8ViOifIDNx0uTRynoUjIIRAgALIFStaR5YjgAAAABJRU5ErkJggg==";
 
